@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import LoginPage from "./pages/Login";
 import SignupPage from "./pages/Signup";
@@ -21,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<LoginPage />} />
@@ -36,7 +36,7 @@ const App = () => (
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
