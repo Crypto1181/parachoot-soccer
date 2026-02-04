@@ -1,0 +1,56 @@
+{
+  "match_id": "GCxZ2uHc",
+  "match_url": "/match/football/GCxZ2uHc/",
+  "stage": "Finished",
+  "timestamp": 1747594466,
+  "sport": {
+    "sport_id": 1,
+    "sport_url": "/football/",
+    "name": "Football"
+  },
+  "country": {
+    "country_id": 176,
+    "name": "Spain"
+  },
+  "tournament": {
+    "tournament_id": "A1MYWy8T",
+    "tournament_stage_id": "dINOZk9Q",
+    "tournament_url": "/football/spain/laliga/",
+    "name": "LaLiga - Round 37"
+  },
+  "referee": "Busquets M.",
+  "venue": {
+    "name": "Estadio Ramón Sánchez Pizjuán",
+    "city": "Sevilla",
+    "attendance": "31633",
+    "capacity": "42714"
+  },
+  "home_team": {
+    "team_id": "h8oAv4Ts",
+    "event_participant_id": "IqjTaTK0",
+    "team_url": "/team/sevilla/h8oAv4Ts/",
+    "name": "Sevilla",
+    "short_name": "SEV",
+    "image_path": "https://static.flashscore.com/res/image/data/G2BgO5Ar-tIT0KyhE.png",
+    "small_image_path": "https://static.flashscore.com/res/image/data/EcTGi086-tIT0KyhE.png",
+    "score": "0",
+    "score_after": null,
+    "score_1st_half": 0,
+    "score_2nd_half": 0,
+    "score_extra_time": null
+  },
+  "away_team": {
+    "team_id": "W8mj7MDD",
+    "event_participant_id": "Q9gyb7kD",
+    "team_url": "/team/real-madrid/W8mj7MDD/",
+    "name": "Real Madrid",
+    "short_name": "RMA",
+    "image_path": "https://static.flashscore.com/res/image/data/A7kHoxZA-ttfpEDUq.png",
+    "small_image_path": "https://static.flashscore.com/res/image/data/CGPhnpne-ttfpEDUq.png",
+    "score": "2",
+    "score_after": null,
+    "score_1st_half": 0,
+    "score_2nd_half": 2,
+    "score_extra_time": null
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "parachoot-live-tv",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

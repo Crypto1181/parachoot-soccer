@@ -13,7 +13,12 @@ export const WatchPage: React.FC = () => {
     <div className="min-h-screen bg-background">
       {/* Video Player */}
       <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-background">
-        <button onClick={() => navigate(-1)} className="absolute top-4 left-4 z-10 p-2 glass rounded-full">
+        <button 
+          onClick={() => navigate(-1)} 
+          className="absolute z-10 p-2 glass rounded-full safe-area-top"
+          style={{ top: 'max(1rem, env(safe-area-inset-top, 1rem))', left: 'max(1rem, env(safe-area-inset-left, 1rem))' }}
+          aria-label="Go back"
+        >
           <ArrowLeft size={20} />
         </button>
 

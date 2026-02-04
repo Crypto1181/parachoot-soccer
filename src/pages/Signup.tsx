@@ -3,9 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight, Check, Apple } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 
 export const SignupPage: React.FC = () => {
   const navigate = useNavigate();
+  const { signUp } = useAuth();
+  const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,12 +19,60 @@ export const SignupPage: React.FC = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!email || !password || !name) {
+      toast({
+        title: 'Error',
+        description: 'Please fill in all fields',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!agreed) {
+      toast({
+        title: 'Error',
+        description: 'Please agree to the terms and conditions',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      toast({
+        title: 'Error',
+        description: 'Password must be at least 6 characters',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsLoading(true);
-    // Simulate signup
-    setTimeout(() => {
+    try {
+      const { error } = await signUp(email, password, name);
+      
+      if (error) {
+        toast({
+          title: 'Signup Failed',
+          description: error.message || 'Failed to create account',
+          variant: 'destructive',
+        });
+      } else {
+        toast({
+          title: 'Success',
+          description: 'Account created successfully! Please check your email to verify your account.',
+        });
+        navigate('/home');
+      }
+    } catch (err) {
+      toast({
+        title: 'Error',
+        description: 'An unexpected error occurred',
+        variant: 'destructive',
+      });
+    } finally {
       setIsLoading(false);
-      navigate('/home');
-    }, 1000);
+    }
   };
 
   const passwordStrength = React.useMemo(() => {

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Play } from 'lucide-react';
 import { Match } from '@/data/mockData';
 import TeamLogo from '@/components/TeamLogo';
 
@@ -9,14 +10,23 @@ interface MatchCardProps {
   index?: number;
 }
 
-export const MatchCard: React.FC<MatchCardProps> = ({ match, onClick, index = 0 }) => {
+export const MatchCard: React.FC<MatchCardProps> = memo(({ match, onClick, index = 0 }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (onClick) {
       onClick();
     } else {
-      navigate(`/match/${match.id}`);
+      navigate(`/match/${match.id}`, { state: { match } });
+    }
+  };
+
+  const handleStreamClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent match details navigation
+    if (match.streamSources && match.streamSources.length > 0) {
+      const firstSource = match.streamSources[0];
+      const provider = firstSource.provider || 'westream';
+      navigate(`/stream/${match.id}/${provider}/${firstSource.source}/${firstSource.id}`, { state: { match } });
     }
   };
 
@@ -24,7 +34,8 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match, onClick, index = 0 
     <div 
       className="relative py-4"
       style={{
-        animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`,
+        willChange: 'transform',
+        transform: 'translateZ(0)', // Force GPU acceleration
       }}
     >
       {/* Simple Card with Green Border */}
@@ -42,6 +53,19 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match, onClick, index = 0 
           </div>
         )}
 
+        {/* Stream Play Button */}
+        {match.streamSources && match.streamSources.length > 0 && match.status === 'live' && (
+          <div className="absolute top-4 right-4 z-20">
+            <button
+              onClick={handleStreamClick}
+              className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 flex items-center justify-center"
+              title="Watch Live Stream"
+            >
+              <Play size={20} fill="white" />
+            </button>
+          </div>
+        )}
+
         <div className="flex items-center justify-between">
           {/* Home Team */}
           <div className="flex flex-col items-center w-1/3">
@@ -55,18 +79,46 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match, onClick, index = 0 
 
           {/* Score & Info */}
           <div className="flex flex-col items-center justify-center w-1/3">
-            <div className="text-4xl font-bold text-gray-900 mb-2 tracking-tight">
-              {match.homeScore}-{match.awayScore}
-            </div>
+            {match.status === 'upcoming' && match.startTime ? (
+              // Show time for upcoming matches
+              <div className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">
+                {match.startTime}
+              </div>
+            ) : (match.homeScore !== null && match.homeScore !== undefined) || (match.awayScore !== null && match.awayScore !== undefined) ? (
+              // Show score for live/finished matches with scores
+              <div className="text-4xl font-bold text-gray-900 mb-2 tracking-tight">
+                {match.homeScore ?? 0} - {match.awayScore ?? 0}
+              </div>
+            ) : (
+              // Show VS for matches without scores (e.g. stream-only matches)
+              <div className="text-3xl font-bold text-muted-foreground/50 mb-2 tracking-tight">
+                VS
+              </div>
+            )}
             <div className="flex flex-col items-center gap-0.5">
-              {match.group && (
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wide">
-                  {match.group}
+              {match.status === 'live' && (
+                <>
+                  {match.minute !== undefined ? (
+                    <span className="text-sm font-bold text-red-500">
+                      {match.minute}'
+                    </span>
+                  ) : (
+                    <span className="text-sm font-bold text-red-500 animate-pulse">
+                      Live
+                    </span>
+                  )}
+                </>
+              )}
+              {match.status === 'finished' && (
+                <span className="text-[10px] text-gray-400 font-medium">
+                  Finished
                 </span>
               )}
-              <span className="text-[10px] text-gray-400 font-medium">
-                {match.status === 'live' ? 'Group Stage' : match.status === 'upcoming' ? 'Upcoming' : 'Finished'}
-              </span>
+              {match.status === 'upcoming' && (
+                <span className="text-[10px] text-gray-400 font-medium">
+                  Upcoming
+                </span>
+              )}
             </div>
           </div>
 
@@ -92,6 +144,18 @@ export const MatchCard: React.FC<MatchCardProps> = ({ match, onClick, index = 0 
       </div>
     </div>
   );
-};
+}, (prevProps, nextProps) => {
+  // Custom comparison to prevent unnecessary re-renders
+  return (
+    prevProps.match.id === nextProps.match.id &&
+    prevProps.match.homeScore === nextProps.match.homeScore &&
+    prevProps.match.awayScore === nextProps.match.awayScore &&
+    prevProps.match.status === nextProps.match.status &&
+    prevProps.match.minute === nextProps.match.minute &&
+    prevProps.match.startTime === nextProps.match.startTime
+  );
+});
+
+MatchCard.displayName = 'MatchCard';
 
 export default MatchCard;

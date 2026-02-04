@@ -5,12 +5,23 @@ export interface Team {
   logo: string;
 }
 
+export interface StreamSource {
+  source: string;
+  id: string;
+  provider?: string;
+  embedUrl?: string;
+  headers?: Record<string, string>;
+  link?: string;
+  quality?: string;
+  isM3u8?: boolean;
+}
+
 export interface Match {
   id: string;
   homeTeam: Team;
   awayTeam: Team;
-  homeScore: number;
-  awayScore: number;
+  homeScore: number | null; // Allow null for matches that haven't started or have no score yet
+  awayScore: number | null; // Allow null for matches that haven't started or have no score yet
   status: 'live' | 'upcoming' | 'finished';
   minute?: number;
   competition: string;
@@ -18,6 +29,7 @@ export interface Match {
   venue?: string;
   startTime?: string;
   streamUrl?: string;
+  streamSources?: StreamSource[]; // Multiple streaming sources from WeStream
 }
 
 export const teams: Team[] = [

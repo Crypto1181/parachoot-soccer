@@ -1,0 +1,74 @@
+[
+  {
+    "name": "CZECH REPUBLIC: Tipsport liga",
+    "country_name": "Czech Republic",
+    "tournament_url": "/football/czech-republic/tipsport-liga/",
+    "image_path": "https://static.flashscore.com/res/image/data/OjSScDkD-bFBYnPCq.png",
+    "matches": [
+      {
+        "match_id": "nJFLnr4j",
+        "timestamp": 1768212000,
+        "stage": "67",
+        "home_team": {
+          "team_id": "Gtztv1X8",
+          "name": "Prostejov",
+          "short_name": "PRO",
+          "image_path": "https://static.flashscore.com/res/image/data/EaPnShUH-4AZVVSiI.png",
+          "red_cards": 0,
+          "score": 0,
+          "score_after": null
+        },
+        "away_team": {
+          "team_id": "C09N1Ikd",
+          "name": "Zlin",
+          "short_name": "ZLN",
+          "image_path": "https://static.flashscore.com/res/image/data/ANtpOLPq-zPvOsgc8.png",
+          "red_cards": 0,
+          "score": 1,
+          "score_after": null
+        },
+        "odds": {
+          "1": 4.04,
+          "2": 1.7,
+          "X": 4.29
+        }
+      }
+    ]
+  },
+  {
+    "name": "ITALY: Primavera 1",
+    "country_name": "Italy",
+    "tournament_url": "/football/italy/primavera-1/",
+    "image_path": "https://static.flashscore.com/res/image/data/zLCgLCld-db99NFYs.png",
+    "matches": [
+      {
+        "match_id": "fTlgcFD7",
+        "timestamp": 1768212000,
+        "stage": "70",
+        "home_team": {
+          "team_id": "G4WDBJRt",
+          "name": "Atalanta U20",
+          "short_name": "ATA",
+          "image_path": "https://static.flashscore.com/res/image/data/CUg54e86-SbNOdKb2.png",
+          "red_cards": 0,
+          "score": 2,
+          "score_after": null
+        },
+        "away_team": {
+          "team_id": "boEfbzat",
+          "name": "Lecce U20",
+          "short_name": "LEC",
+          "image_path": "https://static.flashscore.com/res/image/data/2HMWC5iT-fq0nHBOl.png",
+          "red_cards": 0,
+          "score": 1,
+          "score_after": null
+        },
+        "odds": {
+          "1": 1.67,
+          "2": 4.12,
+          "X": 3.84
+        }
+      }
+    ]
+  }
+]

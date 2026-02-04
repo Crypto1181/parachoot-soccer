@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming APIs Diagnostic Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0f1419;
+            color: #e1e8ed;
+        }
+        h1 {
+            color: #1da1f2;
+            border-bottom: 2px solid #1da1f2;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #8899a6;
+            margin-top: 30px;
+        }
+        .test-section {
+            background: #192734;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #1da1f2;
+        }
+        button {
+            background: #1da1f2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 5px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a91da;
+        }
+        button:disabled {
+            background: #657786;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            background: #1e4620;
+            border: 1px solid #2da44e;
+            color: #7ee787;
+        }
+        .error {
+            background: #4a1e1e;
+            border: 1px solid #da3633;
+            color: #ff7b72;
+        }
+        .info {
+            background: #1c2831;
+            border: 1px solid #58a6ff;
+            color: #79c0ff;
+        }
+        .warning {
+            background: #3d2e00;
+            border: 1px solid #d29922;
+            color: #f0b72f;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #15202b;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #38444d;
+        }
+        .stat-label {
+            color: #8899a6;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            color: #1da1f2;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        code {
+            background: #1c2831;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #79c0ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚡ Live TV Streaming APIs - Diagnostic Tests</h1>
+    
+    <div class="test-section">
+        <h2>1️⃣ SportSRC API Test</h2>
+        <p><strong>API Key:</strong> <code>c54205b3a2199f2290a653ea40da84ce</code></p>
+        <p><strong>Base URL:</strong> <code>https://api.sportsrc.org/v2</code></p>
+        <button id="testSportSRC">Test SportSRC Live Matches</button>
+        <button id="testSportSRCDetail">Test Match Detail (if matches found)</button>
+        <div id="sportsrcResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2️⃣ WeStream API Test</h2>
+        <p><strong>Base URL:</strong> <code>https://westream.su</code></p>
+        <p>Testing multiple endpoints...</p>
+        <button id="testWeStream">Test All WeStream Endpoints</button>
+        <div id="westreamResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3️⃣ FlashScore API Test</h2>
+        <p><strong>API Key:</strong> <code>bffdb88075msh1832f65b5a81519p1ea775jsn5ca875a7973e</code></p>
+        <p><strong>Base URL:</strong> <code>https://flashscore4.p.rapidapi.com</code></p>
+        <button id="testFlashScore">Test FlashScore Live Matches</button>
+        <div id="flashscoreResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Summary</h2>
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <div class="stat-label">FlashScore Matches</div>
+                <div class="stat-value" id="flashscoreCount">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">WeStream Matches</div>
+                <div class="stat-value" id="westreamCount">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">SportSRC Matches</div>
+                <div class="stat-value" id="sportsrcCount">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">SportSRC with Streams</div>
+                <div class="stat-value" id="sportsrcStreamCount">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SPORTSRC_API_KEY = 'c54205b3a2199f2290a653ea40da84ce';
+        const FLASHSCORE_API_KEY = 'bffdb88075msh1832f65b5a81519p1ea775jsn5ca875a7973e';
+        
+        let sportsrcMatches = [];
+
+        // Test SportSRC API
+        document.getElementById('testSportSRC').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('sportsrcResult');
+            const btn = document.getElementById('testSportSRC');
+            btn.disabled = true;
+            resultDiv.innerHTML = '<div class="result info">⏳ Testing SportSRC API...</div>';
+
+            try {
+                const response = await fetch(
+                    'https://api.sportsrc.org/v2/?type=matches&sport=football&status=inprogress',
+                    {
+                        method: 'GET',
+                        headers: {
+                            'X-API-KEY': SPORTSRC_API_KEY,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log('[SportSRC] Raw response:', data);
+                
+                // Handle different response formats
+                let matches = [];
+                if (Array.isArray(data)) {
+                    matches = data;
+                } else if (data.matches) {
+                    matches = data.matches;
+                } else if (data.data) {
+                    matches = data.data;
+                } else if (data.results) {
+                    matches = data.results;
+                }
+
+                sportsrcMatches = matches;
+                document.getElementById('sportsrcCount').textContent = matches.length;
+
+                let output = `✅ SUCCESS! Found ${matches.length} live matches\n\n`;
+                output += `Response structure: ${Array.isArray(data) ? 'Array' : 'Object'}\n\n`;
+                
+                if (matches.length > 0) {
+                    output += '📋 Sample matches:\n';
+                    matches.slice(0, 5).forEach((match, idx) => {
+                        output += `\n${idx + 1}. ${match.home_team} vs ${match.away_team}\n`;
+                        output += `   ID: ${match.id}\n`;
+                        output += `   Status: ${match.status}\n`;
+                        output += `   League: ${match.league || 'N/A'}\n`;
+                    });
+                    document.getElementById('testSportSRCDetail').disabled = false;
+                } else {
+                    output += '\n⚠️ No live matches found. This might be normal if no matches are currently live.';
+                }
+
+                resultDiv.innerHTML = `<div class="result success">${output}</div>`;
+            } catch (error) {
+                console.error('[SportSRC] Error:', error);
+                resultDiv.innerHTML = `<div class="result error">❌ ERROR: ${error.message}\n\nCheck console for details.</div>`;
+            } finally {
+                btn.disabled = false;
+            }
+        });
+
+        // Test SportSRC Match Detail
+        document.getElementById('testSportSRCDetail').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('sportsrcResult');
+            const btn = document.getElementById('testSportSRCDetail');
+            
+            if (sportsrcMatches.length === 0) {
+                resultDiv.innerHTML = '<div class="result error">❌ No matches to test. Run "Test SportSRC Live Matches" first.</div>';
+                return;
+            }
+
+            btn.disabled = true;
+            resultDiv.innerHTML = '<div class="result info">⏳ Testing match details with streaming data...</div>';
+
+            try {
+                const testMatch = sportsrcMatches[0];
+                const response = await fetch(
+                    `https://api.sportsrc.org/v2/?type=detail&id=${testMatch.id}`,
+                    {
+                        method: 'GET',
+                        headers: {
+                            'X-API-KEY': SPORTSRC_API_KEY,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log('[SportSRC Detail] Raw response:', data);
+
+                let output = `✅ Match Detail Retrieved:\n\n`;
+                output += `Match: ${data.home_team} vs ${data.away_team}\n`;
+                output += `ID: ${data.id}\n`;
+                output += `Status: ${data.status}\n\n`;
+                
+                output += `🎬 STREAMING DATA:\n`;
+                if (data.streaming) {
+                    output += `✅ Streaming field exists!\n`;
+                    output += `   - Embed URL: ${data.streaming.embed || 'null'}\n`;
+                    output += `   - Direct URL: ${data.streaming.url || 'null'}\n`;
+                    output += `   - Links: ${data.streaming.links ? data.streaming.links.length : 0}\n`;
+                    
+                    if (data.streaming.embed || data.streaming.url || (data.streaming.links && data.streaming.links.length > 0)) {
+                        document.getElementById('sportsrcStreamCount').textContent = '1+';
+                        output += `\n✅ This match HAS streaming URLs available!`;
+                    } else {
+                        document.getElementById('sportsrcStreamCount').textContent = '0';
+                        output += `\n⚠️ Streaming field exists but all URLs are null/empty.`;
+                        output += `\n💡 Your SportSRC plan might not include streaming URLs.`;
+                    }
+                } else {
+                    document.getElementById('sportsrcStreamCount').textContent = '0';
+                    output += `❌ No streaming field in response!\n`;
+                    output += `\n⚠️ This is the KEY ISSUE: SportSRC API doesn't provide streaming URLs.\n`;
+                    output += `💡 Recommendation: Check if your plan includes streaming, or find another API.`;
+                }
+
+                output += `\n\nFull response:\n${JSON.stringify(data, null, 2)}`;
+                resultDiv.innerHTML = `<div class="result ${data.streaming ? 'success' : 'warning'}">${output}</div>`;
+            } catch (error) {
+                console.error('[SportSRC Detail] Error:', error);
+                resultDiv.innerHTML = `<div class="result error">❌ ERROR: ${error.message}\n\nCheck console for details.</div>`;
+            } finally {
+                btn.disabled = false;
+            }
+        });
+
+        // Test WeStream API
+        document.getElementById('testWeStream').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('westreamResult');
+            const btn = document.getElementById('testWeStream');
+            btn.disabled = true;
+            resultDiv.innerHTML = '<div class="result info">⏳ Testing WeStream endpoints...</div>';
+
+            const endpoints = ['/matches/live', '/api/matches/live', '/live', '/api/live'];
+            let output = '';
+            let successCount = 0;
+            let totalMatches = 0;
+
+            for (const endpoint of endpoints) {
+                try {
+                    output += `\n📍 Testing: https://westream.su${endpoint}\n`;
+                    
+                    const response = await fetch(`https://westream.su${endpoint}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                        mode: 'cors',
+                    });
+
+                    const status = `${response.status} ${response.statusText}`;
+                    
+                    if (!response.ok) {
+                        output += `   ❌ Error: ${status}\n`;
+                        continue;
+                    }
+
+                    const contentType = response.headers.get('content-type');
+                    let data;
+
+                    if (contentType && contentType.includes('application/json')) {
+                        data = await response.json();
+                    } else {
+                        const text = await response.text();
+                        try {
+                            data = JSON.parse(text);
+                        } catch {
+                            output += `   ❌ Response is not JSON\n`;
+                            continue;
+                        }
+                    }
+
+                    console.log(`[WeStream ${endpoint}] Response:`, data);
+
+                    // Try to extract matches
+                    let matches = [];
+                    if (Array.isArray(data)) {
+                        matches = data;
+                    } else if (data.matches) {
+                        matches = data.matches;
+                    } else if (data.data) {
+                        matches = data.data;
+                    } else if (data.results) {
+                        matches = data.results;
+                    }
+
+                    output += `   ✅ ${status} - Found ${matches.length} matches\n`;
+                    successCount++;
+                    totalMatches = Math.max(totalMatches, matches.length);
+
+                    if (matches.length > 0) {
+                        output += `   📋 Sample: ${matches[0].title || matches[0].teams?.home?.name + ' vs ' + matches[0].teams?.away?.name}\n`;
+                    }
+
+                } catch (error) {
+                    output += `   ❌ Error: ${error.message}\n`;
+                }
+            }
+
+            document.getElementById('westreamCount').textContent = totalMatches;
+
+            if (successCount === 0) {
+                output = `❌ All WeStream endpoints failed!\n\n` + output;
+                output += `\n⚠️ DIAGNOSIS: WeStream API might be down, changed, or requires authentication.\n`;
+                output += `💡 Recommendation: Find alternative streaming API or verify WeStream documentation.`;
+                resultDiv.innerHTML = `<div class="result error">${output}</div>`;
+            } else {
+                output = `✅ ${successCount}/${endpoints.length} endpoints working, ${totalMatches} total matches\n` + output;
+                resultDiv.innerHTML = `<div class="result success">${output}</div>`;
+            }
+
+            btn.disabled = false;
+        });
+
+        // Test FlashScore API
+        document.getElementById('testFlashScore').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('flashscoreResult');
+            const btn = document.getElementById('testFlashScore');
+            btn.disabled = true;
+            resultDiv.innerHTML = '<div class="result info">⏳ Testing FlashScore API...</div>';
+
+            try {
+                const response = await fetch('https://flashscore4.p.rapidapi.com/api/flashscore/v1/match/live/1', {
+                    method: 'GET',
+                    headers: {
+                        'x-rapidapi-host': 'flashscore4.p.rapidapi.com',
+                        'x-rapidapi-key': FLASHSCORE_API_KEY,
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log('[FlashScore] Raw response:', data);
+
+                if (!Array.isArray(data)) {
+                    throw new Error('Expected array of tournaments');
+                }
+
+                const totalMatches = data.reduce((sum, tournament) => sum + (tournament.matches?.length || 0), 0);
+                document.getElementById('flashscoreCount').textContent = totalMatches;
+
+                let output = `✅ SUCCESS! Found ${data.length} tournaments with ${totalMatches} total matches\n\n`;
+                
+                if (data.length > 0) {
+                    output += '📋 Sample tournaments:\n';
+                    data.slice(0, 5).forEach((tournament, idx) => {
+                        output += `\n${idx + 1}. ${tournament.name} (${tournament.country_name})\n`;
+                        output += `   Matches: ${tournament.matches?.length || 0}\n`;
+                        if (tournament.matches && tournament.matches.length > 0) {
+                            const match = tournament.matches[0];
+                            output += `   Example: ${match.home_team.name} vs ${match.away_team.name}\n`;
+                        }
+                    });
+                }
+
+                resultDiv.innerHTML = `<div class="result success">${output}</div>`;
+            } catch (error) {
+                console.error('[FlashScore] Error:', error);
+                resultDiv.innerHTML = `<div class="result error">❌ ERROR: ${error.message}\n\nCheck console for details.</div>`;
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
