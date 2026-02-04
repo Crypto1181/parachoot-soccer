@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 
 export const SignupPage: React.FC = () => {
   const navigate = useNavigate();
-  const { signUp } = useAuth();
+  const { signUp, user } = useAuth();
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState('');
@@ -16,6 +16,13 @@ export const SignupPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Redirect if already logged in
+  React.useEffect(() => {
+    if (user) {
+      navigate('/home', { replace: true });
+    }
+  }, [user, navigate]);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,14 +96,14 @@ export const SignupPage: React.FC = () => {
         <img 
           src="/parachoot-logo.png" 
           alt="Parachoot Soccer Logo" 
-          className="w-12 h-12 object-contain"
+          className="w-12 h-12 object-contain blend-logo"
         />
       </div>
       <div className="absolute bottom-40 left-6 opacity-15 animate-float" style={{ animationDelay: '1.5s' }}>
         <img 
           src="/parachoot-logo.png" 
           alt="Parachoot Soccer Logo" 
-          className="w-16 h-16 object-contain"
+          className="w-16 h-16 object-contain blend-logo"
         />
       </div>
 
@@ -107,7 +114,7 @@ export const SignupPage: React.FC = () => {
             <img 
               src="/parachoot-logo.png" 
               alt="Parachoot Soccer Logo" 
-              className="w-28 h-28 object-contain drop-shadow-2xl"
+              className="w-28 h-28 object-contain drop-shadow-2xl blend-logo"
             />
             <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl -z-10" />
           </div>

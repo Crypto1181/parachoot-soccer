@@ -323,9 +323,8 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <div className="stadium-bg safe-area-top pb-8 px-4">
-        <div className="flex items-center justify-between mb-6 gap-2">
+      {/* Sticky App Bar */}
+      <div className="sticky top-0 z-50 bg-[#159e48] safe-area-top px-4 py-3 flex items-center justify-between shadow-lg border-b border-white/10">
           <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground truncate flex-1 min-w-0">Parachoot Soccer</h1>
           <div className="flex gap-2 shrink-0">
             <button 
@@ -348,7 +347,7 @@ export const HomePage: React.FC = () => {
                   <Menu size={20} />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-card border-l border-border/50 overflow-y-auto">
+              <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-card border-l border-border/50 overflow-y-auto safe-area-top safe-area-bottom">
                 <SheetHeader className="mb-6 text-left">
                   <SheetTitle className="text-xl font-bold">Menu</SheetTitle>
                   <SheetDescription>
@@ -433,8 +432,10 @@ export const HomePage: React.FC = () => {
               </SheetContent>
             </Sheet>
           </div>
-        </div>
+      </div>
 
+      {/* Hero Section */}
+      <div className="stadium-bg pb-8 px-4 pt-4">
         <h2 className="text-lg sm:text-xl font-bold text-foreground mb-4">Scores & Fixtures</h2>
         <DateSelector 
           days={weekDaysList} 
@@ -445,7 +446,7 @@ export const HomePage: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="bg-score-bg rounded-t-3xl -mt-4 min-h-[60vh] p-4">
+      <div className="bg-score-bg rounded-t-3xl -mt-4 min-h-[60vh] pt-4 pb-4 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
         {/* Tabs - shifted down and swipeable */}
         <div
           ref={tabsContainerRef}

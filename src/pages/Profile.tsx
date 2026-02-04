@@ -57,11 +57,12 @@ export const ProfilePage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen p-4 safe-area-top safe-area-x pb-24 bg-background">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Profile</h1>
+    <div className="min-h-screen bg-background">
+      <div className="sticky top-0 z-50 bg-background safe-area-top px-4 py-3 flex justify-between items-center shadow-sm border-b border-border/10">
+        <h1 className="text-xl font-bold">Profile</h1>
       </div>
 
+      <div className="pt-4 pb-24 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
       {/* Profile Card */}
       <Card className="mb-8 border-border/50 shadow-md overflow-hidden relative group">
         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
@@ -149,6 +150,7 @@ export const ProfilePage: React.FC = () => {
         <p className="text-center text-xs text-muted-foreground pt-4 pb-8">
           Version 1.0.0 • Build 2024
         </p>
+      </div>
       </div>
     </div>
   );

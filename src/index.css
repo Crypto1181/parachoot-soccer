@@ -202,6 +202,47 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* iOS Native Feel */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior-y: none;
+}
+
+/* Allow text selection in inputs */
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe Area Insets */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-area-x {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Logo Blend Mode */
+.blend-logo {
+  mix-blend-mode: multiply;
+}
+
 /* Hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -219,36 +260,4 @@
 .match-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-}
-
-/* Safe area support for phone notches and status bars */
-@supports (padding: max(0px)) {
-  .safe-area-top {
-    padding-top: max(3rem, calc(env(safe-area-inset-top, 0px) + 3rem));
-  }
-
-  .safe-area-bottom {
-    padding-bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + 1rem));
-  }
-
-  .safe-area-x {
-    padding-left: max(1rem, calc(env(safe-area-inset-left, 0px) + 1rem));
-    padding-right: max(1rem, calc(env(safe-area-inset-right, 0px) + 1rem));
-  }
-}
-
-/* Fallback for browsers that don't support max() or env() */
-@supports not (padding: max(0px)) {
-  .safe-area-top {
-    padding-top: 3rem;
-  }
-
-  .safe-area-bottom {
-    padding-bottom: 1rem;
-  }
-
-  .safe-area-x {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
 }

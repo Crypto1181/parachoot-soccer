@@ -48,7 +48,7 @@ export const WatchPage: React.FC = () => {
       </div>
 
       {/* Match Info */}
-      <div className="p-4">
+      <div className="pt-4 pb-4 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
         <div className="flex items-center justify-between mb-6">
           <div className="flex flex-col items-center flex-1">
             <TeamLogo team={match.homeTeam} size="xl" className="mb-3" />

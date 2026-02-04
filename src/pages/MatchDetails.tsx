@@ -197,7 +197,7 @@ export const MatchDetailsPage: React.FC = () => {
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/50 safe-area-top">
-        <div className="flex items-center gap-2 sm:gap-4 p-3 sm:p-4 safe-area-x">
+        <div className="flex items-center gap-2 sm:gap-4 pt-3 pb-3 sm:pt-4 sm:pb-4 pl-[calc(0.75rem+env(safe-area-inset-left))] pr-[calc(0.75rem+env(safe-area-inset-right))] sm:pl-[calc(1rem+env(safe-area-inset-left))] sm:pr-[calc(1rem+env(safe-area-inset-right))]">
           <button
             onClick={() => navigate(-1)}
             className="p-2 hover:bg-secondary rounded-full transition-colors shrink-0"
@@ -217,7 +217,7 @@ export const MatchDetailsPage: React.FC = () => {
       </div>
 
       {/* Match Header Card */}
-      <div className="p-4">
+      <div className="pt-4 pb-4 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
         <div className="bg-card rounded-3xl p-6 border border-border/30 shadow-sm">
           {/* Status Badge */}
           <div className="flex flex-col items-center gap-3 mb-4">
@@ -305,7 +305,7 @@ export const MatchDetailsPage: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex p-1 bg-secondary/30 rounded-xl overflow-x-auto gap-1 mb-4 mx-4">
+      <div className="flex p-1 bg-secondary/30 rounded-xl overflow-x-auto gap-1 mb-4 ml-[calc(1rem+env(safe-area-inset-left))] mr-[calc(1rem+env(safe-area-inset-right))]">
         {['details', 'summary', 'stats', 'lineups', 'h2h'].map((tab) => (
           <button
             key={tab}
@@ -329,7 +329,7 @@ export const MatchDetailsPage: React.FC = () => {
       <div className="space-y-4">
         {/* Overview Tab */}
         {activeTab === 'details' && (
-          <div className="px-4">
+          <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
             <div className="bg-card rounded-3xl p-6 border border-border/30 shadow-sm space-y-4">
               <h3 className="font-semibold flex items-center gap-2">
                 <Activity size={18} className="text-primary" />
@@ -400,7 +400,7 @@ export const MatchDetailsPage: React.FC = () => {
 
       {/* Summary Tab */}
       {activeTab === 'summary' && (
-        <div className="px-4">
+        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
           <div className="bg-card rounded-3xl p-6 border border-border/30 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Flag size={20} className="text-primary" />
@@ -536,7 +536,7 @@ export const MatchDetailsPage: React.FC = () => {
 
       {/* Stats Tab */}
       {activeTab === 'stats' && (
-        <div className="px-4 mb-4">
+        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))] mb-4">
         <div className="bg-card rounded-2xl p-5 border border-border/30">
           <div className="flex items-center gap-2 mb-4">
             <BarChart3 size={20} className="text-primary" />
@@ -739,7 +739,7 @@ export const MatchDetailsPage: React.FC = () => {
 
       {/* H2H Tab */}
       {activeTab === 'h2h' && (
-        <div className="px-4">
+        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
             {h2hLoading ? (
                <div className="flex justify-center py-8">
                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />

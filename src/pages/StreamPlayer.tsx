@@ -241,6 +241,10 @@ export const StreamPlayerPage: React.FC = () => {
             <div className="text-center">
               <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
               <p className="text-white mb-2">{streamError}</p>
+              <div className="text-gray-400 text-sm mb-4 max-w-md">
+                <p>If you see "No match" inside the player, the stream might be offline or blocked by the provider.</p>
+                <p className="mt-1">Try refreshing the source or using a different stream if available.</p>
+              </div>
               <button
                 onClick={() => {
                   setStreamError(null);
@@ -269,6 +273,7 @@ export const StreamPlayerPage: React.FC = () => {
               allowFullScreen
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerPolicy="origin-when-cross-origin"
               onLoad={() => {
                 console.log('[StreamPlayer] Iframe loaded successfully');
                 setStreamLoading(false);

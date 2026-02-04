@@ -13,7 +13,7 @@ export const BottomNav: React.FC = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border/30">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-border/30 safe-area-bottom">
       <div className="flex items-center justify-around py-2 px-4 max-w-lg mx-auto">
         {navItems.map((item) => {
           const isActive = location.pathname === item.to || 

@@ -68,8 +68,8 @@ export const ExplorePage: React.FC = () => {
   };
 
   const renderHeader = () => (
-    <div className="mb-6">
-      <div className="flex items-center gap-2 mb-4">
+    <div className="sticky top-0 z-50 bg-background safe-area-top px-4 py-3 shadow-sm border-b border-border/10 mb-4">
+      <div className="flex items-center gap-2 mb-3">
         {view !== 'countries' && (
           <button onClick={handleBack} className="p-2 -ml-2 hover:bg-muted rounded-full transition-colors">
             <ArrowLeft size={20} />
@@ -113,7 +113,7 @@ export const ExplorePage: React.FC = () => {
     }
 
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4 pb-4">
         {items.map((item: any) => (
           <div 
             key={item.country_id || item.tournament_id}
@@ -144,7 +144,7 @@ export const ExplorePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 safe-area-top safe-area-x">
+    <div className="min-h-screen">
       {renderHeader()}
       {renderContent()}
     </div>

@@ -90,10 +90,10 @@ const EditProfilePage: React.FC = () => {
   const userInitial = name ? name.charAt(0).toUpperCase() : (user?.email?.charAt(0).toUpperCase() || 'U');
 
   return (
-    <div className="min-h-screen bg-background pb-20 safe-area-top safe-area-x">
+    <div className="min-h-screen bg-background pb-[calc(5rem+env(safe-area-inset-bottom))] safe-area-top">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/50">
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-between pt-4 pb-4 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate(-1)}
@@ -114,10 +114,9 @@ const EditProfilePage: React.FC = () => {
           </Button>
         </div>
       </div>
-
-      <div className="p-6 max-w-md mx-auto space-y-8">
-        {/* Avatar Upload */}
-        <div className="flex flex-col items-center gap-4">
+            <div className="pt-6 pb-6 pl-[calc(1.5rem+env(safe-area-inset-left))] pr-[calc(1.5rem+env(safe-area-inset-right))] max-w-md mx-auto space-y-8">
+              {/* Avatar Upload */}
+              <div className="flex flex-col items-center gap-4">
           <div className="relative group cursor-pointer" onClick={() => fileInputRef.current?.click()}>
             <Avatar className="w-32 h-32 border-4 border-card shadow-xl ring-2 ring-primary/10 transition-transform group-hover:scale-105">
               <AvatarImage src={avatarUrl || undefined} className="object-cover" />

@@ -8,12 +8,19 @@ import { useToast } from '@/hooks/use-toast';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
   const { toast } = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  // Redirect if already logged in
+  React.useEffect(() => {
+    if (user) {
+      navigate('/home', { replace: true });
+    }
+  }, [user, navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,21 +69,21 @@ export const LoginPage: React.FC = () => {
         <img 
           src="/parachoot-logo.png" 
           alt="Parachoot Soccer Logo" 
-          className="w-16 h-16 object-contain"
+          className="w-16 h-16 object-contain blend-logo"
         />
       </div>
       <div className="absolute bottom-32 right-8 opacity-20 animate-float" style={{ animationDelay: '1s' }}>
         <img 
           src="/parachoot-logo.png" 
           alt="Parachoot Soccer Logo" 
-          className="w-10 h-10 object-contain"
+          className="w-10 h-10 object-contain blend-logo"
         />
       </div>
       <div className="absolute top-1/4 right-12 opacity-10 animate-float" style={{ animationDelay: '2s' }}>
         <img 
           src="/parachoot-logo.png" 
           alt="Parachoot Soccer Logo" 
-          className="w-20 h-20 object-contain"
+          className="w-20 h-20 object-contain blend-logo"
         />
       </div>
 
@@ -87,7 +94,7 @@ export const LoginPage: React.FC = () => {
             <img 
               src="/parachoot-logo.png" 
               alt="Parachoot Soccer Logo" 
-              className="w-32 h-32 object-contain drop-shadow-2xl"
+              className="w-32 h-32 object-contain drop-shadow-2xl blend-logo"
             />
             <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl -z-10" />
           </div>
