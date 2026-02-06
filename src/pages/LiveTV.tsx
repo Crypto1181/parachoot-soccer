@@ -4,10 +4,29 @@ import LeagueSection from '@/components/LeagueSection';
 import { getAggregatedLiveMatches } from '@/lib/liveTvAggregator';
 import { LeagueGroup } from '@/types/league';
 
+import { LocalNotifications } from '@capacitor/local-notifications';
+
 export const LiveTVPage: React.FC = () => {
   const [leagueGroups, setLeagueGroups] = useState<LeagueGroup[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Initialize notifications
+  useEffect(() => {
+    const initNotifications = async () => {
+      try {
+        const perm = await LocalNotifications.checkPermissions();
+        if (perm.display === 'prompt') {
+          await LocalNotifications.requestPermissions();
+        }
+      } catch (e) {
+        console.error('Error initializing notifications:', e);
+      }
+    };
+    initNotifications();
+  }, []);
+
+  const [notifiedMatches, setNotifiedMatches] = useState<Set<string>>(new Set());
 
   // Fetch live matches from Aggregator
   useEffect(() => {
@@ -37,6 +56,43 @@ export const LiveTVPage: React.FC = () => {
         console.log(`[LiveTV] 📊 Matches with streams: ${matchesWithStreams}`);
 
         setLeagueGroups(filteredGroups);
+
+        // Schedule notifications for live matches
+        const scheduleNotifications = async () => {
+          try {
+            const newNotifications = filteredGroups.flatMap(group => 
+              group.matches
+                .filter(match => !notifiedMatches.has(match.id)) // Only notify if not already notified
+                .map(match => ({
+                  title: 'Match Live Now!',
+                  body: `${match.homeTeam.name} vs ${match.awayTeam.name} is live! Watch now.`,
+                  id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
+                  schedule: { at: new Date(Date.now() + 1000) },
+                  extra: { matchId: match.id },
+                  smallIcon: 'ic_stat_icon_config_sample', // Default icon, can be customized
+                  actionTypeId: '',
+                }))
+            );
+
+            if (newNotifications.length > 0) {
+              await LocalNotifications.schedule({ notifications: newNotifications });
+              
+              // Update notified set
+              setNotifiedMatches(prev => {
+                const next = new Set(prev);
+                newNotifications.forEach(n => next.add(n.extra?.matchId));
+                return next;
+              });
+              
+              console.log(`[LiveTV] 🔔 Scheduled ${newNotifications.length} notifications`);
+            }
+          } catch (e) {
+            console.error('Error scheduling notifications:', e);
+          }
+        };
+        
+        scheduleNotifications();
+        
       } catch (err) {
         console.error('[LiveTV] ❌ Error fetching live matches:', err);
         if (isMounted) {

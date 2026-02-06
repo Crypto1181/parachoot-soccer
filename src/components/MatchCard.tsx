@@ -58,10 +58,10 @@ export const MatchCard: React.FC<MatchCardProps> = memo(({ match, onClick, index
           <div className="absolute top-4 right-4 z-20">
             <button
               onClick={handleStreamClick}
-              className="bg-primary hover:bg-primary/90 text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 flex items-center justify-center"
+              className="bg-red-500 hover:bg-red-600 p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110 flex items-center justify-center border-2 border-white"
               title="Watch Live Stream"
             >
-              <Play size={20} fill="white" />
+              <Play size={20} className="text-white ml-0.5" fill="currentColor" />
             </button>
           </div>
         )}

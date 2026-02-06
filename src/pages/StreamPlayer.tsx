@@ -180,10 +180,10 @@ export const StreamPlayerPage: React.FC = () => {
         <div className="flex items-center justify-between p-3 sm:p-4 safe-area-x">
           <button
             onClick={() => navigate(-1)}
-            className="text-white hover:text-primary transition-colors shrink-0"
+            className="text-white hover:text-primary transition-colors shrink-0 p-2 -ml-2 rounded-full active:bg-white/10"
             aria-label="Go back"
           >
-            <ArrowLeft size={20} className="sm:w-6 sm:h-6" />
+            <ArrowLeft size={24} className="sm:w-6 sm:h-6" />
           </button>
           <div className="flex-1 text-center min-w-0 px-2">
             <h1 className="text-white font-bold text-base sm:text-lg truncate">Live Stream</h1>
