@@ -31,7 +31,7 @@
         <!-- AdMob App ID (Real ID) -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3718284755022484~9160273639"/>
+            android:value="ca-app-pub-1483062868916328~9555088900"/>
     </application>
 
     <!-- Permissions -->
