@@ -27,8 +27,8 @@ export async function initializeAdMob() {
 export async function showBanner() {
   const options = {
     adId: Capacitor.getPlatform() === 'ios' 
-      ? 'ca-app-pub-3718284755022484/2248951162' // Real iOS Ad Unit ID
-      : 'ca-app-pub-3718284755022484/1281783613', // Real Android Ad Unit ID
+      ? 'ca-app-pub-1483062868916328/6227282772' // Real iOS Ad Unit ID
+      : 'ca-app-pub-1483062868916328/3452093582', // Real Android Ad Unit ID
     adSize: BannerAdSize.ADAPTIVE_BANNER,
     position: BannerAdPosition.BOTTOM,
     margin: 0,

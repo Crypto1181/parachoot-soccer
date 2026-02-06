@@ -69,7 +69,6 @@ export const LiveTVPage: React.FC = () => {
                   id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
                   schedule: { at: new Date(Date.now() + 1000) },
                   extra: { matchId: match.id },
-                  smallIcon: 'ic_stat_icon_config_sample', // Default icon, can be customized
                   actionTypeId: '',
                 }))
             );
