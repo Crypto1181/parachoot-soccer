@@ -20,6 +20,7 @@ end
 target 'App' do
   capacitor_pods
   # Add your Pods here
+  pod 'GoogleUserMessagingPlatform', '2.0.0'
 end
 
 post_install do |installer|
