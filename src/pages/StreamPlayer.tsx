@@ -295,40 +295,6 @@ export const StreamPlayerPage: React.FC = () => {
         )}
       </div>
 
-      {/* Stream Options */}
-      <div className="bg-gray-900 border-t border-gray-800 p-4">
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-white text-sm font-semibold">Available Streams</p>
-          <button 
-            onClick={() => {
-              clearWeStreamCache();
-              window.location.reload();
-            }}
-            className="text-xs text-primary hover:text-primary/80 underline"
-          >
-            Refresh Source
-          </button>
-        </div>
-        <div className="flex gap-2 flex-wrap">
-          {availableStreams.map((num) => (
-            <button
-              key={num}
-              onClick={() => {
-                setStreamNo(num);
-                setStreamLoading(true);
-              }}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                streamNo === num
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-              }`}
-            >
-              Stream {num}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Match Details */}
       <div className="bg-gray-900 border-t border-gray-800 p-4">
         <div className="space-y-2 text-sm">
