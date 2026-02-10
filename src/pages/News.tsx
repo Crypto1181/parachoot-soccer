@@ -1,21 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { getFootballNews, NewsItem } from '@/lib/newsApi';
-import { format, subDays, addDays } from 'date-fns';
-import { ChevronLeft, ChevronRight, Calendar, ExternalLink, Loader2, Newspaper } from 'lucide-react';
+import { format } from 'date-fns';
+import { ExternalLink, Loader2, Newspaper } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const NewsPage = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentDate, setCurrentDate] = useState(new Date());
 
-  const fetchNews = async (date: Date) => {
+  const fetchNews = async () => {
     setLoading(true);
     try {
-      const dateStr = format(date, 'yyyy-MM-dd');
-      const data = await getFootballNews(dateStr);
+      const data = await getFootballNews();
       setNews(data);
     } catch (error) {
       console.error('Error fetching news:', error);
@@ -25,60 +23,16 @@ const NewsPage = () => {
   };
 
   useEffect(() => {
-    fetchNews(currentDate);
-  }, [currentDate]);
-
-  const handlePrevDay = () => {
-    setCurrentDate((prev) => subDays(prev, 1));
-  };
-
-  const handleNextDay = () => {
-    const nextDay = addDays(currentDate, 1);
-    if (nextDay <= new Date()) {
-       setCurrentDate(nextDay);
-    }
-  };
-  
-  // Allow next day if current date is before "today" (real time). 
-  // But since we might be in a sim where today is 2026, let's just allow generic navigation 
-  // but maybe warn if it's future. 
-  // Actually, let's just allow navigation. The user might want to check tomorrow's scheduled news (if any).
-  // But typically news is past/present.
+    fetchNews();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background pb-20 pt-16 px-4">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
           <Newspaper className="h-6 w-6 text-primary" />
-          Football News
+          Latest Football News
         </h1>
-      </div>
-
-      {/* Date Navigation */}
-      <div className="flex items-center justify-between bg-card rounded-lg p-2 mb-6 shadow-sm border border-border">
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={handlePrevDay}
-          className="hover:bg-accent hover:text-accent-foreground"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </Button>
-        
-        <div className="flex items-center gap-2 font-medium">
-          <Calendar className="h-4 w-4 text-muted-foreground" />
-          {format(currentDate, 'EEEE, MMM d, yyyy')}
-        </div>
-
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={handleNextDay}
-          disabled={format(currentDate, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd')}
-          className="hover:bg-accent hover:text-accent-foreground disabled:opacity-30"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </Button>
       </div>
 
       {/* News Content */}
