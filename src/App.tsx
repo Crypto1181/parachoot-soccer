@@ -14,8 +14,7 @@ import WatchPage from "./pages/Watch";
 import MatchDetailsPage from "./pages/MatchDetails";
 import StreamPlayerPage from "./pages/StreamPlayer";
 import ExplorePage from "./pages/Explore";
-import ProfilePage from "./pages/Profile";
-import EditProfilePage from "./pages/EditProfile";
+import NewsPage from "./pages/News";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { BackButtonHandler } from "./components/BackButtonHandler";
@@ -110,8 +109,7 @@ const App = () => {
                 <Route path="/stream/:matchId/:source/:streamId" element={<StreamPlayerPage />} />
                 <Route path="/watch/:id" element={<WatchPage />} />
                 <Route path="/explore" element={<ExplorePage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/profile/edit" element={<EditProfilePage />} />
+                <Route path="/news" element={<NewsPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

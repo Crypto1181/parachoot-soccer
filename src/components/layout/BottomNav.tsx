@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Home, Tv, Compass, User } from 'lucide-react';
+import { Home, Tv, Compass, Newspaper } from 'lucide-react';
 
 const navItems = [
   { to: '/home', icon: Home, label: 'Home' },
   { to: '/live-tv', icon: Tv, label: 'TV Live' },
   { to: '/explore', icon: Compass, label: 'Explore' },
-  { to: '/profile', icon: User, label: 'Profile' },
+  { to: '/news', icon: Newspaper, label: 'News' },
 ];
 
 export const BottomNav: React.FC = () => {

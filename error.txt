@@ -1,0 +1,487 @@
+[09:00:04]: ---------------------------
+[09:00:04]: Resolving Swift Package Manager dependencies...
+[09:00:04]: $ xcodebuild -resolvePackageDependencies -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App
+[09:00:05]: ▸ Command line invocation:
+[09:00:05]: ▸     /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -resolvePackageDependencies -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App
+[09:00:05]: ▸ 2026-02-09 09:00:05.959 xcodebuild[2833:9037] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+[09:00:05]: ▸ resolved source packages: 
+[09:00:05]: $ xcodebuild -showBuildSettings -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App 2>&1
+[09:00:07]: Detected provisioning profile mapping: {"com.parachoot.soccer": "Parachoot App Store"}
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                            Summary for gym 2.230.0                                                            |
++----------------------------------------------------------+------------------------------------------------------------------------------------+
+| workspace                                                | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace |
+| output_directory                                         | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer                         |
+| output_name                                              | 8c8dc9e5-2958-4c44-9e38-bd8e2888ce37-app-store                                     |
+| archive_path                                             | 8c8dc9e5-2958-4c44-9e38-bd8e2888ce37-app-store.xcarchive                           |
+| scheme                                                   | App                                                                                |
+| codesigning_identity                                     | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)                           |
+| export_team_id                                           | 3YAP8Q5QWD                                                                         |
+| catalyst_platform                                        | ios                                                                                |
+| export_options.provisioningProfiles.com.parachoot.soccer | Parachoot App Store                                                                |
+| clean                                                    | false                                                                              |
+| silent                                                   | false                                                                              |
+| skip_package_ipa                                         | false                                                                              |
+| export_method                                            | app-store                                                                          |
+| build_path                                               | /Users/ionic-cloud-team/Library/Developer/Xcode/Archives/2026-02-09                |
+| result_bundle                                            | false                                                                              |
+| buildlog_path                                            | ~/Library/Logs/gym                                                                 |
+| destination                                              | generic/platform=iOS                                                               |
+| xcodebuild_formatter                                     | xcbeautify                                                                         |
+| build_timing_summary                                     | false                                                                              |
+| skip_profile_detection                                   | false                                                                              |
+| xcodebuild_command                                       | xcodebuild                                                                         |
+| skip_package_dependencies_resolution                     | false                                                                              |
+| disable_package_automatic_updates                        | false                                                                              |
+| use_system_scm                                           | false                                                                              |
+| generate_appstore_info                                   | false                                                                              |
+| skip_package_pkg                                         | false                                                                              |
+| xcode_path                                               | /Applications/Xcode.app                                                            |
++----------------------------------------------------------+------------------------------------------------------------------------------------+
+
+[09:00:07]: $ set -o pipefail && xcodebuild -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App -destination 'generic/platform=iOS' -archivePath 8c8dc9e5-2958-4c44-9e38-bd8e2888ce37-app-store.xcarchive archive CODE_SIGN_IDENTITY=iPhone\ Distribution:\ CLINTON\ CHIGAEMEZU\ EZE\ \(3YAP8Q5QWD\) | tee /Users/ionic-cloud-team/Library/Logs/gym/App-App.log | xcbeautify
+[09:00:07]: ▸ ----- xcbeautify -----
+[09:00:07]: ▸ Version: 3.1.2
+[09:00:07]: ▸ ----------------------
+[09:00:10]: ▸ 2026-02-09 09:00:10.117 xcodebuild[2844:9130] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+[09:00:10]: ▸ note: Using codesigning identity override: iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)
+[09:00:11]: ▸ note: Building targets in dependency order
+[09:00:11]: ▸ note: Target dependency graph (12 targets)
+[09:00:23]: ▸ [GoogleUserMessagingPlatform] Write Auxiliary File Script-FB39CD7C92DA3E938CD64C54A28306FB.sh
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK] Write Auxiliary File Script-565154D6749DB9D3DFC91FF46905DAFE.sh
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App.DependencyMetadataFileList
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App-project-headers.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App-own-target-headers.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App-generated-files.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App-all-target-headers.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App.LinkFileList
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [Pods-App] Write Auxiliary File Pods_App_vers.c
+[09:00:23]: ▸ [Pods-App] Copying Pods-App-umbrella.h
+[09:00:23]: ▸ [Pods-App] Copy module.modulemap -> Pods-App.modulemap
+[09:00:23]: ▸ [App] Write Auxiliary File Script-B92542C39CD9C1E7BB685EB7.sh
+[09:00:23]: ▸ [App] Write Auxiliary File Script-9592DBEFFC6D2A0C8D5DEB22.sh
+[09:00:23]: ▸ [App] Write Auxiliary File Script-6634F4EFEBD30273BCE97C65.sh
+[09:00:23]: ▸ [App] Write Auxiliary File App_const_extract_protocols.json
+[09:00:23]: ▸ [App] Write Auxiliary File App.SwiftFileList
+[09:00:23]: ▸ [App] Write Auxiliary File App.SwiftConstValuesFileList
+[09:00:23]: ▸ [App] Write Auxiliary File App.LinkFileList
+[09:00:23]: ▸ [App] Write Auxiliary File App-OutputFileMap.json
+[09:00:23]: ▸ [App] Write Auxiliary File Entitlements.plist
+[09:00:23]: ▸ [App] Write Auxiliary File App.hmap
+[09:00:23]: ▸ [App] Write Auxiliary File App.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [App] Write Auxiliary File App.DependencyMetadataFileList
+[09:00:23]: ▸ [App] Write Auxiliary File App-project-headers.hmap
+[09:00:23]: ▸ [App] Write Auxiliary File App-own-target-headers.hmap
+[09:00:23]: ▸ [App] Write Auxiliary File App-generated-files.hmap
+[09:00:23]: ▸ [App] Write Auxiliary File App-all-target-headers.hmap
+[09:00:23]: ▸ [App] Write Auxiliary File App-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources.hmap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources.DependencyMetadataFileList
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources-project-headers.hmap
+[09:00:23]: ▸ [Pods-App] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources-own-target-headers.hmap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources-generated-files.hmap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources-all-target-headers.hmap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Write Auxiliary File UserMessagingPlatformResources-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.DependencyMetadataFileList
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-project-headers.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-own-target-headers.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-generated-files.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-all-target-headers.hmap
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File unextended-module-overlay.yaml
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File module-swiftextension.modulemap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences_const_extract_protocols.json
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.SwiftFileList
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.SwiftConstValuesFileList
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.LinkFileList
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-OutputFileMap.json
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences_vers.c
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.DependencyMetadataFileList
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-project-headers.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-own-target-headers.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-generated-files.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-all-target-headers.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorPreferences] Copying CapacitorPreferences-umbrella.h
+[09:00:23]: ▸ [CapacitorPreferences] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File unextended-module-overlay.yaml
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File module-swiftextension.modulemap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications_const_extract_protocols.json
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.SwiftFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.SwiftConstValuesFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.LinkFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-OutputFileMap.json
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications_vers.c
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.DependencyMetadataFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-project-headers.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-own-target-headers.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-generated-files.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-all-target-headers.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorLocalNotifications] Copying CapacitorLocalNotifications-umbrella.h
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.LinkFileList
+[09:00:23]: ▸ [CapacitorLocalNotifications] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova_vers.c
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.hmap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.DependencyMetadataFileList
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-project-headers.hmap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-own-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-generated-files.hmap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-all-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCordova] Copying NSDictionary+CordovaPreferences.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CapacitorCordova.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVWebViewProcessPoolFactory.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVViewController.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVURLProtocol.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVScreenOrientationDelegate.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVPluginResult.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVPluginManager.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVPlugin.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVPlugin+Resources.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVInvokedUrlCommand.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVConfigParser.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVCommandDelegateImpl.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVCommandDelegate.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDVAvailability.h
+[09:00:23]: ▸ [CapacitorCordova] Copying CDV.h
+[09:00:23]: ▸ [CapacitorCordova] Copying AppDelegate.h
+[09:00:23]: ▸ [CapacitorCordova] Copy module.modulemap -> CapacitorCordova.modulemap
+[09:00:23]: ▸ [CapacitorCordova] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File unextended-module-overlay.yaml
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File module-swiftextension.modulemap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob_const_extract_protocols.json
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.SwiftFileList
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.SwiftConstValuesFileList
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.LinkFileList
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-OutputFileMap.json
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob_vers.c
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.DependencyMetadataFileList
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-project-headers.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-own-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-generated-files.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-all-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Copying CapacitorCommunityAdmob-umbrella.h
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[09:00:23]: ▸ [CapacitorCommunityAdmob] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File unextended-module-overlay.yaml
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File module-swiftextension.modulemap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp_const_extract_protocols.json
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.SwiftFileList
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.SwiftConstValuesFileList
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.LinkFileList
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-OutputFileMap.json
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp_vers.c
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.hmap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.DependencyMetadataFileList
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-project-headers.hmap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-own-target-headers.hmap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-generated-files.hmap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-all-target-headers.hmap
+[09:00:23]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [CapacitorApp] Copying CapacitorApp-umbrella.h
+[09:00:23]: ▸ [CapacitorApp] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Processing ResourceBundle-UserMessagingPlatformResources-GoogleUserMessagingPlatform-Info.plist
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Copying PrivacyInfo.xcprivacy
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Processing ResourceBundle-GoogleMobileAdsResources-Google-Mobile-Ads-SDK-Info.plist
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Copying PrivacyInfo.xcprivacy
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File unextended-module-overlay.yaml
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File module-swiftextension.modulemap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor_const_extract_protocols.json
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.SwiftFileList
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.SwiftConstValuesFileList
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.LinkFileList
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-OutputFileMap.json
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor_vers.c
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.hmap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.DependencyStaticMetadataFileList
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor.DependencyMetadataFileList
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-project-headers.hmap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-generated-files.hmap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-own-target-headers.hmap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-all-target-headers.hmap
+[09:00:23]: ▸ [Capacitor] Write Auxiliary File Capacitor-all-non-framework-target-headers.hmap
+[09:00:23]: ▸ [Capacitor] Copying Capacitor.h
+[09:00:23]: ▸ [Capacitor] Copying CAPPluginMethod.h
+[09:00:23]: ▸ [Capacitor] Copying CAPPluginCall.h
+[09:00:23]: ▸ [Capacitor] Copying CAPPlugin.h
+[09:00:23]: ▸ [Capacitor] Copying CAPInstanceDescriptor.h
+[09:00:23]: ▸ [Capacitor] Copying CAPInstanceConfiguration.h
+[09:00:23]: ▸ [Capacitor] Copying CAPBridgedPlugin.h
+[09:00:23]: ▸ [Capacitor] Copying CAPBridgedJSTypes.h
+[09:00:23]: ▸ [Capacitor] Copying CAPBridgeViewController+CDVScreenOrientationDelegate.h
+[09:00:23]: ▸ [Capacitor] Copy module.modulemap -> module.modulemap
+[09:00:23]: ▸ [CapacitorCordova] Processing CapacitorCordova-Info.plist
+[09:00:23]: ▸ [CapacitorCordova] Copying PrivacyInfo.xcprivacy
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] RegisterExecutionPolicyException UserMessagingPlatformResources.bundle
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] RegisterExecutionPolicyException GoogleMobileAdsResources.bundle
+[09:00:23]: ▸ [GoogleUserMessagingPlatform-UserMessagingPlatformResources] Touching UserMessagingPlatformResources.bundle
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Touching GoogleMobileAdsResources.bundle
+[09:00:23]: ▸ [GoogleUserMessagingPlatform] Running script [CP] Copy XCFrameworks
+[09:00:23]: ▸ [Google-Mobile-Ads-SDK] Running script [CP] Copy XCFrameworks
+[09:00:27]: ▸ [CapacitorCordova] Compiling Cordova_vers.c
+[09:00:33]: ▸ [CapacitorCordova] Compiling NSDictionary+CordovaPreferences.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CapacitorCordova-dummy.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CDVViewController.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CDVURLProtocol.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CDVPluginResult.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CDVInvokedUrlCommand.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling CDVConfigParser.m
+[09:00:33]: ▸ [CapacitorCordova] Compiling AppDelegate.m
+[09:00:34]: ▸ [CapacitorCordova] Compiling CDVWebViewProcessPoolFactory.m
+[09:00:34]: ▸ [CapacitorCordova] Compiling CDVPluginManager.m
+[09:00:34]: ▸ [CapacitorCordova] Compiling CDVPlugin.m
+[09:00:35]: ▸ [CapacitorCordova] Compiling CDVPlugin+Resources.m
+[09:00:35]: ▸ [CapacitorCordova] Compiling CDVCommandDelegateImpl.m
+[09:00:35]: ▸ [CapacitorCordova] Linking Cordova
+[09:00:35]: ▸ [CapacitorCordova] Generating Cordova.framework.dSYM
+[09:00:37]: ▸ Signing Cordova.framework (in target 'CapacitorCordova' from project 'Pods')
+[09:00:37]: ▸ [CapacitorCordova] RegisterExecutionPolicyException Cordova.framework
+[09:00:37]: ▸ [CapacitorCordova] Touching Cordova.framework
+[09:00:37]: ▸ [Capacitor] Processing Capacitor-Info.plist
+[09:00:37]: ▸ [Capacitor] Copying native-bridge.js
+[09:00:37]: ▸ [Capacitor] Copying PrivacyInfo.xcprivacy
+[09:00:37]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVWebViewProcessPoolFactory.h:23:31: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[09:00:37]: ▸ 21 | 
+[09:00:37]: ▸ 22 | @interface CDVWebViewProcessPoolFactory : NSObject
+[09:00:37]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVWebViewProcessPoolFactory.h:26:3: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[09:00:37]: ▸ 24 | 
+[09:00:37]: ▸ 25 | +(instancetype) sharedFactory;
+[09:00:52]: ▸ [Capacitor] Copy arm64-apple-ios.swiftdoc -> Capacitor.swiftdoc
+[09:00:52]: ▸ [Capacitor] Copy arm64-apple-ios.abi.json -> Capacitor.abi.json
+[09:00:52]: ▸ [Capacitor] Copy arm64-apple-ios.swiftmodule -> Capacitor.swiftmodule
+[09:00:53]: ▸ [Capacitor] Compiling Capacitor_vers.c
+[09:00:53]: ▸ [Capacitor] Compiling Capacitor-dummy.m
+[09:00:54]: ▸ [Capacitor] Compiling DefaultPlugins.m
+[09:00:54]: ▸ [Capacitor] Compiling CAPPluginCall.m
+[09:00:56]: ▸ [Capacitor] Compiling WKWebView+Capacitor.m
+[09:00:56]: ▸ [Capacitor] Compiling UIStatusBarManager+CAPHandleTapAction.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPPluginMethod.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPPlugin.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPInstanceDescriptor.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPInstanceConfiguration.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPBridgedJSTypes.m
+[09:00:56]: ▸ [Capacitor] Compiling CAPBridgeViewController+CDVScreenOrientationDelegate.m
+[09:00:56]: ▸ [Capacitor] Linking Capacitor
+[09:00:58]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift:35:30: 'kGADAdSizeSmartBannerPortrait' is deprecated: Use GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth.
+[09:00:58]: ▸                 bannerSize = kGADAdSizeSmartBannerPortrait
+[09:00:58]: ▸                              ^
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:75:50: 'UMPConsentStatus' has been renamed to 'ConsentStatus'
+[09:00:58]: ▸     func getConsentStatusString(_ consentStatus: UMPConsentStatus) -> String {
+[09:00:58]: ▸                                                  ^~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:10:26: 'UMPRequestParameters' has been renamed to 'RequestParameters'
+[09:00:58]: ▸         let parameters = UMPRequestParameters()
+[09:00:58]: ▸                          ^~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:11:29: 'UMPDebugSettings' has been renamed to 'DebugSettings'
+[09:00:58]: ▸         let debugSettings = UMPDebugSettings()
+[09:00:58]: ▸                             ^~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:13:35: 'UMPDebugGeography' has been renamed to 'DebugGeography'
+[09:00:58]: ▸         debugSettings.geography = UMPDebugGeography(rawValue: debugGeography) ?? UMPDebugGeography.disabled
+[09:00:58]: ▸                                   ^~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:13:82: 'UMPDebugGeography' has been renamed to 'DebugGeography'
+[09:00:58]: ▸         debugSettings.geography = UMPDebugGeography(rawValue: debugGeography) ?? UMPDebugGeography.disabled
+[09:00:58]: ▸                                                                                  ^~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:17:20: 'tagForUnderAgeOfConsent' has been renamed to 'isTaggedForUnderAgeOfConsent'
+[09:00:58]: ▸         parameters.tagForUnderAgeOfConsent = tagForUnderAgeOfConsent
+[09:00:58]: ▸                    ^~~~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:20:9: 'UMPConsentInformation' has been renamed to 'ConsentInformation'
+[09:00:58]: ▸         UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
+[09:00:58]: ▸         ^~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:20:31: 'sharedInstance' has been renamed to 'shared'
+[09:00:58]: ▸         UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
+[09:00:58]: ▸                               ^~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:27:63: 'UMPConsentInformation' has been renamed to 'ConsentInformation'
+[09:00:58]: ▸                         "status": self.getConsentStatusString(UMPConsentInformation.sharedInstance.consentStatus),
+[09:00:58]: ▸                                                               ^~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:27:85: 'sharedInstance' has been renamed to 'shared'
+[09:00:58]: ▸                         "status": self.getConsentStatusString(UMPConsentInformation.sharedInstance.consentStatus),
+[09:00:58]: ▸                                                                                     ^~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:28:51: 'UMPConsentInformation' has been renamed to 'ConsentInformation'
+[09:00:58]: ▸                         "isConsentFormAvailable": UMPConsentInformation.sharedInstance.formStatus == UMPFormStatus.available
+[09:00:58]: ▸                                                   ^~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:28:73: 'sharedInstance' has been renamed to 'shared'
+[09:00:58]: ▸                         "isConsentFormAvailable": UMPConsentInformation.sharedInstance.formStatus == UMPFormStatus.available
+[09:00:58]: ▸                                                                         ^~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:28:102: 'UMPFormStatus' has been renamed to 'FormStatus'
+[09:00:58]: ▸                         "isConsentFormAvailable": UMPConsentInformation.sharedInstance.formStatus == UMPFormStatus.available
+[09:00:58]: ▸                                                                                                      ^~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:36:30: 'UMPConsentInformation' has been renamed to 'ConsentInformation'
+[09:00:58]: ▸             let formStatus = UMPConsentInformation.sharedInstance.formStatus
+[09:00:58]: ▸                              ^~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:36:52: 'sharedInstance' has been renamed to 'shared'
+[09:00:58]: ▸             let formStatus = UMPConsentInformation.sharedInstance.formStatus
+[09:00:58]: ▸                                                    ^~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:38:30: 'UMPFormStatus' has been renamed to 'FormStatus'
+[09:00:58]: ▸             if formStatus == UMPFormStatus.available {
+[09:00:58]: ▸                              ^~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:39:36: incorrect argument label in call (have 'completionHandler:', expected 'with:')
+[09:00:58]: ▸                 UMPConsentForm.load(completionHandler: {form, loadError in
+[09:00:58]: ▸                                    ^~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:71:9: 'UMPConsentInformation' has been renamed to 'ConsentInformation'
+[09:00:58]: ▸         UMPConsentInformation.sharedInstance.reset()
+[09:00:58]: ▸         ^~~~~~~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:71:31: 'sharedInstance' has been renamed to 'shared'
+[09:00:58]: ▸         UMPConsentInformation.sharedInstance.reset()
+[09:00:58]: ▸                               ^~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:77:14: 'UMPConsentStatus' has been renamed to 'ConsentStatus'
+[09:00:58]: ▸         case UMPConsentStatus.required:
+[09:00:58]: ▸              ^~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:79:14: 'UMPConsentStatus' has been renamed to 'ConsentStatus'
+[09:00:58]: ▸         case UMPConsentStatus.notRequired:
+[09:00:58]: ▸              ^~~~~~~~~~~~~~~~
+[09:00:58]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift:81:14: 'UMPConsentStatus' has been renamed to 'ConsentStatus'
+[09:00:58]: ▸         case UMPConsentStatus.obtained:
+[09:00:58]: ▸              ^~~~~~~~~~~~~~~~
+[09:00:58]: ▸ [Capacitor] Generating Capacitor.framework.dSYM
+[09:00:58]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleUserMessagingPlatform' from project 'Pods')
+[09:00:58]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Google-Mobile-Ads-SDK' from project 'Pods')
+[09:00:58]: ▸ ⚠️ Run script build phase '[CP] Copy Pods Resources' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[09:00:58]: ▸ ⚠️ Run script build phase '[CP] Embed Pods Frameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[09:00:58]: ▸ ** ARCHIVE FAILED **
+[09:00:58]: ▸ The following build commands failed:
+[09:00:58]: ▸ 	SwiftCompile normal arm64 Compiling\ AdInterstitialExecutor.swift,\ AdMobPlugin.swift,\ AdRewardExecutor.swift,\ AdRewardInterstitialExecutor.swift,\ AuthorizationStatusEnum.swift,\ BannerAdPluginEvents.swift,\ BannerAdSizeEnum.swift,\ BannerExecutor.swift,\ ConsentExecutor.swift,\ FullScreenAdEventName.swift,\ InterstitialAdPluginEvents.swift,\ RewardAdPluginEvents.swift,\ RewardInterstitialAdPluginEvents.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Interstitial/AdInterstitialExecutor.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/AdMobPlugin.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Rewarded/AdRewardExecutor.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/RewardedInterstitial/AdRewardInterstitialExecutor.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Helper/AuthorizationStatusEnum.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerAdPluginEvents.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerAdSizeEnum.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Consent/ConsentExecutor.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Models/FullScreenAdEventName.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Interstitial/InterstitialAdPluginEvents.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Rewarded/RewardAdPluginEvents.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/RewardedInterstitial/RewardInterstitialAdPluginEvents.swift /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DeveloperToolsSupport.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ObjectiveC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Observation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Accessibility.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation3.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/OSLog.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Builtin_float.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation2.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DataDetection.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UIKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Foundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/FileProvider.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/QuartzCore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Concurrency.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreTransferable.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/os.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Swift.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Combine.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUICore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/System.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Dispatch.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Distributed.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Symbols.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UniformTypeIdentifiers.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/WebKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Metal.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/XPC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreImage.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation1.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreVideo.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Darwin.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Network.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreGraphics.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_StringProcessing.swiftmodule/arm64e-apple-ios.swiftmodule /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/BuildProductsPath/Release-iphoneos/Capacitor/Capacitor.framework/Modules/Capacitor.swiftmodule/arm64-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreText.swiftmodule/arm64e-apple-ios.swiftmodule /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/sys_types-28NPL32I5TQTUWPHGVFW1KJRI.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation2-1DMJYZYASTO8TSUCRTOEW8196.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-8BUCULSICTCDE4PK4EV1O4SIK.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreImage-9PAUUI87YF08OJGSRHNKLJBLQ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-B5DSXB64NPTW9BYE2LMFCMUC4.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stddef-2D22EPQ4B6LW0XYISH8T8UG0X.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Dispatch-3SJTO9L6I0RMCSYGCUV5O94AF.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreServices-7J8DU2IIXCE3O4XQG399NWKMY.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-92ZKD9EP92QYZ8KAT83H0GABW.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-54SJABMPU8ZG5E8W2UISPAKT6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-DNTY296QJEEAZZWQRKLEKPXPG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreTransferable-8YCLCNW0DUZDN17AGT0D4HTQG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OpenGLES-6AJO0B4L12BPM99X6TX606ZS0.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdbool-AQL50XEVBBHFFGOOHF66F6GPJ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation3-EWI6957L0W0PBU6563W4GIB1X.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MachO-CON9CHE2L9TTMV0HSQJCZHWFG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_float-791R4QT20731YC113FX9X5LUP.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/IOSurface-2FUMUOE3FPDHU9D5VY1Y4IM7S.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Symbols-92A21X9TM3BYO0SUCN5KX66MI.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-3WUJRTUURGYQ3G3E9G9IVWQKM.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_limits-CD73Q14S6OWO8M9YDIYKMY47Z.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/UserMessagingPlatform-9DSPF56H0T8UAABA4G8Q030XZ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/FileProvider-BMTGHWQOCRQ31ZUBJAW44ZRQM.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Metal-6X4KDJ7BTNHGQU5WDDPJMJAUG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Network-26XORU760WVCHGPR94C9249XM.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ImageIO-9D8BRM7NUZDFD3EA1H00M0G2D.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/GoogleMobileAds-BA43H8GHMS6S26BJOXZQRRPNZ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreFoundation-9WR81D7Z5LTJSN3CI7X6NAV0.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CFNetwork-2XX16XPTP00SZNYZTGP9615A4.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/Capacitor-XURF3JQKPXW5KLPT7AGFGEA.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreGraphics-A7DL16J4QZ366JQQFU5UYZ4AG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIUtilities-BM431EUK2VQ8OFG4ZD1BDODQ7.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/CapacitorCommunityAdmob-BY9Z2F1Z2OHWUNZDRPKV3TR35.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/QuartzCore-EN2D8MVNYI90B7C5A9IJJ53NF.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/AppTrackingTransparency-T9QNDX05SL6RVZSZN2JIEW01.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUICore-A0RFEX1V8WT0QQST8R1XQJKNE.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/XPC-7TC2W1LVCQX9X606ZUNPNK6UM.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-1VELJJR2DTNVDIMQIDNC4OLXB.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OSLog-3R5Q51Y97EA37QMNFDXPCNJCC.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/WebKit-DHJXA7XRGSYTHZ4U5DTZ2ICW0.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-2BYVWOSM9P7G6W74SDH6Y8IB6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DataDetection-1PO1KRVW5EE37QB7QMMGLA4J5.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_inttypes-2544LQFYI8YZ8UBL4SD2RYRG1.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/Cordova-6R75ZAZ34I3UPEXH4QZ9AYTJU.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os-AUT43ZLZS8PDCNKWJU2521VXD.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-8K7YAI5S995QS7GOSS35K5WY2.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreVideo-2GYSZ98V1VK8EOAQV9T5KBBMD.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation1-1I673OS17FDUP1ZLQHVKPOZ7T.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-41NQDTTNV4MNZF77NFPJPOJ5I.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_object-7BORI0NUJIONUWH8HKAH1L5N.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CommonCrypto-BACUND1U1NCT136QS81X37DFE.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MobileCoreServices-D3I0RS5607UTS35R0TXR9017K.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrcheck-BQ1O8VURNYQQD20GF2KVT7G8P.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UserNotifications-CNWAGVTRM8GDTD2IBE2040BB0.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_workgroup-56OFSMJF6LMDG5XMHPFG0T8GO.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdarg-1KMCVOL0612SWDA14H6NCHV8F.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_AvailabilityInternal-9W7BNN9JZK5OIQSFM784CEY9Z.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrauth-299SPAM6JH0Q3JG0CPJ9NPXQH.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreText-12R8BGBPS57AFHQ97UNUMEX7E.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/dnssd-EQDB0BML2V246CAXGPXV7M97R.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Accessibility-2EO80PO6LL14K23N1DIUY488M.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdint-BANXOI9ZOR36DFMY3SGEMFG5Z.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/CapacitorCommunityAdmob.build/Objects-normal/arm64/CapacitorCommunityAdmob-dependencies-1.json (in target 'CapacitorCommunityAdmob' from project 'Pods')
+[09:00:58]: ▸ 	CompileSwift normal arm64 (in target 'CapacitorCommunityAdmob' from project 'Pods')
+[09:00:58]: ▸ 	Archiving workspace App with scheme App
+[09:00:58]: ▸ (3 failures)
+[09:00:58]: Exit status: 65
+
++-----------------------------------------+
+|            Build environment            |
++---------------+-------------------------+
+| xcode_path    | /Applications/Xcode.app |
+| gym_version   | 2.230.0                 |
+| export_method | app-store               |
+| sdk           | iPhoneOS26.2.sdk        |
++---------------+-------------------------+
+
+[09:00:58]: ▸ warning: Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleUserMessagingPlatform' from project 'Pods')
+[09:00:58]: ▸ warning: Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Google-Mobile-Ads-SDK' from project 'Pods')
+[09:00:58]: ▸ warning: Run script build phase '[CP] Copy Pods Resources' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[09:00:58]: ▸ warning: Run script build phase '[CP] Embed Pods Frameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[09:00:58]: 
+[09:00:58]: ⬆️  Check out the few lines of raw `xcodebuild` output above for potential hints on how to solve this error
+[09:00:58]: 📋  For the complete and more detailed error log, check the full log at:
+[09:00:58]: 📋  /Users/ionic-cloud-team/Library/Logs/gym/App-App.log
+[09:00:58]: 
+[09:00:58]: Looks like fastlane ran into a build/archive error with your project
+[09:00:58]: It's hard to tell what's causing the error, so we wrote some guides on how
+[09:00:58]: to troubleshoot build and signing issues: https://docs.fastlane.tools/codesigning/getting-started/
+[09:00:58]: Before submitting an issue on GitHub, please follow the guide above and make
+[09:00:58]: sure your project is set up correctly.
+[09:00:58]: fastlane uses `xcodebuild` commands to generate your binary, you can see the
+[09:00:58]: the full commands printed out in yellow in the above log.
+[09:00:58]: Make sure to inspect the output above, as usually you'll find more error information there
+[09:00:58]: 
+[09:00:58]: -------------------------
+[09:00:58]: --- Step: upload_logs ---
+[09:00:58]: -------------------------
+[09:01:12]: --------------------------------------
+[09:01:12]: --- Step: sentry_capture_exception ---
+[09:01:12]: --------------------------------------
+[09:01:15]: ---------------------------
+[09:01:15]: --- Step: shell command ---
+[09:01:15]: ---------------------------
+[09:01:15]: Error building the application - see the log above
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                       Lane Context                                                                        |
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| DEFAULT_PLATFORM                    | ios                                                                                                                 |
+| PLATFORM_NAME                       | ios                                                                                                                 |
+| LANE_NAME                           | ios build_capacitor                                                                                                 |
+| KEYCHAIN_PATH                       | ~/Library/Keychains/IonicKeychain                                                                                   |
+| DOWNLOAD_CERTS_PROVISION_FILE_UUID  | d28926c9-5eae-467e-9aef-1165802f9ea5                                                                                |
+| DOWNLOAD_CERTS_CODESIGNING_IDENTITY | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)                                                            |
+| DOWNLOAD_CERTS_TEAM_ID              | 3YAP8Q5QWD                                                                                                          |
+| DOWNLOAD_CERTS_CERT_PATH            | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/cert_file.p12                                            |
+| SIGH_PROFILE_PATHS                  | ["/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/d28926c9-5eae-467e-9aef-1165802f9ea5.mobileprovision"] |
+| IONIC_CLI_VERSION                   | 7.2.1                                                                                                               |
+| NODE_PACKAGE_MANAGER                | npm                                                                                                                 |
+| CAP_IOS_PATH                        | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios                                                      |
+| PROJECT_WEB_DIR                     | dist                                                                                                                |
+| XCODE_PROJECT_NAME                  | App                                                                                                                 |
+| XCODE_PROJECT_PATH                  | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj                                    |
+| XCODE_WORKSPACE_PATH                | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace                                  |
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+[09:01:15]: Error building the application - see the log above
+
++---------------------------------------------------+
+|                 fastlane summary                  |
++------+------------------------------+-------------+
+| Step | Action                       | Time (in s) |
++------+------------------------------+-------------+
+| 1    | add_extra_platforms          | 0           |
+| 2    | default_platform             | 0           |
+| 3    | prepare_environment          | 0           |
+| 4    | sentry_init                  | 0           |
+| 5    | begin_building               | 0           |
+| 6    | build_summary                | 2           |
+| 7    | create_keychain              | 0           |
+| 8    | get_ios_credentials_from_api | 0           |
+| 9    | set_ios_credentials          | 0           |
+| 10   | import_certificate           | 0           |
+| 11   | set_ionic_cli                | 1           |
+| 12   | detect_package_manager       | 0           |
+| 13   | add_git_credentials          | 0           |
+| 14   | get_appflow_config           | 0           |
+| 15   | dependency_install           | 12          |
+| 16   | create_capacitor_config      | 0           |
+| 17   | get_web_dir                  | 0           |
+| 18   | modify_cap_web_config        | 0           |
+| 19   | build_pro_app                | 4           |
+| 20   | get_xcode_project_paths      | 0           |
+| 21   | modify_ios_config            | 0           |
+| 22   | install_cocoapods            | 0           |
+| 23   | cap_sync                     | 8           |
+| 24   | cap_custom_deploy            | 0           |
+| 25   | update_code_signing_settings | 0           |
+| 26   | update_provisioning_profiles | 0           |
+| 💥   | build_ios_app                | 53          |
+| 28   | upload_logs                  | 14          |
+| 29   | sentry_capture_exception     | 2           |
+| 30   | shell command                | 0           |
++------+------------------------------+-------------+
+
+[09:01:15]: fastlane finished with errors
+
+[!] Error building the application - see the log above
+Running after_script
+Running after script...
+$ clean-up
+Cleaning up project directory and file based variables
+Terminating VM: build_stack_2026.01_arm64-1770627535653898000 (bb79bbab-3f94-4ea8-a330-79419b943e5c) | Controller Instance ID: 8ced95b7-9807-4e8b-5ee7-67ace4910726 | Host: 10.2.176.191
+ERROR: Job failed: Process exited with status 1
