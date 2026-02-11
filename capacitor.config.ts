@@ -11,6 +11,9 @@ const config: CapacitorConfig = {
     App: {
       disableBackButtonHandler: false,
     },
+    PushNotifications: {
+      presentationOptions: ["badge", "sound", "alert"],
+    },
   },
 };
 

@@ -19,6 +19,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { BackButtonHandler } from "./components/BackButtonHandler";
 import { initializeAdMob, showBanner } from "./lib/admob";
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { PushNotifications } from '@capacitor/push-notifications';
+// import { BackgroundFetch } from '@transistorsoft/capacitor-background-fetch';
 import { getAggregatedLiveMatches } from './lib/liveTvAggregator';
 
 const queryClient = new QueryClient();
@@ -43,6 +45,7 @@ const App = () => {
     // Initialize Notifications
     const initNotifications = async () => {
       try {
+        // Local Notifications Permissions
         const perm = await LocalNotifications.checkPermissions();
         if (perm.display === 'prompt') {
           await LocalNotifications.requestPermissions();
@@ -80,10 +83,77 @@ const App = () => {
       }
     };
 
-    // Check immediately and then every minute
+    // Check immediately
     checkLiveMatches();
-    const interval = setInterval(checkLiveMatches, 60000);
-    return () => clearInterval(interval);
+
+    // Initialize Push Notifications
+    const initPushNotifications = async () => {
+      // Request permission to use push notifications
+      // iOS will prompt a user for permission out of the box
+      // Android will just return 'granted'
+      let permStatus = await PushNotifications.checkPermissions();
+
+      if (permStatus.receive === 'prompt') {
+        permStatus = await PushNotifications.requestPermissions();
+      }
+
+      if (permStatus.receive !== 'granted') {
+        throw new Error('User denied permissions!');
+      }
+
+      // On success, we should be able to receive notifications
+      await PushNotifications.register();
+
+      // On success, we should be able to receive notifications
+      PushNotifications.addListener('registration', (token) => {
+        console.log('Push registration success, token: ' + token.value);
+        // Here you would typically send the token to your server
+      });
+
+      // Some issue with our setup and push will not work
+      PushNotifications.addListener('registrationError', (error) => {
+        console.error('Error on registration: ' + JSON.stringify(error));
+      });
+
+      // Show us the notification payload if the app is open on our device
+      PushNotifications.addListener('pushNotificationReceived', (notification) => {
+        console.log('Push received: ' + JSON.stringify(notification));
+      });
+
+      // Method called when tapping on a notification
+      PushNotifications.addListener('pushNotificationActionPerformed', (notification) => {
+        console.log('Push action performed: ' + JSON.stringify(notification));
+      });
+    };
+
+    initPushNotifications();
+
+    /*
+    // Initialize Background Fetch
+    const initBackgroundFetch = async () => {
+      try {
+        const status = await BackgroundFetch.configure({
+          minimumFetchInterval: 15,
+          stopOnTerminate: false,
+          startOnBoot: true,
+          enableHeadless: true,
+          requiredNetworkType: BackgroundFetch.NETWORK_TYPE_ANY
+        }, async (taskId) => {
+          console.log('[BackgroundFetch] Event received:', taskId);
+          await checkLiveMatches();
+          BackgroundFetch.finish(taskId);
+        }, async (taskId) => {
+          console.log('[BackgroundFetch] TIMEOUT:', taskId);
+          BackgroundFetch.finish(taskId);
+        });
+        console.log('[BackgroundFetch] configure status:', status);
+      } catch (e) {
+        console.error('[BackgroundFetch] configure failed:', e);
+      }
+    };
+
+    initBackgroundFetch();
+    */
 
   }, []);
 

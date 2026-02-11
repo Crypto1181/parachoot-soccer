@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "768450598705",
+    "project_id": "parachoot-soccer",
+    "storage_bucket": "parachoot-soccer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768450598705:android:60e925107a50656cf34210",
+        "android_client_info": {
+          "package_name": "com.parachoot.soccer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOrYbTfnHeBTfmmn-QcuQ1mUedrHwBUZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
