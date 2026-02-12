@@ -4,6 +4,9 @@ const config: CapacitorConfig = {
   appId: 'com.parachoot.soccer',
   appName: 'Parachoot Soccer',
   webDir: 'dist',
+  ios: {
+    buildNumber: '10'
+  },
   server: {
     androidScheme: 'https'
   },
