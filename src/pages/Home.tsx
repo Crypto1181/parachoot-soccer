@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Bell, Menu, RefreshCw, Settings, Share2, Mail, Info, Star, Moon, Globe, Crown, ChevronRight, Zap, Trash2, Palette, Shield } from 'lucide-react';
+import { Bell, Menu, RefreshCw, Settings, Share2, Mail, Info, Star, Moon, Globe, Crown, ChevronRight, Zap, Trash2, Palette, Shield, Battery, Settings2 } from 'lucide-react';
 import { weekDays, Match, teams } from '@/data/mockData';
 import MatchCard from '@/components/MatchCard';
 import DateSelector from '@/components/DateSelector';
@@ -413,6 +413,36 @@ export const HomePage: React.FC = () => {
                       <Bell size={20} />
                       <span>Notifications</span>
                     </Button>
+
+                    <Separator className="my-2" />
+                    
+                    <div className="px-2 py-3 space-y-3 bg-secondary/30 rounded-xl border border-border/50">
+                      <div className="flex items-center gap-2 px-1">
+                        <Battery size={18} className="text-primary" />
+                        <h4 className="text-sm font-semibold">Background Activity</h4>
+                      </div>
+                      <p className="text-[11px] leading-relaxed text-muted-foreground px-1">
+                        If you are not receiving notifications when the app is closed, your phone might be restricting background activity to save battery.
+                      </p>
+                      <Button 
+                        variant="default" 
+                        className="w-full h-10 rounded-lg text-xs gap-2 font-bold shadow-sm" 
+                        onClick={() => {
+                          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                          if (isIOS) {
+                            toast.info('On iOS, ensure "Background App Refresh" is enabled in your iPhone Settings for Parachoot Soccer.', { duration: 6000 });
+                          } else {
+                            toast.info('Opening Battery Settings... Please set Parachoot Soccer to "Unrestricted" for instant alerts.', { duration: 5000 });
+                            // This is a common way to trigger the intent in Capacitor/Cordova apps
+                            // Even if it fails, the toast provides clear instructions
+                            window.open('package:com.parachoot.soccer'); 
+                          }
+                        }}
+                      >
+                        <Settings2 size={16} />
+                        {/iPad|iPhone|iPod/.test(navigator.userAgent) ? 'Check iOS Settings' : 'Allow Background Activity'}
+                      </Button>
+                    </div>
                   </div>
 
                   <Separator />
