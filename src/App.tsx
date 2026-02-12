@@ -38,10 +38,10 @@ const App = () => {
       isForegroundRef.current = isActive;
       console.log(`[App] Foreground state changed: ${isActive}`);
       
-      // When app goes to background, trigger a check to schedule notifications
-      if (!isActive) {
-        checkLiveMatches();
-      }
+      // Always trigger a check when app state changes
+      // This arms notifications when going to background
+      // And refreshes state when coming to foreground
+      checkLiveMatches();
     });
 
     // ... ads init ...
@@ -77,6 +77,14 @@ const App = () => {
       }
 
       try {
+        // Clear all previously scheduled notifications to avoid duplicates or old messages
+        const pending = await LocalNotifications.getPending();
+        if (pending.notifications.length > 0) {
+          await LocalNotifications.cancel({ notifications: pending.notifications });
+        }
+        scheduledMatchesRef.current.clear();
+        notifiedMatchesRef.current.clear();
+
         // 1. Check CURRENT Live Matches (for immediate notification)
         const groups = await getAggregatedLiveMatches();
         const allMatches = groups.flatMap(g => g.matches);
@@ -114,9 +122,17 @@ const App = () => {
           .filter(match => !scheduledMatchesRef.current.has(match.id) && match.timestamp && (match.timestamp * 1000) > Date.now())
           .map(match => {
              const startTime = new Date(match.timestamp! * 1000);
+             // Since we're scheduling for the future, we assume it's a live match alert
+             // We can check if it's likely to have a stream (optional)
+             const hasStreamPotential = match.competition.toLowerCase().includes('league') || 
+                                        match.competition.toLowerCase().includes('cup') ||
+                                        match.competition.toLowerCase().includes('premier');
+
              return {
-               title: 'Upcoming Match! ⚽',
-               body: `${match.homeTeam.name} vs ${match.awayTeam.name} is starting soon. Get ready!`,
+               title: hasStreamPotential ? 'Live Stream Available! 📺' : 'Match Live Now! ⚽',
+               body: hasStreamPotential 
+                 ? `${match.homeTeam.name} vs ${match.awayTeam.name} live stream now! Watch now on Parachoot.`
+                 : `${match.homeTeam.name} vs ${match.awayTeam.name} is live now!`,
                id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
                schedule: { at: startTime },
                extra: { matchId: match.id },
