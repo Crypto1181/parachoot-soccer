@@ -131,6 +131,37 @@ export const HomePage: React.FC = () => {
     { id: 'recent', label: 'Recent' },
   ] as const;
 
+  // Determine visible tabs based on date
+  const getVisibleTabs = () => {
+    const selectedDateObj = weekDaysList.find(d => d.day === selectedDay)?.date;
+    if (!selectedDateObj) return tabs;
+
+    const todayStart = new Date(today);
+    todayStart.setHours(0, 0, 0, 0);
+    const selectedStart = new Date(selectedDateObj);
+    selectedStart.setHours(0, 0, 0, 0);
+
+    if (selectedStart < todayStart) {
+      // Past date: Only show "Finished Matches" (renamed from Recent)
+      return [{ id: 'recent', label: 'Finished Matches' }] as const;
+    } else if (selectedStart > todayStart) {
+      // Future date: Only show "Upcoming"
+      return [{ id: 'upcoming', label: 'Upcoming' }] as const;
+    } else {
+      // Today: Show all 3
+      return tabs;
+    }
+  };
+
+  const visibleTabs = getVisibleTabs();
+
+  // Update active tab if it's not in the visible list
+  useEffect(() => {
+    if (!visibleTabs.find(t => t.id === activeTab)) {
+      setActiveTab(visibleTabs[0].id);
+    }
+  }, [visibleTabs, activeTab]);
+
   // Update selected date when day changes or weekDaysList updates
   useEffect(() => {
     if (weekDaysList.length > 0) {
@@ -455,7 +486,7 @@ export const HomePage: React.FC = () => {
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {tabs.map((tab) => (
+          {visibleTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}

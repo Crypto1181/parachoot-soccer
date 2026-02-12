@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { App as CapApp } from '@capacitor/app';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,19 +23,31 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { PushNotifications } from '@capacitor/push-notifications';
 // import { BackgroundFetch } from '@transistorsoft/capacitor-background-fetch';
 import { getAggregatedLiveMatches } from './lib/liveTvAggregator';
+import { flashscoreApi } from './lib/flashscoreApi';
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const notifiedMatchesRef = useRef<Set<string>>(new Set());
+  const scheduledMatchesRef = useRef<Set<string>>(new Set());
+  const isForegroundRef = useRef<boolean>(true);
 
   useEffect(() => {
+    // Track App State
+    CapApp.addListener('appStateChange', ({ isActive }) => {
+      isForegroundRef.current = isActive;
+      console.log(`[App] Foreground state changed: ${isActive}`);
+      
+      // When app goes to background, trigger a check to schedule notifications
+      if (!isActive) {
+        checkLiveMatches();
+      }
+    });
+
+    // ... ads init ...
     const initAds = async () => {
       try {
         await initializeAdMob();
-        // Show banner after initialization
-        // We might want to delay this or only show on certain pages, 
-        // but for now, let's show it globally.
         await showBanner();
       } catch (error) {
         console.error("AdMob initialization failed", error);
@@ -45,7 +58,6 @@ const App = () => {
     // Initialize Notifications
     const initNotifications = async () => {
       try {
-        // Local Notifications Permissions
         const perm = await LocalNotifications.checkPermissions();
         if (perm.display === 'prompt') {
           await LocalNotifications.requestPermissions();
@@ -58,33 +70,72 @@ const App = () => {
 
     // Background Match Checker
     const checkLiveMatches = async () => {
+      // ONLY run if app is NOT in foreground (background or closed)
+      if (isForegroundRef.current) {
+        console.log('[App] App is in foreground, skipping notification scheduling.');
+        return;
+      }
+
       try {
+        // 1. Check CURRENT Live Matches (for immediate notification)
         const groups = await getAggregatedLiveMatches();
         const allMatches = groups.flatMap(g => g.matches);
         
         const newNotifications = allMatches
           .filter(match => !notifiedMatchesRef.current.has(match.id))
-          .map(match => ({
-             title: 'Match Live Now!',
-             body: `${match.homeTeam.name} vs ${match.awayTeam.name} is live! Watch now.`,
-             id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
-             schedule: { at: new Date(Date.now() + 1000) },
-             extra: { matchId: match.id },
-             actionTypeId: '',
-          }));
+          .map(match => {
+             const hasStream = match.streamUrl || (match.streamSources && match.streamSources.length > 0);
+             const title = hasStream ? 'Live Stream Available! 📺' : 'Match Live Now! ⚽';
+             const body = hasStream 
+               ? `${match.homeTeam.name} vs ${match.awayTeam.name} is live with stream! Watch now on Parachoot.`
+               : `${match.homeTeam.name} vs ${match.awayTeam.name} is live now!`;
+               
+             return {
+                title,
+                body,
+                id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
+                schedule: { at: new Date(Date.now() + 1000) },
+                extra: { matchId: match.id },
+                actionTypeId: '',
+             };
+          });
           
         if (newNotifications.length > 0) {
            await LocalNotifications.schedule({ notifications: newNotifications });
            newNotifications.forEach(n => notifiedMatchesRef.current.add(n.extra?.matchId));
-           console.log(`[App] 🔔 Scheduled ${newNotifications.length} notifications`);
+           console.log(`[App] 🔔 Scheduled ${newNotifications.length} immediate notifications`);
+        }
+
+        // 2. Check UPCOMING Matches (to schedule in advance for background)
+        const upcoming = await flashscoreApi.getMatchesForDate('today', 'upcoming');
+        const upcomingMatches = upcoming.flatMap(g => g.matches);
+        
+        const upcomingNotifications = upcomingMatches
+          .filter(match => !scheduledMatchesRef.current.has(match.id) && match.timestamp && (match.timestamp * 1000) > Date.now())
+          .map(match => {
+             const startTime = new Date(match.timestamp! * 1000);
+             return {
+               title: 'Upcoming Match! ⚽',
+               body: `${match.homeTeam.name} vs ${match.awayTeam.name} is starting soon. Get ready!`,
+               id: parseInt(match.id.replace(/\D/g, '').substring(0, 9)) || Math.floor(Math.random() * 1000000),
+               schedule: { at: startTime },
+               extra: { matchId: match.id },
+               actionTypeId: '',
+             };
+          });
+
+        if (upcomingNotifications.length > 0) {
+           await LocalNotifications.schedule({ notifications: upcomingNotifications });
+           upcomingNotifications.forEach(n => scheduledMatchesRef.current.add(n.extra?.matchId));
+           console.log(`[App] 📅 Pre-scheduled ${upcomingNotifications.length} notifications for upcoming matches today`);
         }
       } catch (e) {
-        console.error('Error checking live matches:', e);
+        console.error('Error checking matches:', e);
       }
     };
 
-    // Check immediately
-    checkLiveMatches();
+    // Do NOT check immediately on load (wait for background state)
+    // checkLiveMatches();
 
     // Initialize Push Notifications
     const initPushNotifications = async () => {

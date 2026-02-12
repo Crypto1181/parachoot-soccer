@@ -28,6 +28,7 @@ export interface Match {
   group?: string;
   venue?: string;
   startTime?: string;
+  timestamp?: number;
   streamUrl?: string;
   streamSources?: StreamSource[]; // Multiple streaming sources from WeStream
 }

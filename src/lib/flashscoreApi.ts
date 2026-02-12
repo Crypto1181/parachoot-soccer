@@ -237,6 +237,7 @@ const transformMatch = (
     minute: derivedMinute,
     competition,
     startTime,
+    timestamp: fsMatch.timestamp,
     streamUrl: undefined,
   };
 };
