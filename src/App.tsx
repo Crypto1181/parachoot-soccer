@@ -21,7 +21,7 @@ import { BackButtonHandler } from "./components/BackButtonHandler";
 import { initializeAdMob, showBanner } from "./lib/admob";
 import { LocalNotifications } from '@capacitor/local-notifications';
 // import { PushNotifications } from '@capacitor/push-notifications';
-import { BackgroundFetch } from '@transistorsoft/capacitor-background-fetch';
+// import { BackgroundFetch } from '@transistorsoft/capacitor-background-fetch';
 import { getAggregatedLiveMatches } from './lib/liveTvAggregator';
 import { flashscoreApi } from './lib/flashscoreApi';
 
@@ -80,39 +80,9 @@ const App: React.FC = () => {
           console.error("AdMob initialization failed", error);
         }
 
-        // 5. Initialize Background Fetch
-        await initBackgroundFetch();
-
       } catch (e) {
         console.error('Error during initialization:', e);
         isStateLoadedRef.current = true; // Set to true anyway to allow operation
-      }
-    };
-
-    const initBackgroundFetch = async () => {
-      try {
-        const status = await BackgroundFetch.configure({
-          minimumFetchInterval: 15,     // <-- minutes (15 is minimum for iOS/Android)
-          stopOnTerminate: false,       // <-- Continue after app is killed
-          enableHeadless: true,         // <-- Android headless support
-          startOnBoot: true,            // <-- Start on device boot
-          requiredNetworkType: BackgroundFetch.NETWORK_TYPE_ANY
-        }, async (taskId) => {
-          console.log('[BackgroundFetch] Event received:', taskId);
-          
-          // Perform match check
-          await checkLiveMatches();
-          
-          // MUST signal completion
-          BackgroundFetch.finish(taskId);
-        }, (taskId) => {
-          console.warn('[BackgroundFetch] Timeout:', taskId);
-          BackgroundFetch.finish(taskId);
-        });
-
-        console.log('[BackgroundFetch] Configured status:', status);
-      } catch (e) {
-        console.error('[BackgroundFetch] Error configuring:', e);
       }
     };
 

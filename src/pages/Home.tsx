@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Bell, Menu, RefreshCw, Settings, Share2, Mail, Info, Star, Moon, Globe, Crown, ChevronRight, Zap, Trash2, Palette, Shield, Battery, Settings2 } from 'lucide-react';
 import { weekDays, Match, teams } from '@/data/mockData';
+import { App } from '@capacitor/app';
 import MatchCard from '@/components/MatchCard';
 import DateSelector from '@/components/DateSelector';
 import LeagueSection from '@/components/LeagueSection';
@@ -427,15 +428,19 @@ export const HomePage: React.FC = () => {
                       <Button 
                         variant="default" 
                         className="w-full h-10 rounded-lg text-xs gap-2 font-bold shadow-sm" 
-                        onClick={() => {
+                        onClick={async () => {
                           const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
                           if (isIOS) {
-                            toast.info('On iOS, ensure "Background App Refresh" is enabled in your iPhone Settings for Parachoot Soccer.', { duration: 6000 });
+                            toast.info('Opening settings... Please ensure "Background App Refresh" is enabled for Parachoot Soccer.', { duration: 6000 });
                           } else {
-                            toast.info('Opening Battery Settings... Please set Parachoot Soccer to "Unrestricted" for instant alerts.', { duration: 5000 });
-                            // This is a common way to trigger the intent in Capacitor/Cordova apps
-                            // Even if it fails, the toast provides clear instructions
-                            window.open('package:com.parachoot.soccer'); 
+                            toast.info('Opening settings... Please tap "Battery" then set to "Unrestricted" for instant alerts.', { duration: 7000 });
+                          }
+                          try {
+                            await App.openAppSettings();
+                          } catch (error) {
+                            console.error('Error opening app settings:', error);
+                            // Fallback if App plugin fails
+                            if (!isIOS) window.open('package:com.parachoot.soccer');
                           }
                         }}
                       >
