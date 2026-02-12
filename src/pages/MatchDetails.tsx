@@ -194,7 +194,7 @@ export const MatchDetailsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-screen bg-background pb-20 overflow-x-hidden selection:bg-transparent touch-pan-y">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-b border-border/50 safe-area-top">
         <div className="flex items-center gap-2 sm:gap-4 pt-3 pb-3 sm:pt-4 sm:pb-4 pl-[calc(0.75rem+env(safe-area-inset-left))] pr-[calc(0.75rem+env(safe-area-inset-right))] sm:pl-[calc(1rem+env(safe-area-inset-left))] sm:pr-[calc(1rem+env(safe-area-inset-right))]">
@@ -749,27 +749,31 @@ export const MatchDetailsPage: React.FC = () => {
             ) : (
                <div className="space-y-3">
                  {h2h.map((match) => (
-                   <div key={match.match_id} className="bg-card rounded-xl p-4 border border-border/30 flex items-center justify-between">
-                     <div className="flex flex-col gap-1 text-xs text-muted-foreground">
-                        <span>{new Date(match.timestamp * 1000).toLocaleDateString()}</span>
-                        <span>{match.tournament.name}</span>
+                   <div key={match.match_id} className="bg-card rounded-xl p-3 sm:p-4 border border-border/30 flex items-center gap-2">
+                     <div className="flex flex-col gap-0.5 text-[10px] sm:text-xs text-muted-foreground w-16 sm:w-20 shrink-0">
+                        <span className="font-medium">{new Date(match.timestamp * 1000).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
+                        <span className="truncate opacity-70">{match.tournament.name}</span>
                      </div>
-                     <div className="flex items-center gap-4 flex-1 justify-center">
-                        <div className="flex items-center gap-2 w-1/3 justify-end">
-                           <span className="text-sm font-medium text-right truncate">{match.homeTeam.name}</span>
-                           <img src={match.homeTeam.logo} alt={match.homeTeam.name} className="w-6 h-6 object-contain" />
+                     
+                     <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 justify-center">
+                        <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-end min-w-0">
+                           <span className="text-xs sm:text-sm font-medium text-right truncate">{match.homeTeam.name}</span>
+                           <img src={match.homeTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
                         </div>
-                        <div className="font-bold text-lg bg-secondary/30 px-2 py-1 rounded">
+                        
+                        <div className="font-bold text-sm sm:text-lg bg-secondary/30 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded tabular-nums shrink-0 min-w-[3.5rem] text-center">
                            {match.score.home} - {match.score.away}
                         </div>
-                        <div className="flex items-center gap-2 w-1/3 justify-start">
-                           <img src={match.awayTeam.logo} alt={match.awayTeam.name} className="w-6 h-6 object-contain" />
-                           <span className="text-sm font-medium text-left truncate">{match.awayTeam.name}</span>
+                        
+                        <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-start min-w-0">
+                           <img src={match.awayTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
+                           <span className="text-xs sm:text-sm font-medium text-left truncate">{match.awayTeam.name}</span>
                         </div>
                      </div>
-                     <div className="w-6 flex justify-center">
+                     
+                     <div className="w-6 shrink-0 flex justify-center">
                         <span className={cn(
-                          "text-xs font-bold px-1.5 py-0.5 rounded",
+                          "text-[10px] font-bold px-1.5 py-0.5 rounded",
                           match.status === 'W' ? "bg-green-500/10 text-green-500" :
                           match.status === 'L' ? "bg-red-500/10 text-red-500" :
                           "bg-yellow-500/10 text-yellow-500"
