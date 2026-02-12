@@ -20,7 +20,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { BackButtonHandler } from "./components/BackButtonHandler";
 import { initializeAdMob, showBanner } from "./lib/admob";
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { PushNotifications } from '@capacitor/push-notifications';
+// import { PushNotifications } from '@capacitor/push-notifications';
 // import { BackgroundFetch } from '@transistorsoft/capacitor-background-fetch';
 import { getAggregatedLiveMatches } from './lib/liveTvAggregator';
 import { flashscoreApi } from './lib/flashscoreApi';
@@ -80,26 +80,9 @@ const App: React.FC = () => {
           console.error("AdMob initialization failed", error);
         }
 
-        // 5. Initialize Push
-        await initPushNotifications();
-
       } catch (e) {
         console.error('Error during initialization:', e);
         isStateLoadedRef.current = true; // Set to true anyway to allow operation
-      }
-    };
-
-    const initPushNotifications = async () => {
-      try {
-        let permStatus = await PushNotifications.checkPermissions();
-        if (permStatus.receive === 'prompt') {
-          permStatus = await PushNotifications.requestPermissions();
-        }
-        if (permStatus.receive === 'granted') {
-          await PushNotifications.register();
-        }
-      } catch (e) {
-        console.warn('Push registration failed, might be on emulator:', e);
       }
     };
 
@@ -111,9 +94,10 @@ const App: React.FC = () => {
       console.log(`[App] Foreground state changed: ${isActive}`);
       
       if (!isActive) {
+        // Run check immediately when app goes to background
         checkLiveMatches();
       } else {
-        // Clear pending when coming back to foreground
+        // Clear system tray when coming back to foreground
         LocalNotifications.getPending().then(pending => {
           if (pending.notifications.length > 0) {
             LocalNotifications.cancel({ notifications: pending.notifications });
@@ -122,12 +106,12 @@ const App: React.FC = () => {
       }
     });
 
-    // Periodic check (every 1 minute)
+    // Periodic check (every 30 seconds)
     const interval = setInterval(() => {
       if (!isForegroundRef.current) {
         checkLiveMatches();
       }
-    }, 60000);
+    }, 30000);
 
     return () => {
       appStateListener.remove();
