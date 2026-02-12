@@ -409,7 +409,7 @@ export const HomePage: React.FC = () => {
                       </div>
                     </Button>
 
-                    <Button variant="ghost" className="w-full justify-start gap-3 h-12 rounded-xl" onClick={() => toast.info('Notifications settings coming soon')}>
+                    <Button variant="ghost" className="w-full justify-start gap-3 h-12 rounded-xl" onClick={() => toast.info('Manage match notifications from the Live TV page')}>
                       <Bell size={20} />
                       <span>Notifications</span>
                     </Button>

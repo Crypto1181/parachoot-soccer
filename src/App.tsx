@@ -122,12 +122,12 @@ const App: React.FC = () => {
       }
     });
 
-    // Periodic check (every 5 minutes)
+    // Periodic check (every 1 minute)
     const interval = setInterval(() => {
       if (!isForegroundRef.current) {
         checkLiveMatches();
       }
-    }, 300000);
+    }, 60000);
 
     return () => {
       appStateListener.remove();
@@ -161,13 +161,13 @@ const App: React.FC = () => {
           // Only notify if:
           // 1. Not notified before
           // 2. Is currently live
-          // 3. Match started recently (within last 10 mins) OR we have a timestamp and it's not super old
-          // This prevents notifying "old" live matches when app restarts
+          // 3. Match started recently (within last 120 mins)
           if (notifiedMatchesRef.current.has(matchId)) return false;
           if (!isLive) return false;
 
-          // If we have a timestamp, check if it's too old (e.g. started > 2 hours ago)
-          if (match.timestamp && (match.timestamp * 1000) < (now - 120 * 60 * 1000)) {
+          // If we have a timestamp, check if it's too old (started > 2 hours ago)
+          const matchTime = match.timestamp ? match.timestamp * 1000 : now;
+          if (matchTime < (now - 120 * 60 * 1000)) {
             return false; 
           }
 
