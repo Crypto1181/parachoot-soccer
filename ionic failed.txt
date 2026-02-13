@@ -1,0 +1,1238 @@
+08:44:33]: -----------------------------
+[08:44:33]: --- Step: create_keychain ---
+[08:44:33]: -----------------------------
+[08:44:33]: $ security list-keychains -d user
+[08:44:33]: ▸ "/Users/ionic-cloud-team/Library/Keychains/login.keychain-db"
+[08:44:33]: ------------------------------------------
+[08:44:33]: --- Step: get_ios_credentials_from_api ---
+[08:44:33]: ------------------------------------------
+[08:44:33]: Fetching certificate and profile(s) from Ionic Appflow
+[08:44:34]: ---------------------------------
+[08:44:34]: --- Step: set_ios_credentials ---
+[08:44:34]: ---------------------------------
+[08:44:34]: Installing provisioning profile...
+[08:44:34]: /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/d28926c9-5eae-467e-9aef-1165802f9ea5.mobileprovision
+
++------------------------------------------------------------------------------+
+|                            Installed Certificate                             |
++-------------------+----------------------------------------------------------+
+| User ID           | 3YAP8Q5QWD                                               |
+| Common Name       | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD) |
+| Organization Unit | 3YAP8Q5QWD                                               |
+| Organization      | CLINTON CHIGAEMEZU EZE                                   |
+| Country           | US                                                       |
++-------------------+----------------------------------------------------------+
+
+[08:44:34]: --------------------------------
+[08:44:34]: --- Step: import_certificate ---
+[08:44:34]: --------------------------------
+[08:44:35]: Setting key partition list... (this can take a minute if there are a lot of keys installed)
+[08:44:35]: ---------------------------
+[08:44:35]: --- Step: set_ionic_cli ---
+[08:44:35]: ---------------------------
+[08:44:36]: Preinstalled @ionic/cli compatible with project `react`
+[08:44:36]: ------------------------------------
+[08:44:36]: --- Step: detect_package_manager ---
+[08:44:36]: ------------------------------------
+[08:44:36]: Detecting package manager
+[08:44:36]: Defaulting to npm
+[08:44:36]: ---------------------------------
+[08:44:36]: --- Step: add_git_credentials ---
+[08:44:36]: ---------------------------------
+[08:44:36]: Writing git-credentials files
+[08:44:36]: git-credentials successfully added to project
+[08:44:36]: --------------------------------
+[08:44:36]: --- Step: get_appflow_config ---
+[08:44:36]: --------------------------------
+[08:44:36]: Checking for appflow.config.json
+[08:44:36]: Appflow config not detected
+[08:44:36]: --------------------------------
+[08:44:36]: --- Step: dependency_install ---
+[08:44:36]: --------------------------------
+[08:44:36]: Installing Dependencies (in /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer)
+[08:44:36]: $ npm ci --quiet 
+[08:44:37]: ▸ npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[08:44:37]: ▸ npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[08:44:37]: ▸ npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+[08:44:37]: ▸ npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+[08:44:37]: ▸ npm warn deprecated
+[08:44:37]: ▸ npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+[08:44:38]: ▸ npm warn deprecated @xmldom/xmldom@0.7.13: this version is no longer supported, please update to at least 0.8.*
+[08:44:38]: ▸ npm warn deprecated @xmldom/xmldom@0.7.13: this version is no longer supported, please update to at least 0.8.*
+[08:44:39]: ▸ npm warn deprecated glob@9.3.5: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+[08:44:46]: ▸ added 820 packages, and audited 821 packages in 10s
+[08:44:46]: ▸ 122 packages are looking for funding
+[08:44:46]: ▸ run `npm fund` for details
+[08:44:46]: ▸ 8 vulnerabilities (4 moderate, 4 high)
+[08:44:46]: ▸ To address issues that do not require attention, run:
+[08:44:46]: ▸ npm audit fix
+[08:44:46]: ▸ Some issues need review, and may require choosing
+[08:44:46]: ▸ a different dependency.
+[08:44:46]: ▸ Run `npm audit` for details.
+[08:44:46]: -------------------------------------
+[08:44:46]: --- Step: create_capacitor_config ---
+[08:44:46]: -------------------------------------
+[08:44:46]: Created capacitor.config.json from capacitor.config.ts/js
+[08:44:46]: -------------------------
+[08:44:46]: --- Step: get_web_dir ---
+[08:44:46]: -------------------------
+[08:44:46]: webDir is `dist`
+[08:44:46]: -----------------------------------
+[08:44:46]: --- Step: modify_cap_web_config ---
+[08:44:46]: -----------------------------------
+[08:44:46]: No custom native config detected.
+[08:44:46]: ---------------------------
+[08:44:46]: --- Step: build_pro_app ---
+[08:44:46]: ---------------------------
+[08:44:46]: Building app from /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer
+[08:44:46]: Build script detected...
+[08:44:46]: $ npm run build
+[08:44:47]: ▸ > vite_react_shadcn_ts@1.2.6 build
+[08:44:47]: ▸ > vite build
+[08:44:47]: ▸ vite v5.4.19 building for production...
+[08:44:47]: ▸ transforming...
+[08:44:47]: ▸ Browserslist: browsers data (caniuse-lite) is 8 months old. Please run:
+[08:44:47]: ▸ npx update-browserslist-db@latest
+[08:44:47]: ▸ Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[08:44:49]: ▸ ✓ 1831 modules transformed.
+[08:44:49]: ▸ rendering chunks...
+[08:44:49]: ▸ computing gzip size...
+[08:44:49]: ▸ dist/index.html                   1.52 kB │ gzip:   0.63 kB
+[08:44:49]: ▸ dist/assets/index-C9rGV0KE.css   72.83 kB │ gzip:  12.84 kB
+[08:44:49]: ▸ dist/assets/web-CEDxqA2Y.js       0.67 kB │ gzip:   0.33 kB
+[08:44:49]: ▸ dist/assets/web-BZz-4Rhr.js       1.25 kB │ gzip:   0.59 kB
+[08:44:49]: ▸ dist/assets/web-DzIde-Yx.js       1.26 kB │ gzip:   0.43 kB
+[08:44:49]: ▸ dist/assets/web-BLzyc80D.js       3.44 kB │ gzip:   1.09 kB
+[08:44:49]: ▸ dist/assets/index-3rfFbWWA.js   671.29 kB │ gzip: 195.78 kB
+[08:44:49]: ▸ 
+[08:44:49]: ▸ (!) Some chunks are larger than 500 kB after minification. Consider:
+[08:44:49]: ▸ - Using dynamic import() to code-split the application
+[08:44:49]: ▸ - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[08:44:49]: ▸ - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[08:44:49]: ▸ ✓ built in 2.17s
+[08:44:49]: $ ionic info
+[08:44:50]: ▸ [WARN] Error loading @ionic/react package.json: Error: Cannot find module '@ionic/react/package.json'
+[08:44:50]: ▸ Require stack:
+[08:44:50]: ▸ - /Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/lib/node_modules/@ionic/cli/lib/project/index.js
+[08:44:50]: ▸ - /Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/lib/node_modules/@ionic/cli/lib/index.js
+[08:44:50]: ▸ - /Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/lib/node_modules/@ionic/cli/index.js
+[08:44:50]: ▸ - /Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/lib/node_modules/@ionic/cli/bin/ionic
+[08:44:50]: ▸ Ionic:
+[08:44:50]: ▸ Ionic CLI       : 7.2.1 (/Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/lib/node_modules/@ionic/cli)
+[08:44:50]: ▸ Ionic Framework : not installed
+[08:44:50]: ▸ Capacitor:
+[08:44:50]: ▸ Capacitor CLI      : 6.2.1
+[08:44:50]: ▸ @capacitor/android : 6.2.1
+[08:44:50]: ▸ @capacitor/core    : 6.2.1
+[08:44:50]: ▸ @capacitor/ios     : 6.2.1
+[08:44:50]: ▸ Utility:
+[08:44:50]: ▸ cordova-res : 0.15.4
+[08:44:50]: ▸ native-run  : 2.0.1
+[08:44:50]: ▸ System:
+[08:44:50]: ▸ NodeJS : v22.22.0 (/Users/ionic-cloud-team/.nvm/versions/node/v22.22.0/bin/node)
+[08:44:50]: ▸ npm    : 10.9.4
+[08:44:50]: ▸ OS     : macOS Unknown
+[08:44:50]: Generating app manifest...
+[08:44:51]: -------------------------------------
+[08:44:51]: --- Step: get_xcode_project_paths ---
+[08:44:51]: -------------------------------------
+[08:44:51]: -------------------------------
+[08:44:51]: --- Step: modify_ios_config ---
+[08:44:51]: -------------------------------
+[08:44:51]: No custom native config detected.
+[08:44:51]: -------------------------------
+[08:44:51]: --- Step: install_cocoapods ---
+[08:44:51]: -------------------------------
+[08:44:51]: ----------------------
+[08:44:51]: --- Step: cap_sync ---
+[08:44:51]: ----------------------
+[08:44:51]: $ npx cap sync ios
+[08:44:52]: ▸ ✔ Copying web assets from dist to ios/App/App/public in 7.38ms
+[08:44:52]: ▸ ✔ Creating capacitor.config.json in ios/App/App in 361.83μs
+[08:44:52]: ▸ ✔ copy ios in 42.01ms
+[08:44:52]: ▸ ✔ Updating iOS plugins in 7.54ms
+[08:45:36]: ▸ ✔ Updating iOS native dependencies with pod install in 43.79s
+[08:45:36]: ▸ [info] Found 5 Capacitor plugins for ios:
+[08:45:36]: ▸ @capacitor-community/admob@6.2.0
+[08:45:36]: ▸ @capacitor/app@6.0.3
+[08:45:36]: ▸ @capacitor/local-notifications@6.1.3
+[08:45:36]: ▸ @capacitor/preferences@6.0.4
+[08:45:36]: ▸ @capacitor/push-notifications@6.0.0
+[08:45:36]: ▸ ✔ update ios in 43.85s
+[08:45:36]: ▸ [info] Sync finished in 44.157s
+[08:45:36]: -------------------------------
+[08:45:36]: --- Step: cap_custom_deploy ---
+[08:45:36]: -------------------------------
+[08:45:36]: No custom native config detected.
+[08:45:36]: ------------------------------------------
+[08:45:36]: --- Step: update_code_signing_settings ---
+[08:45:36]: ------------------------------------------
+
++----------------------------------------------------------------------------------------------------------+
+|                                    Summary for code signing settings                                     |
++-----------------------+----------------------------------------------------------------------------------+
+| path                  | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj |
+| use_automatic_signing | false                                                                            |
+| team_id               | 3YAP8Q5QWD                                                                       |
+| code_sign_identity    | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)                         |
++-----------------------+----------------------------------------------------------------------------------+
+
+[08:45:36]: Updating the Automatic Codesigning flag to disabled for the given project '/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj/project.pbxproj'
+[08:45:36]: Set Team id to: 3YAP8Q5QWD for target: App for build configuration: Debug
+[08:45:36]: Set Code Sign identity to: iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD) for target: App for build configuration: Debug
+[08:45:36]: Set Team id to: 3YAP8Q5QWD for target: App for build configuration: Release
+[08:45:36]: Set Code Sign identity to: iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD) for target: App for build configuration: Release
+[08:45:36]: Successfully updated project settings to use Code Sign Style = 'Manual'
+[08:45:36]: Modified Targets:
+[08:45:36]: 	 * App
+[08:45:36]: Modified Build Configurations:
+[08:45:36]: 	 * Debug
+[08:45:36]: 	 * Release
+[08:45:36]: ------------------------------------------
+[08:45:36]: --- Step: update_provisioning_profiles ---
+[08:45:36]: ------------------------------------------
+[08:45:36]: You’re updating provisioning profiles directly in your project, but have you considered easier ways to do code signing?
+[08:45:36]: https://docs.fastlane.tools/codesigning/GettingStarted/
+[08:45:36]: Downloading root certificate from (https://www.apple.com/appleca/AppleIncRootCertificate.cer) to path '/tmp/AppleIncRootCertificate.cer'
+[08:45:36]: Parsing mobile provisioning profile from '/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/d28926c9-5eae-467e-9aef-1165802f9ea5.mobileprovision'
+[08:45:36]: Going to update project '/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj' with UUID
+[08:45:36]: Updating target App...
+[08:45:36]: Updating configuration Debug...
+[08:45:36]: Updating configuration Release...
+[08:45:36]: Successfully updated project settings in '/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj'
+[08:45:36]: ---------------------------
+[08:45:36]: --- Step: build_ios_app ---
+[08:45:36]: ---------------------------
+[08:45:36]: Resolving Swift Package Manager dependencies...
+[08:45:36]: $ xcodebuild -resolvePackageDependencies -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App
+[08:45:36]: ▸ Command line invocation:
+[08:45:36]: ▸     /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -resolvePackageDependencies -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App
+[08:45:37]: ▸ 2026-02-13 08:45:37.376 xcodebuild[3030:10277] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+[08:45:37]: ▸ resolved source packages: 
+[08:45:37]: $ xcodebuild -showBuildSettings -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App 2>&1
+[08:45:38]: Detected provisioning profile mapping: {"com.parachoot.soccer": "Parachoot App Store"}
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                            Summary for gym 2.230.0                                                            |
++----------------------------------------------------------+------------------------------------------------------------------------------------+
+| workspace                                                | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace |
+| output_directory                                         | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer                         |
+| output_name                                              | 92c483e2-bc54-4d2d-8452-f382fc466691-app-store                                     |
+| archive_path                                             | 92c483e2-bc54-4d2d-8452-f382fc466691-app-store.xcarchive                           |
+| scheme                                                   | App                                                                                |
+| codesigning_identity                                     | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)                           |
+| export_team_id                                           | 3YAP8Q5QWD                                                                         |
+| catalyst_platform                                        | ios                                                                                |
+| export_options.provisioningProfiles.com.parachoot.soccer | Parachoot App Store                                                                |
+| clean                                                    | false                                                                              |
+| silent                                                   | false                                                                              |
+| skip_package_ipa                                         | false                                                                              |
+| export_method                                            | app-store                                                                          |
+| build_path                                               | /Users/ionic-cloud-team/Library/Developer/Xcode/Archives/2026-02-13                |
+| result_bundle                                            | false                                                                              |
+| buildlog_path                                            | ~/Library/Logs/gym                                                                 |
+| destination                                              | generic/platform=iOS                                                               |
+| xcodebuild_formatter                                     | xcbeautify                                                                         |
+| build_timing_summary                                     | false                                                                              |
+| skip_profile_detection                                   | false                                                                              |
+| xcodebuild_command                                       | xcodebuild                                                                         |
+| skip_package_dependencies_resolution                     | false                                                                              |
+| disable_package_automatic_updates                        | false                                                                              |
+| use_system_scm                                           | false                                                                              |
+| generate_appstore_info                                   | false                                                                              |
+| skip_package_pkg                                         | false                                                                              |
+| xcode_path                                               | /Applications/Xcode.app                                                            |
++----------------------------------------------------------+------------------------------------------------------------------------------------+
+
+[08:45:38]: $ set -o pipefail && xcodebuild -workspace /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace -scheme App -destination 'generic/platform=iOS' -archivePath 92c483e2-bc54-4d2d-8452-f382fc466691-app-store.xcarchive archive CODE_SIGN_IDENTITY=iPhone\ Distribution:\ CLINTON\ CHIGAEMEZU\ EZE\ \(3YAP8Q5QWD\) | tee /Users/ionic-cloud-team/Library/Logs/gym/App-App.log | xcbeautify
+[08:45:38]: ▸ ----- xcbeautify -----
+[08:45:38]: ▸ Version: 3.1.2
+[08:45:38]: ▸ ----------------------
+[08:45:39]: ▸ 2026-02-13 08:45:39.653 xcodebuild[3039:10356] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+[08:45:39]: ▸ note: Using codesigning identity override: iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)
+[08:45:40]: ▸ note: Building targets in dependency order
+[08:45:40]: ▸ note: Target dependency graph (32 targets)
+[08:45:46]: ▸ [GoogleAdsOnDeviceConversion] Write Auxiliary File Script-81307B1F1D6124D6A3A33842155D6328.sh
+[08:45:46]: ▸ [GoogleAppMeasurement] Write Auxiliary File Script-07CC41EB7A74F505F6218DF1F29DE19F.sh
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK] Write Auxiliary File Script-4209F7340963CC4E3AEE41F5D88F47B6.sh
+[08:45:46]: ▸ [GoogleUserMessagingPlatform] Write Auxiliary File Script-AAD8EF8E628E8E51629736A7F5AD8A0A.sh
+[08:45:46]: ▸ [FirebaseAnalytics] Write Auxiliary File Script-9D82E4A6D1985103FCEA6B1D99E140A4.sh
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App.DependencyMetadataFileList
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App-project-headers.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App-own-target-headers.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App-generated-files.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App-all-target-headers.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App.LinkFileList
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [Pods-App] Write Auxiliary File Pods_App_vers.c
+[08:45:46]: ▸ [Pods-App] Copy module.modulemap -> Pods-App.modulemap
+[08:45:46]: ▸ [Pods-App] Copying Pods-App-umbrella.h
+[08:45:46]: ▸ [GoogleUserMessagingPlatform] Running script [CP] Copy XCFrameworks
+[08:45:46]: ▸ [App] Write Auxiliary File Script-AA4A136891AE5C4BF2684DAC.sh
+[08:45:46]: ▸ [App] Write Auxiliary File Script-9592DBEFFC6D2A0C8D5DEB22.sh
+[08:45:46]: ▸ [Pods-App] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [App] Write Auxiliary File Script-6634F4EFEBD30273BCE97C65.sh
+[08:45:46]: ▸ [App] Write Auxiliary File App_const_extract_protocols.json
+[08:45:46]: ▸ [App] Write Auxiliary File App.SwiftFileList
+[08:45:46]: ▸ [App] Write Auxiliary File App.SwiftConstValuesFileList
+[08:45:46]: ▸ [App] Write Auxiliary File App.LinkFileList
+[08:45:46]: ▸ [App] Write Auxiliary File App-OutputFileMap.json
+[08:45:46]: ▸ [App] Write Auxiliary File Entitlements.plist
+[08:45:46]: ▸ [App] Write Auxiliary File App.hmap
+[08:45:46]: ▸ [App] Write Auxiliary File App.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [App] Write Auxiliary File App.DependencyMetadataFileList
+[08:45:46]: ▸ [App] Write Auxiliary File App-project-headers.hmap
+[08:45:46]: ▸ [App] Write Auxiliary File App-own-target-headers.hmap
+[08:45:46]: ▸ [App] Write Auxiliary File App-generated-files.hmap
+[08:45:46]: ▸ [App] Write Auxiliary File App-all-target-headers.hmap
+[08:45:46]: ▸ [App] Write Auxiliary File App-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy-project-headers.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy-generated-files.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Write Auxiliary File nanopb_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb.DependencyMetadataFileList
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb-project-headers.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb-own-target-headers.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb-generated-files.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb-all-target-headers.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb.LinkFileList
+[08:45:46]: ▸ [nanopb] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [nanopb] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [nanopb] Write Auxiliary File nanopb_vers.c
+[08:45:46]: ▸ [nanopb] Copying pb_encode.h
+[08:45:46]: ▸ [nanopb] Copying pb_decode.h
+[08:45:46]: ▸ [nanopb] Copying pb_common.h
+[08:45:46]: ▸ [nanopb] Copying pb.h
+[08:45:46]: ▸ [nanopb] Copying nanopb-umbrella.h
+[08:45:46]: ▸ [nanopb] Copy module.modulemap -> nanopb.modulemap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy.hmap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [nanopb] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy-project-headers.hmap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy-generated-files.hmap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Write Auxiliary File FBLPromises_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises.LinkFileList
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises.DependencyMetadataFileList
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises-project-headers.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises-own-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises-generated-files.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises-all-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [PromisesObjC] Write Auxiliary File FBLPromises_vers.c
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromisePrivate.h
+[08:45:46]: ▸ [PromisesObjC] Copying PromisesObjC-umbrella.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromises.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromiseError.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Wrap.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Validate.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Timeout.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Then.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Testing.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Retry.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Reduce.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Recover.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Race.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Do.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Catch.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Delay.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Await.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Async.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Any.h
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+Always.h
+[08:45:46]: ▸ [PromisesObjC] Copy module.modulemap -> PromisesObjC.modulemap
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromise+All.h
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy.hmap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [PromisesObjC] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy-project-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy-generated-files.hmap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Write Auxiliary File GoogleUtilities_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities.LinkFileList
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities.DependencyMetadataFileList
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities-project-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities-own-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities-generated-files.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities-all-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [GoogleUtilities] Write Auxiliary File GoogleUtilities_vers.c
+[08:45:46]: ▸ [GoogleUtilities] Copying GoogleUtilities-umbrella.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULUserDefaults.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULSwizzler.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULSceneDelegateSwizzler.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULReachabilityChecker.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULOriginalIMPConvenienceMacros.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetworkURLSession.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetworkMessageCode.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetworkLoggerProtocol.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetworkInfo.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetworkConstants.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNetwork.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULNSData+zlib.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULMutableDictionary.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULLoggerLevel.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULLogger.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULKeychainUtils.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULKeychainStorage.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULApplication.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULAppEnvironmentUtil.h
+[08:45:46]: ▸ [GoogleUtilities] Copying GULAppDelegateSwizzler.h
+[08:45:46]: ▸ [GoogleUtilities] Copy module.modulemap -> GoogleUtilities.modulemap
+[08:45:46]: ▸ [GoogleUtilities] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Processing ResourceBundle-nanopb_Privacy-nanopb-Info.plist
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Copying PrivacyInfo.xcprivacy
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Processing ResourceBundle-FBLPromises_Privacy-PromisesObjC-Info.plist
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Copying PrivacyInfo.xcprivacy
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] RegisterExecutionPolicyException nanopb_Privacy.bundle
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] RegisterExecutionPolicyException FBLPromises_Privacy.bundle
+[08:45:46]: ▸ [PromisesObjC-FBLPromises_Privacy] Touching FBLPromises_Privacy.bundle
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Processing ResourceBundle-GoogleUtilities_Privacy-GoogleUtilities-Info.plist
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Copying PrivacyInfo.xcprivacy
+[08:45:46]: ▸ [nanopb-nanopb_Privacy] Touching nanopb_Privacy.bundle
+[08:45:46]: ▸ [PromisesObjC] Processing PromisesObjC-Info.plist
+[08:45:46]: ▸ [PromisesObjC] Copying FBLPromises_Privacy.bundle
+[08:45:46]: ▸ [nanopb] Processing nanopb-Info.plist
+[08:45:46]: ▸ [nanopb] Copying nanopb_Privacy.bundle
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy.hmap
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy-project-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy-generated-files.hmap
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Write Auxiliary File GoogleDataTransport_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport.LinkFileList
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport.DependencyMetadataFileList
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport-project-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport-own-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport-generated-files.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport-all-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [GoogleDataTransport] Write Auxiliary File GoogleDataTransport_vers.c
+[08:45:46]: ▸ [GoogleDataTransport] Copying GoogleDataTransport.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GoogleDataTransport-umbrella.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCORTransport.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCORTargets.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCORProductData.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCOREventTransformer.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCOREventDataObject.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCOREvent.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCOREndpoints.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCORConsoleLogger.h
+[08:45:46]: ▸ [GoogleDataTransport] Copying GDTCORClock.h
+[08:45:46]: ▸ [GoogleDataTransport] Copy module.modulemap -> GoogleDataTransport.modulemap
+[08:45:46]: ▸ [GoogleDataTransport] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.hmap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources.DependencyMetadataFileList
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-project-headers.hmap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-own-target-headers.hmap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-generated-files.hmap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-all-target-headers.hmap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Write Auxiliary File GoogleMobileAdsResources-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy-project-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy-generated-files.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Write Auxiliary File FirebaseMessaging_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging.LinkFileList
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging-project-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging-generated-files.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseMessaging] Write Auxiliary File FirebaseMessaging_vers.c
+[08:45:46]: ▸ [FirebaseMessaging] Copying FirebaseMessaging.h
+[08:45:46]: ▸ [FirebaseMessaging] Copying FirebaseMessaging-umbrella.h
+[08:45:46]: ▸ [FirebaseMessaging] Copying FIRMessagingExtensionHelper.h
+[08:45:46]: ▸ [FirebaseMessaging] Copying FIRMessaging.h
+[08:45:46]: ▸ [FirebaseMessaging] Copying FIRMessaging+ExtensionHelper.h
+[08:45:46]: ▸ [FirebaseMessaging] Copy module.modulemap -> FirebaseMessaging.modulemap
+[08:45:46]: ▸ [FirebaseMessaging] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] RegisterExecutionPolicyException GoogleUtilities_Privacy.bundle
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy.hmap
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy-project-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy-generated-files.hmap
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Write Auxiliary File FirebaseInstallations_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations.LinkFileList
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations-project-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations-generated-files.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseInstallations] Write Auxiliary File FirebaseInstallations_vers.c
+[08:45:46]: ▸ [FirebaseInstallations] Copying FirebaseInstallations.h
+[08:45:46]: ▸ [FirebaseInstallations] Copying FirebaseInstallations-umbrella.h
+[08:45:46]: ▸ [FirebaseInstallations] Copying FIRInstallationsErrors.h
+[08:45:46]: ▸ [FirebaseInstallations] Copying FIRInstallationsAuthTokenResult.h
+[08:45:46]: ▸ [FirebaseInstallations] Copying FIRInstallations.h
+[08:45:46]: ▸ [FirebaseInstallations] Copy module.modulemap -> FirebaseInstallations.modulemap
+[08:45:46]: ▸ [FirebaseInstallations] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy-project-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy-generated-files.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Write Auxiliary File FirebaseCoreInternal_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal_const_extract_protocols.json
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.SwiftFileList
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.SwiftConstValuesFileList
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.LinkFileList
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-OutputFileMap.json
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-project-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-generated-files.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCoreInternal] Write Auxiliary File FirebaseCoreInternal_vers.c
+[08:45:46]: ▸ [FirebaseCoreInternal] Copying FirebaseCoreInternal-umbrella.h
+[08:45:46]: ▸ [FirebaseCoreInternal] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [GoogleUtilities-GoogleUtilities_Privacy] Touching GoogleUtilities_Privacy.bundle
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Processing ResourceBundle-GoogleMobileAdsResources-Google-Mobile-Ads-SDK-Info.plist
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Copying PrivacyInfo.xcprivacy
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy.hmap
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy-project-headers.hmap
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy-generated-files.hmap
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore-FirebaseCore_Privacy] Write Auxiliary File FirebaseCore_Privacy-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore.LinkFileList
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore.DependencyMetadataFileList
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore-project-headers.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore-own-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore-generated-files.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore-all-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [FirebaseCore] Write Auxiliary File FirebaseCore_vers.c
+[08:45:46]: ▸ [FirebaseCore] Copying FirebaseCore.h
+[08:45:46]: ▸ [FirebaseCore] Copying FirebaseCore-umbrella.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIRVersion.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIRTimestamp.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIROptions.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIRLoggerLevel.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIRConfiguration.h
+[08:45:46]: ▸ [FirebaseCore] Copying FIRApp.h
+[08:45:46]: ▸ [FirebaseCore] Copy module.modulemap -> FirebaseCore.modulemap
+[08:45:46]: ▸ [GoogleUtilities] Processing GoogleUtilities-Info.plist
+[08:45:46]: ▸ [GoogleUtilities] Copying GoogleUtilities_Privacy.bundle
+[08:45:46]: ▸ [FirebaseCore] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications_const_extract_protocols.json
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.SwiftFileList
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.SwiftConstValuesFileList
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.LinkFileList
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-OutputFileMap.json
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications_vers.c
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-project-headers.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-generated-files.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Write Auxiliary File CapacitorPushNotifications-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPushNotifications] Copying CapacitorPushNotifications-umbrella.h
+[08:45:46]: ▸ [CapacitorPushNotifications] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences_const_extract_protocols.json
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.SwiftFileList
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.SwiftConstValuesFileList
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.LinkFileList
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-OutputFileMap.json
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences_vers.c
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-project-headers.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-generated-files.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Write Auxiliary File CapacitorPreferences-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorPreferences] Copying CapacitorPreferences-umbrella.h
+[08:45:46]: ▸ [CapacitorPreferences] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications_const_extract_protocols.json
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.SwiftFileList
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.SwiftConstValuesFileList
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.LinkFileList
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-OutputFileMap.json
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications_vers.c
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-project-headers.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-generated-files.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Write Auxiliary File CapacitorLocalNotifications-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorLocalNotifications] Copying CapacitorLocalNotifications-umbrella.h
+[08:45:46]: ▸ [CapacitorLocalNotifications] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] RegisterExecutionPolicyException GoogleMobileAdsResources.bundle
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.LinkFileList
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova_vers.c
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.hmap
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-project-headers.hmap
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-generated-files.hmap
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCordova] Write Auxiliary File Cordova-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCordova] Copying NSDictionary+CordovaPreferences.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CapacitorCordova.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVWebViewProcessPoolFactory.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVViewController.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVURLProtocol.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVScreenOrientationDelegate.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVPluginResult.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVPluginManager.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVPlugin.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVPlugin+Resources.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVInvokedUrlCommand.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVConfigParser.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVCommandDelegateImpl.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVCommandDelegate.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDVAvailability.h
+[08:45:46]: ▸ [CapacitorCordova] Copying CDV.h
+[08:45:46]: ▸ [CapacitorCordova] Copying AppDelegate.h
+[08:45:46]: ▸ [CapacitorCordova] Copy module.modulemap -> CapacitorCordova.modulemap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [CapacitorCordova] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob_const_extract_protocols.json
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.SwiftFileList
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.SwiftConstValuesFileList
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.LinkFileList
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-OutputFileMap.json
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob_vers.c
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-project-headers.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-generated-files.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Write Auxiliary File CapacitorCommunityAdmob-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Copying CapacitorCommunityAdmob-umbrella.h
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [CapacitorCommunityAdmob] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp_const_extract_protocols.json
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.SwiftFileList
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.SwiftConstValuesFileList
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.LinkFileList
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-OutputFileMap.json
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp_vers.c
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.hmap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp.DependencyMetadataFileList
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-project-headers.hmap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-own-target-headers.hmap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-generated-files.hmap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-all-target-headers.hmap
+[08:45:46]: ▸ [CapacitorApp] Write Auxiliary File CapacitorApp-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [CapacitorApp] Copying CapacitorApp-umbrella.h
+[08:45:46]: ▸ [CapacitorApp] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK-GoogleMobileAdsResources] Touching GoogleMobileAdsResources.bundle
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File unextended-module-swiftunextension.modulemap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File unextended-module-overlay.yaml
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File module-swiftextension.modulemap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor_const_extract_protocols.json
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.SwiftFileList
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.SwiftConstValuesFileList
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.LinkFileList
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-OutputFileMap.json
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File 7187679823f38a2a940e0043cdf9d637-common-args.resp
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor_vers.c
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.hmap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.DependencyStaticMetadataFileList
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor.DependencyMetadataFileList
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-project-headers.hmap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-own-target-headers.hmap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-generated-files.hmap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-all-target-headers.hmap
+[08:45:46]: ▸ [Capacitor] Write Auxiliary File Capacitor-all-non-framework-target-headers.hmap
+[08:45:46]: ▸ [Capacitor] Copying Capacitor.h
+[08:45:46]: ▸ [Capacitor] Copying CAPPluginMethod.h
+[08:45:46]: ▸ [Capacitor] Copying CAPPluginCall.h
+[08:45:46]: ▸ [Capacitor] Copying CAPPlugin.h
+[08:45:46]: ▸ [Capacitor] Copying CAPInstanceDescriptor.h
+[08:45:46]: ▸ [Capacitor] Copying CAPInstanceConfiguration.h
+[08:45:46]: ▸ [Capacitor] Copying CAPBridgedPlugin.h
+[08:45:46]: ▸ [Capacitor] Copying CAPBridgedJSTypes.h
+[08:45:46]: ▸ [Capacitor] Copying CAPBridgeViewController+CDVScreenOrientationDelegate.h
+[08:45:46]: ▸ [Capacitor] Copy module.modulemap -> module.modulemap
+[08:45:46]: ▸ [CapacitorCordova] Processing CapacitorCordova-Info.plist
+[08:45:46]: ▸ [Google-Mobile-Ads-SDK] Running script [CP] Copy XCFrameworks
+[08:45:46]: ▸ [CapacitorCordova] Copying PrivacyInfo.xcprivacy
+[08:45:49]: ▸ [nanopb] Compiling nanopb_vers.c
+[08:45:49]: ▸ [nanopb] Compiling pb_encode.c
+[08:45:49]: ▸ [nanopb] Compiling pb_decode.c
+[08:45:49]: ▸ [nanopb] Compiling pb_common.c
+[08:45:49]: ▸ [GoogleDataTransport] Compiling external_privacy_context.nanopb.c
+[08:45:49]: ▸ [GoogleDataTransport] Compiling external_prequest_context.nanopb.c
+[08:45:49]: ▸ [PromisesObjC] Compiling FBLPromises_vers.c
+[08:45:50]: ▸ [GoogleUtilities] Compiling GoogleUtilities_vers.c
+[08:45:50]: ▸ [PromisesObjC] Compiling PromisesObjC-dummy.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromiseError.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Wrap.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Validate.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Timeout.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Then.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Testing.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Retry.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Reduce.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Recover.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Race.m
+[08:45:50]: ▸ [PromisesObjC] Compiling FBLPromise+Do.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Delay.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Catch.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Await.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Async.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Any.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+Always.m
+[08:45:51]: ▸ [PromisesObjC] Compiling FBLPromise+All.m
+[08:45:51]: ▸ [PromisesObjC] Linking FBLPromises
+[08:45:51]: ▸ [PromisesObjC] Generating FBLPromises.framework.dSYM
+[08:45:52]: ▸ [GoogleUtilities] Compiling IsAppEncrypted.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GoogleUtilities-dummy.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULUserDefaults.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULSwizzler.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULReachabilityChecker.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULNetworkURLSession.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULNetworkConstants.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULNetwork.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULNSData+zlib.m
+[08:45:54]: ▸ [GoogleUtilities] Compiling GULMutableDictionary.m
+[08:45:56]: ▸ [nanopb] Compiling nanopb-dummy.m
+[08:45:56]: ▸ [nanopb] Linking nanopb
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULLogger.m
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULNetworkInfo.m
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULKeychainUtils.m
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULKeychainStorage.m
+[08:45:56]: ▸ [nanopb] Generating nanopb.framework.dSYM
+[08:45:56]: ▸ [GoogleDataTransport] Compiling compliance.nanopb.c
+[08:45:56]: ▸ [GoogleDataTransport] Compiling client_metrics.nanopb.c
+[08:45:56]: ▸ [GoogleDataTransport] Compiling GoogleDataTransport_vers.c
+[08:45:56]: ▸ [GoogleDataTransport] Compiling cct.nanopb.c
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULSceneDelegateSwizzler.m
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULAppEnvironmentUtil.m
+[08:45:56]: ▸ [GoogleUtilities] Compiling GULAppDelegateSwizzler.m
+[08:45:59]: ▸ [GoogleUtilities] Linking GoogleUtilities
+[08:45:59]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVWebViewProcessPoolFactory.h:23:31: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[08:45:59]: ▸ 21 | 
+[08:45:59]: ▸ 22 | @interface CDVWebViewProcessPoolFactory : NSObject
+[08:45:59]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Classes/Public/CDVWebViewProcessPoolFactory.h:26:3: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[08:45:59]: ▸ 24 | 
+[08:45:59]: ▸ 25 | +(instancetype) sharedFactory;
+[08:45:59]: ▸ [GoogleUtilities] Generating GoogleUtilities.framework.dSYM
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GoogleDataTransport-dummy.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORUploadBatch.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORStorageMetadata.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORStorageEventSelector.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORProductData.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORMetricsMetadata.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORMetrics.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORLogSourceMetrics.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCOREvent+GDTMetricsSupport.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCOREvent+GDTCCTSupport.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCOREndpoints.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORConsoleLogger.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORClock.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORAssert.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCCTURLSessionDataResponse.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCCTCompressionHelper.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling Cordova_vers.c
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORUploadCoordinator.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORTransport.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORTransformer.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORRegistrar.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORReachability.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORPlatform.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORLifecycle.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORFlatFileStorage.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCOREvent.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORDirectorySizeTracker.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCCTUploader.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORMetrics+GDTCCTSupport.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCCTNanopbHelpers.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORMetricsController.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCORFlatFileStorage+Promises.m
+[08:46:07]: ▸ [GoogleDataTransport] Compiling GDTCCTUploadOperation.m
+[08:46:07]: ▸ [FirebaseCoreInternal] Copy arm64-apple-ios.swiftmodule -> FirebaseCoreInternal.swiftmodule
+[08:46:07]: ▸ [FirebaseCoreInternal] Copy arm64-apple-ios.swiftdoc -> FirebaseCoreInternal.swiftdoc
+[08:46:07]: ▸ [FirebaseCoreInternal] Copy arm64-apple-ios.abi.json -> FirebaseCoreInternal.abi.json
+[08:46:07]: ▸ [FirebaseCoreInternal] Compiling FirebaseCoreInternal_vers.c
+[08:46:07]: ▸ [CapacitorCordova] Compiling NSDictionary+CordovaPreferences.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CapacitorCordova-dummy.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVViewController.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVURLProtocol.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVPluginResult.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVInvokedUrlCommand.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVConfigParser.m
+[08:46:07]: ▸ [FirebaseCoreInternal] Compiling FirebaseCoreInternal-dummy.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling AppDelegate.m
+[08:46:07]: ▸ Signing nanopb.framework (in target 'nanopb' from project 'Pods')
+[08:46:07]: ▸ Signing FBLPromises.framework (in target 'PromisesObjC' from project 'Pods')
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVWebViewProcessPoolFactory.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVPluginManager.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVPlugin.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVPlugin+Resources.m
+[08:46:07]: ▸ [CapacitorCordova] Compiling CDVCommandDelegateImpl.m
+[08:46:07]: ▸ [CapacitorCordova] Linking Cordova
+[08:46:07]: ▸ Signing GoogleUtilities.framework (in target 'GoogleUtilities' from project 'Pods')
+[08:46:07]: ▸ [nanopb] RegisterExecutionPolicyException nanopb.framework
+[08:46:07]: ▸ [PromisesObjC] RegisterExecutionPolicyException FBLPromises.framework
+[08:46:07]: ▸ [nanopb] Touching nanopb.framework
+[08:46:07]: ▸ [PromisesObjC] Touching FBLPromises.framework
+[08:46:07]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Processing ResourceBundle-GoogleDataTransport_Privacy-GoogleDataTransport-Info.plist
+[08:46:07]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] RegisterExecutionPolicyException GoogleDataTransport_Privacy.bundle
+[08:46:07]: ▸ [GoogleDataTransport-GoogleDataTransport_Privacy] Touching GoogleDataTransport_Privacy.bundle
+[08:46:07]: ▸ [GoogleDataTransport] Processing GoogleDataTransport-Info.plist
+[08:46:07]: ▸ [GoogleDataTransport] Linking GoogleDataTransport
+[08:46:07]: ▸ [GoogleDataTransport] Copying GoogleDataTransport_Privacy.bundle
+[08:46:07]: ▸ [GoogleUtilities] RegisterExecutionPolicyException GoogleUtilities.framework
+[08:46:07]: ▸ [GoogleUtilities] Touching GoogleUtilities.framework
+[08:46:07]: ▸ [GoogleAdsOnDeviceConversion] Running script [CP] Copy XCFrameworks
+[08:46:07]: ▸ [FirebaseMessaging] Compiling me.nanopb.c
+[08:46:07]: ▸ [GoogleDataTransport] Generating GoogleDataTransport.framework.dSYM
+[08:46:07]: ▸ [FirebaseMessaging] Compiling NSError+FIRMessaging.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling NSDictionary+FIRMessaging.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FirebaseMessaging_vers.c
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FirebaseMessaging-dummy.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTopicOperation.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenStore.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenInfo.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenManager.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingUtilities.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenOperation.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenFetchOperation.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingTokenDeleteOperation.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingSyncMessageManager.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingRemoteNotificationsProxy.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingPubSub.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingRmqManager.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingPersistentSyncMessage.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingPendingTopicsList.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingLogger.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingKeychain.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingConstants.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingContextManagerService.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingCheckinStore.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingCheckinService.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingExtensionHelper.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingCheckinPreferences.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingBackupExcludedPlist.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingAuthService.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingAuthKeychain.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingAnalytics.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessagingAPNSInfo.m
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessaging.m
+[08:46:07]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Processing ResourceBundle-FirebaseCoreInternal_Privacy-FirebaseCoreInternal-Info.plist
+[08:46:07]: ▸ [FirebaseMessaging] Compiling FIRMessaging+ExtensionHelper.m
+[08:46:07]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [CapacitorCordova] Generating Cordova.framework.dSYM
+[08:46:07]: ▸ [GoogleAppMeasurement] Running script [CP] Copy XCFrameworks
+[08:46:07]: ▸ Signing GoogleDataTransport.framework (in target 'GoogleDataTransport' from project 'Pods')
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FirebaseInstallations_vers.c
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FirebaseInstallations-dummy.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsStoredItem.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsStoredAuthToken.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsSingleOperationPromiseCache.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsLogger.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsItem.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsItem+RegisterInstallationAPI.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsStore.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsIIDTokenStore.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsIDController.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsIIDStore.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsHTTPError.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsErrorUtil.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsBackoffController.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsAuthTokenResult.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallationsAPIService.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRInstallations.m
+[08:46:07]: ▸ [FirebaseInstallations] Compiling FIRCurrentDateProvider.m
+[08:46:07]: ▸ [GoogleDataTransport] RegisterExecutionPolicyException GoogleDataTransport.framework
+[08:46:07]: ▸ [GoogleDataTransport] Touching GoogleDataTransport.framework
+[08:46:07]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] RegisterExecutionPolicyException FirebaseCoreInternal_Privacy.bundle
+[08:46:07]: ▸ [FirebaseCoreInternal-FirebaseCoreInternal_Privacy] Touching FirebaseCoreInternal_Privacy.bundle
+[08:46:07]: ▸ [FirebaseCore] Compiling FirebaseCore_vers.c
+[08:46:07]: ▸ [FirebaseCoreInternal] Processing FirebaseCoreInternal-Info.plist
+[08:46:07]: ▸ [FirebaseCoreInternal] Linking FirebaseCoreInternal
+[08:46:07]: ▸ [FirebaseCoreInternal] Copying FirebaseCoreInternal_Privacy.bundle
+[08:46:07]: ▸ Signing Cordova.framework (in target 'CapacitorCordova' from project 'Pods')
+[08:46:07]: ▸ [CapacitorCordova] RegisterExecutionPolicyException Cordova.framework
+[08:46:07]: ▸ [CapacitorCordova] Touching Cordova.framework
+[08:46:07]: ▸ [Capacitor] Processing Capacitor-Info.plist
+[08:46:07]: ▸ [Capacitor] Copying native-bridge.js
+[08:46:07]: ▸ [Capacitor] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [FirebaseCoreInternal] Extract App Intents Metadata
+[08:46:07]: ▸ [FirebaseCoreInternal] Generating FirebaseCoreInternal.framework.dSYM
+[08:46:07]: ▸ Signing FirebaseCoreInternal.framework (in target 'FirebaseCoreInternal' from project 'Pods')
+[08:46:07]: ▸ [FirebaseCoreInternal] RegisterExecutionPolicyException FirebaseCoreInternal.framework
+[08:46:07]: ▸ [FirebaseCoreInternal] Touching FirebaseCoreInternal.framework
+[08:46:07]: ▸ [FirebaseCore-FirebaseCore_Privacy] Processing ResourceBundle-FirebaseCore_Privacy-FirebaseCore-Info.plist
+[08:46:07]: ▸ [FirebaseCore-FirebaseCore_Privacy] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [FirebaseCore-FirebaseCore_Privacy] RegisterExecutionPolicyException FirebaseCore_Privacy.bundle
+[08:46:07]: ▸ [FirebaseCore-FirebaseCore_Privacy] Touching FirebaseCore_Privacy.bundle
+[08:46:07]: ▸ [FirebaseCore] Processing FirebaseCore-Info.plist
+[08:46:07]: ▸ [FirebaseCore] Copying FirebaseCore_Privacy.bundle
+[08:46:07]: ▸ [FirebaseCore] Compiling FirebaseCore-dummy.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRVersion.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRTimestamp.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIROptions.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRConfiguration.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRComponentType.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRComponentContainer.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRComponent.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRAnalyticsConfiguration.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRHeartbeatLogger.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRLogger.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRFirebaseUserAgent.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRBundleUtil.m
+[08:46:07]: ▸ [FirebaseCore] Compiling FIRApp.m
+[08:46:07]: ▸ [FirebaseCore] Linking FirebaseCore
+[08:46:07]: ▸ [FirebaseCore] Generating FirebaseCore.framework.dSYM
+[08:46:07]: ▸ Signing FirebaseCore.framework (in target 'FirebaseCore' from project 'Pods')
+[08:46:07]: ▸ [FirebaseCore] RegisterExecutionPolicyException FirebaseCore.framework
+[08:46:07]: ▸ [FirebaseCore] Touching FirebaseCore.framework
+[08:46:07]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Processing ResourceBundle-FirebaseInstallations_Privacy-FirebaseInstallations-Info.plist
+[08:46:07]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] RegisterExecutionPolicyException FirebaseInstallations_Privacy.bundle
+[08:46:07]: ▸ [FirebaseInstallations-FirebaseInstallations_Privacy] Touching FirebaseInstallations_Privacy.bundle
+[08:46:07]: ▸ [FirebaseInstallations] Processing FirebaseInstallations-Info.plist
+[08:46:07]: ▸ [FirebaseInstallations] Linking FirebaseInstallations
+[08:46:07]: ▸ [FirebaseInstallations] Copying FirebaseInstallations_Privacy.bundle
+[08:46:07]: ▸ [FirebaseInstallations] Generating FirebaseInstallations.framework.dSYM
+[08:46:07]: ▸ Signing FirebaseInstallations.framework (in target 'FirebaseInstallations' from project 'Pods')
+[08:46:07]: ▸ [FirebaseInstallations] RegisterExecutionPolicyException FirebaseInstallations.framework
+[08:46:07]: ▸ [FirebaseInstallations] Touching FirebaseInstallations.framework
+[08:46:07]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Processing ResourceBundle-FirebaseMessaging_Privacy-FirebaseMessaging-Info.plist
+[08:46:07]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Copying PrivacyInfo.xcprivacy
+[08:46:07]: ▸ [FirebaseAnalytics] Running script [CP] Copy XCFrameworks
+[08:46:07]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] RegisterExecutionPolicyException FirebaseMessaging_Privacy.bundle
+[08:46:07]: ▸ [FirebaseMessaging-FirebaseMessaging_Privacy] Touching FirebaseMessaging_Privacy.bundle
+[08:46:07]: ▸ [FirebaseMessaging] Linking FirebaseMessaging
+[08:46:07]: ▸ [FirebaseMessaging] Processing FirebaseMessaging-Info.plist
+[08:46:07]: ▸ [FirebaseMessaging] Copying FirebaseMessaging_Privacy.bundle
+[08:46:07]: ▸ [FirebaseMessaging] Generating FirebaseMessaging.framework.dSYM
+[08:46:07]: ▸ Signing FirebaseMessaging.framework (in target 'FirebaseMessaging' from project 'Pods')
+[08:46:07]: ▸ [FirebaseMessaging] RegisterExecutionPolicyException FirebaseMessaging.framework
+[08:46:07]: ▸ [FirebaseMessaging] Touching FirebaseMessaging.framework
+[08:46:07]: ▸ [Capacitor] Copy arm64-apple-ios.swiftmodule -> Capacitor.swiftmodule
+[08:46:07]: ▸ [Capacitor] Copy arm64-apple-ios.swiftdoc -> Capacitor.swiftdoc
+[08:46:07]: ▸ [Capacitor] Copy arm64-apple-ios.abi.json -> Capacitor.abi.json
+[08:46:07]: ▸ [Capacitor] Compiling Capacitor_vers.c
+[08:46:07]: ▸ [Capacitor] Compiling Capacitor-dummy.m
+[08:46:07]: ▸ [Capacitor] Compiling DefaultPlugins.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPPluginCall.m
+[08:46:07]: ▸ [Capacitor] Compiling WKWebView+Capacitor.m
+[08:46:07]: ▸ [Capacitor] Compiling UIStatusBarManager+CAPHandleTapAction.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPPluginMethod.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPPlugin.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPInstanceDescriptor.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPInstanceConfiguration.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPBridgedJSTypes.m
+[08:46:07]: ▸ [Capacitor] Compiling CAPBridgeViewController+CDVScreenOrientationDelegate.m
+[08:46:08]: ▸ [Capacitor] Linking Capacitor
+[08:46:08]: ▸ [Capacitor] Generating Capacitor.framework.dSYM
+[08:46:09]: ▸ [Capacitor] Extract App Intents Metadata
+[08:46:14]: ▸ ⚠️  /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/BuildProductsPath/Release-iphoneos/XCFrameworkIntermediates/GoogleUserMessagingPlatform/UserMessagingPlatform.framework/Headers/UMPConsentForm.h:20:1: conflicting nullability specifier on return types, 'nullable' conflicts with existing specifier 'nonnull'
+[08:46:14]: ▸ 18 | 
+[08:46:14]: ▸ 19 | /// Unavailable. Use +loadWithCompletionHandler: instead.
+[08:46:14]: ▸ [CapacitorPreferences] Copy arm64-apple-ios.swiftmodule -> CapacitorPreferences.swiftmodule
+[08:46:14]: ▸ [CapacitorPreferences] Copy arm64-apple-ios.swiftdoc -> CapacitorPreferences.swiftdoc
+[08:46:14]: ▸ [CapacitorPreferences] Copy arm64-apple-ios.abi.json -> CapacitorPreferences.abi.json
+[08:46:14]: ▸ [CapacitorPreferences] Compiling CapacitorPreferences_vers.c
+[08:46:14]: ▸ ⚠️  /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/node_modules/@capacitor-community/admob/ios/Sources/AdMobPlugin/Banner/BannerExecutor.swift:35:30: 'kGADAdSizeSmartBannerPortrait' is deprecated: Use GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth.
+[08:46:14]: ▸                 bannerSize = kGADAdSizeSmartBannerPortrait
+[08:46:14]: ▸                              ^
+[08:46:14]: ▸ [CapacitorPreferences] Compiling CapacitorPreferences-dummy.m
+[08:46:14]: ▸ [CapacitorApp] Compiling AppPlugin.swift
+[08:46:14]: ▸ [CapacitorPushNotifications] Copy arm64-apple-ios.swiftmodule -> CapacitorPushNotifications.swiftmodule
+[08:46:14]: ▸ [CapacitorPushNotifications] Copy arm64-apple-ios.swiftdoc -> CapacitorPushNotifications.swiftdoc
+[08:46:14]: ▸ [CapacitorPushNotifications] Copy arm64-apple-ios.abi.json -> CapacitorPushNotifications.abi.json
+[08:46:14]: ▸ [CapacitorPushNotifications] Compiling CapacitorPushNotifications_vers.c
+[08:46:14]: ▸ [CapacitorPushNotifications] Compiling CapacitorPushNotifications-dummy.m
+[08:46:14]: ▸ Signing Capacitor.framework (in target 'Capacitor' from project 'Pods')
+[08:46:14]: ▸ [Capacitor] RegisterExecutionPolicyException Capacitor.framework
+[08:46:14]: ▸ [Capacitor] Touching Capacitor.framework
+[08:46:14]: ▸ [CapacitorPushNotifications] Processing CapacitorPushNotifications-Info.plist
+[08:46:14]: ▸ [CapacitorPushNotifications] Linking CapacitorPushNotifications
+[08:46:14]: ▸ [CapacitorPreferences] Linking CapacitorPreferences
+[08:46:14]: ▸ [CapacitorPushNotifications] Generating CapacitorPushNotifications.framework.dSYM
+[08:46:14]: ▸ [CapacitorApp] Copy arm64-apple-ios.swiftmodule -> CapacitorApp.swiftmodule
+[08:46:14]: ▸ [CapacitorApp] Copy arm64-apple-ios.swiftdoc -> CapacitorApp.swiftdoc
+[08:46:14]: ▸ [CapacitorApp] Copy arm64-apple-ios.abi.json -> CapacitorApp.abi.json
+[08:46:14]: ▸ [CapacitorPreferences] Processing CapacitorPreferences-Info.plist
+[08:46:14]: ▸ [CapacitorPreferences] Generating CapacitorPreferences.framework.dSYM
+[08:46:14]: ▸ [CapacitorLocalNotifications] Processing CapacitorLocalNotifications-Info.plist
+[08:46:14]: ▸ [CapacitorCommunityAdmob] Processing CapacitorCommunityAdmob-Info.plist
+[08:46:14]: ▸ [CapacitorApp] Processing CapacitorApp-Info.plist
+[08:46:14]: ▸ [CapacitorPushNotifications] Extract App Intents Metadata
+[08:46:14]: ▸ [CapacitorPreferences] Extract App Intents Metadata
+[08:46:14]: ▸ [CapacitorApp] Compiling CapacitorApp_vers.c
+[08:46:14]: ▸ Signing CapacitorPushNotifications.framework (in target 'CapacitorPushNotifications' from project 'Pods')
+[08:46:14]: ▸ [CapacitorApp] Compiling CapacitorApp-dummy.m
+[08:46:14]: ▸ [CapacitorApp] Linking CapacitorApp
+[08:46:14]: ▸ Signing CapacitorPreferences.framework (in target 'CapacitorPreferences' from project 'Pods')
+[08:46:15]: ▸ [CapacitorLocalNotifications] Copy arm64-apple-ios.swiftmodule -> CapacitorLocalNotifications.swiftmodule
+[08:46:15]: ▸ [CapacitorLocalNotifications] Copy arm64-apple-ios.swiftdoc -> CapacitorLocalNotifications.swiftdoc
+[08:46:15]: ▸ [CapacitorLocalNotifications] Copy arm64-apple-ios.abi.json -> CapacitorLocalNotifications.abi.json
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Copy arm64-apple-ios.swiftmodule -> CapacitorCommunityAdmob.swiftmodule
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Copy arm64-apple-ios.swiftdoc -> CapacitorCommunityAdmob.swiftdoc
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Copy arm64-apple-ios.abi.json -> CapacitorCommunityAdmob.abi.json
+[08:46:15]: ▸ [CapacitorPushNotifications] RegisterExecutionPolicyException CapacitorPushNotifications.framework
+[08:46:15]: ▸ [CapacitorLocalNotifications] Compiling CapacitorLocalNotifications_vers.c
+[08:46:15]: ▸ [CapacitorPushNotifications] Touching CapacitorPushNotifications.framework
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Compiling CapacitorCommunityAdmob_vers.c
+[08:46:15]: ▸ [CapacitorApp] Generating CapacitorApp.framework.dSYM
+[08:46:15]: ▸ [Pods-App] Compiling Pods_App_vers.c
+[08:46:15]: ▸ [CapacitorLocalNotifications] Compiling CapacitorLocalNotifications-dummy.m
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Compiling CapacitorCommunityAdmob-dummy.m
+[08:46:15]: ▸ [CapacitorLocalNotifications] Linking CapacitorLocalNotifications
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Extract App Intents Metadata
+[08:46:15]: ▸ [CapacitorApp] Extract App Intents Metadata
+[08:46:15]: ▸ [Pods-App] Compiling Pods-App-dummy.m
+[08:46:15]: ▸ [CapacitorPreferences] RegisterExecutionPolicyException CapacitorPreferences.framework
+[08:46:15]: ▸ [CapacitorPreferences] Touching CapacitorPreferences.framework
+[08:46:15]: ▸ Signing CapacitorApp.framework (in target 'CapacitorApp' from project 'Pods')
+[08:46:15]: ▸ Signing CapacitorCommunityAdmob.framework (in target 'CapacitorCommunityAdmob' from project 'Pods')
+[08:46:15]: ▸ note: Signing static framework with --generate-pre-encrypt-hashes (in target 'CapacitorCommunityAdmob' from project 'Pods')
+[08:46:15]: ▸ [CapacitorApp] RegisterExecutionPolicyException CapacitorApp.framework
+[08:46:15]: ▸ [CapacitorLocalNotifications] Generating CapacitorLocalNotifications.framework.dSYM
+[08:46:15]: ▸ [CapacitorLocalNotifications] Extract App Intents Metadata
+[08:46:15]: ▸ [CapacitorApp] Touching CapacitorApp.framework
+[08:46:15]: ▸ [CapacitorCommunityAdmob] RegisterExecutionPolicyException CapacitorCommunityAdmob.framework
+[08:46:15]: ▸ [CapacitorCommunityAdmob] Touching CapacitorCommunityAdmob.framework
+[08:46:15]: ▸ Signing CapacitorLocalNotifications.framework (in target 'CapacitorLocalNotifications' from project 'Pods')
+[08:46:15]: ▸ [CapacitorLocalNotifications] RegisterExecutionPolicyException CapacitorLocalNotifications.framework
+[08:46:15]: ▸ [CapacitorLocalNotifications] Touching CapacitorLocalNotifications.framework
+[08:46:15]: ▸ [Pods-App] Processing Pods-App-Info.plist
+[08:46:15]: ▸ Signing Pods_App.framework (in target 'Pods-App' from project 'Pods')
+[08:46:15]: ▸ note: Signing static framework with --generate-pre-encrypt-hashes (in target 'Pods-App' from project 'Pods')
+[08:46:15]: ▸ [Pods-App] RegisterExecutionPolicyException Pods_App.framework
+[08:46:15]: ▸ [Pods-App] Touching Pods_App.framework
+[08:46:15]: ▸ [App] Running script [CP] Check Pods Manifest.lock
+[08:46:15]: ▸ [App] Generate Asset Symbols Assets.xcassets
+[08:46:15]: ▸ [App] Copying public
+[08:46:15]: ▸ [App] Copying config.xml
+[08:46:15]: ▸ [App] Copying capacitor.config.json
+[08:46:15]: ▸ [App] Compiling Main.storyboard
+[08:46:19]: ▸ [App] Compiling LaunchScreen.storyboard
+[08:46:25]: ▸ ⚠️  /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/BuildProductsPath/Release-iphoneos/CapacitorCordova/Cordova.framework/Headers/CDVWebViewProcessPoolFactory.h:23:31: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[08:46:25]: ▸ 21 | 
+[08:46:25]: ▸ 22 | @interface CDVWebViewProcessPoolFactory : NSObject
+[08:46:25]: ▸ ⚠️  /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/BuildProductsPath/Release-iphoneos/CapacitorCordova/Cordova.framework/Headers/CDVWebViewProcessPoolFactory.h:26:3: 'WKProcessPool' is deprecated: first deprecated in iOS 15.0 - Creating and using multiple instances of WKProcessPool no longer has any effect.
+[08:46:25]: ▸ 24 | 
+[08:46:25]: ▸ 25 | +(instancetype) sharedFactory;
+[08:46:25]: ▸ ❌ /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App/AppDelegate.swift:29:48: type 'NSNotification.Name' has no member 'capacitorDidReceiveRemoteNotification'
+[08:46:25]: ▸         NotificationCenter.default.post(name: .capacitorDidReceiveRemoteNotification, object: nil, userInfo: userInfo)
+[08:46:25]: ▸                                               ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleAdsOnDeviceConversion' from project 'Pods')
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleAppMeasurement' from project 'Pods')
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Google-Mobile-Ads-SDK' from project 'Pods')
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleUserMessagingPlatform' from project 'Pods')
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'FirebaseAnalytics' from project 'Pods')
+[08:46:25]: ▸ ⚠️ Run script build phase '[CP] Copy Pods Resources' will be run during every build because it does not specify any outputs. To address this issue, either add output depend** ARCHIVE FAILED **
+[08:46:25]: ▸ The following build commands failed:
+[08:46:25]: ▸ 	SwiftCompile normal arm64 Compiling\ AppDelegate.swift,\ GeneratedAssetSymbols.swift /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App/AppDelegate.swift /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/DerivedSources/GeneratedAssetSymbols.swift /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DataDetection.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreText.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Concurrency.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Foundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Spatial.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation3.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Darwin.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUICore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ExtensionFoundation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/WebKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UniformTypeIdentifiers.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/UIKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_StringProcessing.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/sencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[08:46:25]: ▸ wift/iphoneos/prebuilt-modules/26.2/simd.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/XPC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreData.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/os.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreImage.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr⚠️ Run script build phase '[CP] Embed Pods Frameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[08:46:25]: ▸ /lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation2.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Dispatch.swiftmodule/arm64e-apple-ios.swiftmodule /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/FirebaseAnalytics-1TWYVPE8NT9NY.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Network.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/FileProvider.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Swift.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/System.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreVideo.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/QuartzCore.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CryptoKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Metal.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/BackgroundAssets.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/DeveloperToolsSupport.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreGraphics.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Symbols.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Combine.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/CoreTransferable.swiftmodule/arm64e-apple-ios.swiftmodule /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/BuildProductsPath/Release-iphoneos/Capacitor/Capacitor.framework/Modules/Capacitor.swiftmodule/arm64-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/LocalAuthentication.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/SwiftUI.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/StoreKit.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_Builtin_float.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Observation.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Accessibility.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/ObjectiveC.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/OSLog.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/Distributed.swiftmodule/arm64e-apple-ios.swiftmodule /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/26.2/_DarwinFoundation1.swiftmodule/arm64e-apple-ios.swiftmodule /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/FirebaseAnalytics-3NB1V18Y8QQ0DCCWGK42S2JT2.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/dnssd-9QRDUVYJAFXTYFIZIZS1XSNJ3.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/Cordova-CU2SSC7P0NGVH7L014VLKVG8V.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CFNetwork-DQSMCOVUUQ9UKE41H0J7ZCIH1.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_inttypes-2G3X490JH19SV9X221CXTKD5C.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/FirebaseInstallations-3QEKF11LQTSST43KQJJC5FRMT.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreImage-2W8MWDZYWZ9N6R61Y57BO4F1C.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/BackgroundAssets-AE7XQC8BLZ793J9JY7AM6WDBA.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdbool-1QO5464AADM6V47AJWQ4PKONU.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation3-7VDRBSGBC6XKKQD1IDYK0BA2D.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/Firebase-I3O59QMOAN7MHYM1BYV1B9Y3.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-4SHRW36XH0GUZS1OXXB9GMPK6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DataDetection-5M2LSLK3DM8FWGNW7O4XVMOWW.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-AV07TCM60RDIFOEIJ1TFQMHOZ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-LOAHSPVBVEV9MGKEZQLEAP1K.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrcheck-7CI6PEU0R25BBW2KAJCX03OHF.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/FirebaseMessaging-3Y55PZ9D0DE72S2Y1DBS8Q17L.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stddef-CAOW5OT7E96M4UVRRMD6MT375.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/FileProvider-7ZOIUHV3UZA9RR46EHOZKPYK7.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OSLog-E7DPUXOVH0LI5WHDMSIVEC37K.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UserNotifications-4556M9VAK6L38GLADQXILDVWK.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/sys_types-BWIB41463436AHYOPT2UMOT6H.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUI-51ST408K8VXMR22C4XR2O4MEB.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-1IHNGQEX7HRJF2E9E05QJLUGD.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-3J1PMA9AOY78190QU54EETS5S.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-DLYURBRSV85HG6JIX2LZWQI6X.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_AvailabilityInternal-2Q4MIRSOC7BSQLVF95Z3HRJZ6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Network-3D05KLDLPXEZ92S676S1XJ4ZZ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIUtilities-DDZH66VQHQYF19THSIYPQP2M2.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/QuartzCore-D4KTO75IDTEZRQ28AVONQIVVM.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ExtensionFoundation-EOKFIJ1EC5E3VGK52F638MFST.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrauth-KT9K1JP80IQQ2ECEOARWSAKD.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/FirebaseCore-DPJEZ0UH7PTKVZUSW2HX1RGFX.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreServices-83M8140RHG0U26FEHJFKPS2WW.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/simd-2XTG6BEV6HUOSS3JJEP2LFQC4.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CommonCrypto-85E2OJ7YKG3QYTKMHMQ9UCO95.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-CJM3J7JKWOVB8TS6FZZV5ERHX.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreVideo-GWTUI3TOKCERIEN64ZR9BVPI.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/WebKit-2XEJMAVZK7AH7Z1163XG7X0DJ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_object-3SNJAVP827D55OC30MDPW6DJ3.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/SwiftExplicitPrecompiledModules/Capacitor-EZ5FA8QZ7FLVRL2YVT9XQYF72.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_limits-88ODDKFR2WHNRGLNIAEAPVMCP.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Dispatch-9QIGH1LZ1H4ZXUTOIB5NSKL4.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MobileCoreServices-24HN0L189J3EX67H4C534Y2B5.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreGraphics-F0PLLQ09S2YS6S01MYJT7ST68.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MachO-2FH6D1JVN7RDOT2SLSWOJCHPK.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdint-9RM9EXVLFKBUVPPQ4U06O1FUD.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-3ZXTJWL478AIZK6FF055GK28B.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/IOSurface-8RWEJLG1IDGEIYRBFLID6ZLHI.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdarg-77ST1N5363CC0ZV5ZILAUGZYI.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreData-O37HCHIV6UXOPTKU3GG8F0GG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ImageIO-CLLHJ9KP2AQ1Y7PTRQ6EGNAGN.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreTransferable-90K0JV3Y505TZXH8HWW7NY0UL.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Metal-AE0KSZ0C4WZKP8SX481JQTUQ6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os-ELI0AEAYN9JP1UK65CLWZA8CJ.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUICore-28M8LDIGMCUH6IXEKI5U0NBZN.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Symbols-WKDROR4FII46MA57CGKYON8M.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation1-1AKER1BMPDWO89KFIXCCX5TEN.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Accessibility-W55ULS760CGJXA4CJ739KMN3.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/XPC-BHU0M0W8P3A3LO13YIJFGCW6O.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_workgroup-2PWNN9IIX50PVC084IXCXQ7XG.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation2-21FCW70XC1U9NVK3K7GLB2PK5.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Spatial-9IIPQOXMIRK05JLC0V326GGM1.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-8K57OIQ49WWQW50205C2B3H7A.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_float-565D3JPTEAZJTY3O8QSFHLOGK.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_tgmath-7MGHATL3L7UL22HJ4CMTS0VR6.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreText-AKCF0T88NK3RTQ167P0I8W60H.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreFoundation-728X9C6Y7R0CYK4U0QFTDWDF7.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/LocalAuthentication-ABC4U8QGLQYNLC6OH4M52UI6H.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OpenGLES-31FEXTW40EYWTNMX22HVGQN7P.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-9UIDXXI97PHL3XYEE5AOWSE90.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/StoreKit-2A32XIGDHG1H3BL4RKT9NYIQ2.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-254DOO09LHD9R6A4WUENSWZBK.pcm /Users/ionic-cloud-team/Library/Developer/Xcode/DerivedData/App-euktksopztcuxdgfzsmkqobrcqaj/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/App.build/Release-iphoneos/App.build/Objects-normal/arm64/App-dependencies-1.json (in target 'App' from project 'App')
+[08:46:25]: ▸ 	CompileSwift normal arm64 (in target 'App' from project 'App')
+[08:46:25]: ▸ 	Archiving workspace App with scheme App
+[08:46:25]: ▸ (3 failures)
+[08:46:25]: Exit status: 65
+
++-----------------------------------------+
+|            Build environment            |
++---------------+-------------------------+
+| xcode_path    | /Applications/Xcode.app |
+| gym_version   | 2.230.0                 |
+| export_method | app-store               |
+| sdk           | iPhoneOS26.2.sdk        |
++---------------+-------------------------+
+
+[08:46:25]: ▸ warning: Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'Google-Mobile-Ads-SDK' from project 'Pods')
+[08:46:25]: ▸ warning: Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'GoogleUserMessagingPlatform' from project 'Pods')
+[08:46:25]: ▸ warning: Run script build phase '[CP] Copy XCFrameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'FirebaseAnalytics' from project 'Pods')
+[08:46:25]: ▸ warning: Run script build phase '[CP] Copy Pods Resources' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[08:46:25]: ▸ warning: Run script build phase '[CP] Embed Pods Frameworks' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'App' from project 'App')
+[08:46:25]: 
+[08:46:25]: ⬆️  Check out the few lines of raw `xcodebuild` output above for potential hints on how to solve this error
+[08:46:25]: 📋  For the complete and more detailed error log, check the full log at:
+[08:46:25]: 📋  /Users/ionic-cloud-team/Library/Logs/gym/App-App.log
+[08:46:25]: 
+[08:46:25]: Looks like fastlane ran into a build/archive error with your project
+[08:46:25]: It's hard to tell what's causing the error, so we wrote some guides on how
+[08:46:25]: to troubleshoot build and signing issues: https://docs.fastlane.tools/codesigning/getting-started/
+[08:46:25]: Before submitting an issue on GitHub, please follow the guide above and make
+[08:46:25]: sure your project is set up correctly.
+[08:46:25]: fastlane uses `xcodebuild` commands to generate your binary, you can see the
+[08:46:25]: the full commands printed out in yellow in the above log.
+[08:46:25]: Make sure to inspect the output above, as usually you'll find more error information there
+[08:46:25]: 
+[08:46:25]: -------------------------
+[08:46:25]: --- Step: upload_logs ---
+[08:46:25]: -------------------------
+[08:46:30]: --------------------------------------
+[08:46:30]: --- Step: sentry_capture_exception ---
+[08:46:30]: --------------------------------------
+[08:46:31]: ---------------------------
+[08:46:31]: --- Step: shell command ---
+[08:46:31]: ---------------------------
+[08:46:31]: Error building the application - see the log above
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                       Lane Context                                                                        |
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| DEFAULT_PLATFORM                    | ios                                                                                                                 |
+| PLATFORM_NAME                       | ios                                                                                                                 |
+| LANE_NAME                           | ios build_capacitor                                                                                                 |
+| KEYCHAIN_PATH                       | ~/Library/Keychains/IonicKeychain                                                                                   |
+| DOWNLOAD_CERTS_PROVISION_FILE_UUID  | d28926c9-5eae-467e-9aef-1165802f9ea5                                                                                |
+| DOWNLOAD_CERTS_CODESIGNING_IDENTITY | iPhone Distribution: CLINTON CHIGAEMEZU EZE (3YAP8Q5QWD)                                                            |
+| DOWNLOAD_CERTS_TEAM_ID              | 3YAP8Q5QWD                                                                                                          |
+| DOWNLOAD_CERTS_CERT_PATH            | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/cert_file.p12                                            |
+| SIGH_PROFILE_PATHS                  | ["/Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/d28926c9-5eae-467e-9aef-1165802f9ea5.mobileprovision"] |
+| IONIC_CLI_VERSION                   | 7.2.1                                                                                                               |
+| NODE_PACKAGE_MANAGER                | npm                                                                                                                 |
+| CAP_IOS_PATH                        | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios                                                      |
+| PROJECT_WEB_DIR                     | dist                                                                                                                |
+| XCODE_PROJECT_NAME                  | App                                                                                                                 |
+| XCODE_PROJECT_PATH                  | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcodeproj                                    |
+| XCODE_WORKSPACE_PATH                | /Users/ionic-cloud-team/builds/Crypto1181/parachoot-soccer/ios/App/App.xcworkspace                                  |
++-------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+[08:46:31]: Error building the application - see the log above
+
++---------------------------------------------------+
+|                 fastlane summary                  |
++------+------------------------------+-------------+
+| Step | Action                       | Time (in s) |
++------+------------------------------+-------------+
+| 1    | add_extra_platforms          | 0           |
+| 2    | default_platform             | 0           |
+| 3    | prepare_environment          | 0           |
+| 4    | sentry_init                  | 0           |
+| 5    | begin_building               | 0           |
+| 6    | build_summary                | 3           |
+| 7    | create_keychain              | 0           |
+| 8    | get_ios_credentials_from_api | 0           |
+| 9    | set_ios_credentials          | 0           |
+| 10   | import_certificate           | 0           |
+| 11   | set_ionic_cli                | 1           |
+| 12   | detect_package_manager       | 0           |
+| 13   | add_git_credentials          | 0           |
+| 14   | get_appflow_config           | 0           |
+| 15   | dependency_install           | 10          |
+| 16   | create_capacitor_config      | 0           |
+| 17   | get_web_dir                  | 0           |
+| 18   | modify_cap_web_config        | 0           |
+| 19   | build_pro_app                | 4           |
+| 20   | get_xcode_project_paths      | 0           |
+| 21   | modify_ios_config            | 0           |
+| 22   | install_cocoapods            | 0           |
+| 23   | cap_sync                     | 44          |
+| 24   | cap_custom_deploy            | 0           |
+| 25   | update_code_signing_settings | 0           |
+| 26   | update_provisioning_profiles | 0           |
+| 💥   | build_ios_app                | 49          |
+| 28   | upload_logs                  | 5           |
+| 29   | sentry_capture_exception     | 0           |
+| 30   | shell command                | 0           |
++------+------------------------------+-------------+
+
+[08:46:31]: fastlane finished with errors
+
+[!] Error building the application - see the log above
+Running after_script
+Running after script...
+$ clean-up
+Cleaning up project directory and file based variables
+Terminating VM: build_stack_2026.01_arm64-1770972231423277000 (d6ea88f9-54b5-4129-a7f0-ac6338281841) | Controller Instance ID: 47809cb9-5c48-4b8b-565d-d2dea37a15d5 | Host: 10.2.146.21
+ERROR: Job failed: Process exited with status 1
