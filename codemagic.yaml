@@ -27,12 +27,28 @@ workflows:
         script: |
           keychain add-certificates
           xcode-project use-profiles
-          if [ -n "${CM_PROVISIONING_PROFILE:-}" ]; then
-            mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-            cp "$CM_PROVISIONING_PROFILE" ~/Library/MobileDevice/Provisioning\ Profiles/ || true
-            PROFILE_UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' "$CM_PROVISIONING_PROFILE" 2>/dev/null || echo "")
-            echo "Detected provisioning profile UUID: $PROFILE_UUID"
-            echo "PROFILE_UUID=$PROFILE_UUID" >> $CM_ENV_PATH
+          # Ensure any uploaded profile is installed; then auto-detect the correct profile by bundle id & team id
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "Searching installed provisioning profiles for bundle id ${APP_BUNDLE_ID} and team ${TEAM_ID}..."
+          for f in ~/Library/MobileDevice/Provisioning\ Profiles/*.mobileprovision; do
+            [ -e "$f" ] || continue
+            plist="/tmp/profile.plist"
+            security cms -D -i "$f" > "$plist" 2>/dev/null || continue
+            BID=$(/usr/libexec/PlistBuddy -c 'Print :Entitlements:application-identifier' "$plist" 2>/dev/null || echo "")
+            UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' "$plist" 2>/dev/null || echo "")
+            # application-identifier is TEAMID.BUNDLEID; match both parts
+            case "$BID" in
+              ${TEAM_ID}.${APP_BUNDLE_ID})
+                PROFILE_UUID="$UUID"
+                echo "Matched provisioning profile UUID: $PROFILE_UUID ($f)"
+                break
+                ;;
+            esac
+          done
+          if [ -n "${PROFILE_UUID:-}" ]; then
+            echo "PROFILE_UUID=$PROFILE_UUID" >> "$CM_ENV_PATH"
+          else
+            echo "No matching profile UUID found; will try profile name fallback: $PROFILE_NAME"
           fi
       - name: Build IPA
         script: |
@@ -41,7 +57,7 @@ workflows:
           EXPORT_PATH="$PWD/build/export"
           PROFILE_SPEC="${PROFILE_UUID:-$PROFILE_NAME}"
           echo "Using provisioning profile specifier: $PROFILE_SPEC"
-          xcodebuild -workspace "$IOS_WORKSPACE" -scheme "$IOS_SCHEME" -configuration "$IOS_CONFIGURATION" -destination "generic/platform=iOS" -archivePath "$ARCHIVE_PATH" archive DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER="$PROFILE_SPEC" COMPILER_INDEX_STORE_ENABLE=NO
+          xcodebuild -workspace "$IOS_WORKSPACE" -scheme "$IOS_SCHEME" -configuration "$IOS_CONFIGURATION" -destination "generic/platform=iOS" -archivePath "$ARCHIVE_PATH" archive DEVELOPMENT_TEAM="$TEAM_ID" CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER="$PROFILE_SPEC" CODE_SIGNING_ALLOWED=YES COMPILER_INDEX_STORE_ENABLE=NO
           mkdir -p "$EXPORT_PATH"
           cat > exportOptions.plist <<PLIST
           <?xml version="1.0" encoding="UTF-8"?>
