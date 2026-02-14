@@ -29,6 +29,35 @@ workflows:
         script: |
           keychain add-certificates
           xcode-project use-profiles
+          # Import certificate & provisioning profile from repository if available
+          P12_PATH="$CM_BUILD_DIR/certificates.p12"
+          P12_PASSWORD="${P12_PASSWORD:-123456}"
+          if [ -f "$P12_PATH" ]; then
+            echo "Importing distribution certificate from repository..."
+            security import "$P12_PATH" -k "$HOME/Library/Keychains/login.keychain-db" -P "$P12_PASSWORD" -T /usr/bin/codesign || true
+            security set-key-partition-list -S apple-tool:,apple: -s -k "" "$HOME/Library/Keychains/login.keychain-db" || true
+          else
+            echo "No certificates.p12 found in repo; relying on Codemagic keychain assets"
+          fi
+          PROFILE_FILE="$CM_BUILD_DIR/Parachoot_App_Store.mobileprovision"
+          if [ -f "$PROFILE_FILE" ]; then
+            echo "Installing Parachoot_App_Store.mobileprovision from repository..."
+            mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+            TMP_PLIST="/tmp/parachoot_profile.plist"
+            security cms -D -i "$PROFILE_FILE" > "$TMP_PLIST"
+            PROFILE_UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' "$TMP_PLIST" 2>/dev/null || echo "")
+            PROFILE_NAME=$(/usr/libexec/PlistBuddy -c 'Print :Name' "$TMP_PLIST" 2>/dev/null || echo "")
+            if [ -n "$PROFILE_UUID" ]; then
+              cp "$PROFILE_FILE" "$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_UUID.mobileprovision"
+            else
+              cp "$PROFILE_FILE" "$HOME/Library/MobileDevice/Provisioning Profiles/"
+            fi
+            [ -n "$PROFILE_UUID" ] && echo "PROFILE_UUID=$PROFILE_UUID" >> "$CM_ENV"
+            [ -n "$PROFILE_NAME" ] && echo "PROFILE_NAME=$PROFILE_NAME" >> "$CM_ENV"
+            echo "Installed provisioning profile: UUID=$PROFILE_UUID NAME=$PROFILE_NAME"
+          else
+            echo "No Parachoot_App_Store.mobileprovision found in repo; relying on Codemagic profiles"
+          fi
           # Ensure any uploaded profile is installed; then auto-detect the correct profile by bundle id & team id
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "Searching installed provisioning profiles for bundle id ${APP_BUNDLE_ID} and team ${TEAM_ID}..."
@@ -67,6 +96,8 @@ workflows:
           <dict>
             <key>method</key>
             <string>app-store</string>
+            <key>signingCertificate</key>
+            <string>Apple Distribution</string>
             <key>signingStyle</key>
             <string>manual</string>
             <key>teamID</key>
