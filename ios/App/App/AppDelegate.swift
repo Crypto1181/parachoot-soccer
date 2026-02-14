@@ -45,17 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
-        NotificationCenter.default.post(
-            name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotifications),
-            object: deviceToken
-        )
+        NotificationCenter.default.post(name: Notification.Name.capacitorDidRegisterForRemoteNotifications, object: deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        NotificationCenter.default.post(
-            name: Notification.Name(CAPNotifications.DidFailToRegisterForRemoteNotifications),
-            object: error
-        )
+        NotificationCenter.default.post(name: Notification.Name.capacitorDidFailToRegisterForRemoteNotifications, object: error)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
