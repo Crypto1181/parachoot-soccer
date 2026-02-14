@@ -48,7 +48,7 @@ workflows:
             esac
           done
           if [ -n "${PROFILE_UUID:-}" ]; then
-            echo "PROFILE_UUID=$PROFILE_UUID" >> "$CM_ENV_PATH"
+            echo "PROFILE_UUID=$PROFILE_UUID" >> "$CM_ENV"
           else
             echo "No matching profile UUID found; will try profile name fallback: $PROFILE_NAME"
           fi
