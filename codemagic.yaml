@@ -4,6 +4,8 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       xcode: latest
+      groups:
+        - parachoot
       vars:
         APP_BUNDLE_ID: com.parachoot.soccer
         IOS_SCHEME: App
