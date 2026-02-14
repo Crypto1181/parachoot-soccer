@@ -10,8 +10,6 @@ workflows:
         IOS_WORKSPACE: ios/App/App.xcworkspace
         IOS_CONFIGURATION: Release
       node: 22
-      groups:
-        - ios_signing
     scripts:
       - name: Install dependencies
         script: npm ci --no-audit --no-fund
