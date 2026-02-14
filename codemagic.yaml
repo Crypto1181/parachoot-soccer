@@ -29,8 +29,6 @@ workflows:
         script: |
           xcode-project build-ipa \
             --workspace "$IOS_WORKSPACE" \
-            --scheme "$IOS_SCHEME" \
-            --archive-method app-store \
-            --archive-flags "-destination generic/platform=iOS"
+            --scheme "$IOS_SCHEME"
     artifacts:
       - build/ios/ipa/*.ipa
