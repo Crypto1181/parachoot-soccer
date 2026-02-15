@@ -58,6 +58,8 @@ workflows:
           else
             echo "No Parachoot_App_Store.mobileprovision found in repo; relying on Codemagic profiles"
           fi
+          echo "Available code signing identities after setup:"
+          security find-identity -p codesigning -v || true
           # Ensure any uploaded profile is installed; then auto-detect the correct profile by bundle id & team id
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "Searching installed provisioning profiles for bundle id ${APP_BUNDLE_ID} and team ${TEAM_ID}..."
@@ -112,6 +114,8 @@ workflows:
           </dict>
           </plist>
           PLIST
+          echo "Available code signing identities before export:"
+          security find-identity -p codesigning -v || true
           xcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportPath "$EXPORT_PATH" -exportOptionsPlist exportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
