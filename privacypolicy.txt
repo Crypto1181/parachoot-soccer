@@ -1,0 +1,78 @@
+Privacy Policy for Parachoot Soccer
+
+Last updated: 15 February 2026
+
+This Privacy Policy explains how Parachoot Soccer ("we", "us", or "our") collects, uses, and shares information when you use the Parachoot Soccer mobile application (the "App").
+
+By using the App, you agree to the collection and use of information in accordance with this Privacy Policy.
+
+1. Information We Collect
+
+We do not require you to create an account or provide your name, phone number, or email address to use the App.
+
+However, certain information is collected automatically by third-party services we use, such as advertising and analytics providers. This information may include:
+
+- Device identifiers
+  - Advertising identifiers (such as Apple's Identifier for Advertisers – IDFA)
+  - Other device identifiers used for fraud detection and service operations
+
+- Usage data
+  - Screens you view, buttons you tap, and general interactions with the App
+  - Information about when and how often you use the App
+
+- Advertising data
+  - Data about the ads you see, such as which ads are shown and whether you tap them
+
+We do not intentionally collect sensitive categories of data such as health information, financial information, contacts, photos, or precise location.
+
+2. How We Use Information
+
+The information collected via the App is used for:
+
+- Showing ads in the App
+  - To display and measure the performance of advertisements
+- Improving the App
+  - To understand how users interact with features so we can improve stability and usability
+- Security and fraud prevention
+  - To protect against fraudulent activity and abuse of our services
+
+We do not sell your personal information.
+
+3. Third-Party Services
+
+We use third-party services that may collect information used to identify you or your device. These services include (but may not be limited to):
+
+- Google AdMob (Google LLC) – for showing in-app advertisements
+- Google Firebase – for app infrastructure such as push notifications and basic analytics
+
+These third-party services may collect and use data in accordance with their own privacy policies. We encourage you to review their policies:
+
+- Google Privacy Policy: https://policies.google.com/privacy
+
+4. Data Used for Tracking
+
+Some of the data described above (such as advertising identifiers and usage data) may be used for tracking, meaning associating data from this App with data from other apps and websites for personalized advertising and measurement purposes.
+
+On iOS devices, Apple may ask you whether you allow apps to track you across apps and websites. You can change your choice at any time in:
+
+- Settings → Privacy & Security → Tracking
+
+If you disable "Allow Apps to Request to Track" or deny tracking for Parachoot Soccer, third-party partners should stop using your data for tracking on that device, though they may still use data for other allowable purposes (such as fraud detection or basic ad measurement).
+
+5. Data Retention
+
+We do not directly store your personal data on our own servers. Data is primarily processed and retained by the third-party services we use (for example, Google AdMob and Firebase) in accordance with their retention policies.
+
+6. Children's Privacy
+
+Parachoot Soccer is not directed to children under the age of 13 (or the equivalent minimum age in your jurisdiction). We do not knowingly collect personal information from children. If you believe that we have collected information from a child, please contact us and we will take steps to delete such information.
+
+7. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this Policy periodically for any changes.
+
+8. Contact Us
+
+If you have any questions about this Privacy Policy or how your data is used, you can contact us at:
+
+- Email: support@parachootsoccer.com
