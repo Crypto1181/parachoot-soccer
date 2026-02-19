@@ -1,0 +1,51 @@
++------------------------------------------------------------------------------+
+
+| (8) Deploy to App Store Connect - Application Loader (formerly iTunes Con... |
++------------------------------------------------------------------------------+
+| id: deploy-to-itunesconnect-application-loader                               |
+| version: 2.1.0                                                               |
+| collection: https://github.com/bitrise-io/bitrise-steplib.git                |
+| toolkit: go                                                                  |
+| time: 2026-02-15T11:56:58Z                                                   |
++------------------------------------------------------------------------------+
+|                                                                              |
+Config:
+- connection: automatic
+- itunescon_user: <unset>
+- password: <unset>
+- app_password: <unset>
+- api_key_path: <unset>
+- api_issuer: <unset>
+- ipa_path: /Users/vagrant/deploy/App.ipa
+- pkg_path: <unset>
+- platform: auto
+- app_id: <unset>
+- bundle_id: <unset>
+- bundle_version: <unset>
+- bundle_short_version_string: <unset>
+- verbose_log: false
+- altool_options: <unset>
+- retries: 10
+- BITRISE_BUILD_URL: https://app.bitrise.io/build/2c45c790-84e6-44d6-aadf-dd1441aece2d
+- BITRISE_BUILD_API_TOKEN: *****
+Bitrise Apple Developer Connection with API key found
+Uploading - App.ipa ...
+$ xcrun "altool" "--upload-package" "/Users/vagrant/deploy/App.ipa" "--type" "ios" "--apiKey" "SS8MZ6365C" "--apiIssuer" "b0b75d62-3c1e-4a70-bef4-be913036d7dc" "--output-format" "json"
+Running altool at path '/Applications/Xcode-26.2.0.app/Contents/SharedFrameworks/ContentDelivery.framework/Resources/altool'...
+2026-02-15 11:57:40.751 ERROR: [ContentDelivery.Uploader.6000013DC040] 
+=======================================
+UPLOAD FAILED with 1 error
+=======================================
+Uploading IPA failed:
+:
+    Validation failed (409)  Redundant Binary Upload. You've already uploaded a build with build number '29' for version number '1.2.8'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4). (ID: ab51374f-e7d7-41ca-85d1-e553a8d15c85)  (code: STATE_ERROR.VALIDATION_ERROR)
+Uploading IPA failed:
+:
+    Validation failed (409)  Redundant Binary Upload. You've already uploaded a build with build number '29' for version number '1.2.8'. Make sure you increment the build string before you upload your app to App Store Connect. Learn more in Xcode Help (http://help.apple.com/xcode/mac/current/#/devba7f53ad4). (ID: ab51374f-e7d7-41ca-85d1-e553a8d15c85)  (code: STATE_ERROR.VALIDATION_ERROR)
+|                                                                              |
++---+---------------------------------------------------------------+----------+
+| x | Deploy to App Store Connect - Application Loader ... (Failed) | 43.15 sec |
++---+---------------------------------------------------------------+----------+
+| Issue tracker: https://github.com/bitrise-steplib/steps-deploy-to-itunesc... |
+| Source: https://github.com/bitrise-steplib/steps-deploy-to-itunesconnect-... |
++---+---------------------------------------------------------------+----------+

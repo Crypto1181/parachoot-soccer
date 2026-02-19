@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Play } from 'lucide-react';
 import { Match } from '@/data/mockData';
 import TeamLogo from '@/components/TeamLogo';
+import { showInterstitialAd } from '@/lib/admob';
 
 interface MatchCardProps {
   match: Match;
@@ -14,24 +15,34 @@ export const MatchCard: React.FC<MatchCardProps> = memo(({ match, onClick, index
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (onClick) {
-      onClick();
-    } else {
-      navigate(`/match/${match.id}`, { state: { match } });
-    }
+    const navigateToMatch = () => {
+      if (onClick) {
+        onClick();
+      } else {
+        navigate(`/match/${match.id}`, { state: { match } });
+      }
+    };
+
+    // Show ad before details
+    showInterstitialAd(navigateToMatch);
   };
 
   const handleStreamClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent match details navigation
     if (match.streamSources && match.streamSources.length > 0) {
-      const firstSource = match.streamSources[0];
-      const provider = firstSource.provider || 'westream';
-      navigate(`/stream/${match.id}/${provider}/${firstSource.source}/${firstSource.id}`, { state: { match } });
+      const navigateToStream = () => {
+        const firstSource = match.streamSources![0];
+        const provider = firstSource.provider || 'westream';
+        navigate(`/stream/${match.id}/${provider}/${firstSource.source}/${firstSource.id}`, { state: { match } });
+      };
+
+      // Show ad before stream
+      showInterstitialAd(navigateToStream);
     }
   };
 
   return (
-    <div 
+    <div
       className="relative py-4"
       style={{
         willChange: 'transform',
@@ -39,7 +50,7 @@ export const MatchCard: React.FC<MatchCardProps> = memo(({ match, onClick, index
       }}
     >
       {/* Simple Card with Green Border */}
-      <div 
+      <div
         onClick={handleClick}
         className="relative bg-white rounded-3xl p-6 border-2 border-green-500 cursor-pointer transition-all duration-300 hover:shadow-md"
       >

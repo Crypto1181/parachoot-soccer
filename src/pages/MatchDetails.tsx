@@ -8,25 +8,26 @@ import { enrichMatchWithStreams } from '@/lib/westreamApi';
 import { enrichMatchWithMultipleStreamSources } from '@/lib/streamAggregator';
 import { Match } from '@/data/mockData';
 import { cn } from '@/lib/utils';
+import { showInterstitialAd } from '@/lib/admob';
 
 export const MatchDetailsPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const initialMatch = location.state?.match as Match | null;
-  
+
   const { match: fetchedMatch, loading, error } = useMatch(id || '');
-  
+
   // Merge fetched match with initial match to prevent stale data (especially scores)
   const match = useMemo(() => {
     if (!fetchedMatch) return initialMatch;
     if (!initialMatch) return fetchedMatch;
-    
+
     // Check for stale scores in fetchedMatch (0-0 when list view had scores)
-    const fetchedIsZero = (fetchedMatch.homeScore === 0 || fetchedMatch.homeScore === null) && 
-                          (fetchedMatch.awayScore === 0 || fetchedMatch.awayScore === null);
+    const fetchedIsZero = (fetchedMatch.homeScore === 0 || fetchedMatch.homeScore === null) &&
+      (fetchedMatch.awayScore === 0 || fetchedMatch.awayScore === null);
     const initialHasScore = (initialMatch.homeScore || 0) > 0 || (initialMatch.awayScore || 0) > 0;
-    
+
     // If fetched match shows 0-0 but initial match had scores, prefer initial match scores
     // This handles cases where the details API is slower to update than the list API
     if (fetchedIsZero && initialHasScore) {
@@ -38,7 +39,7 @@ export const MatchDetailsPage: React.FC = () => {
         minute: initialMatch.minute || fetchedMatch.minute
       };
     }
-    
+
     return fetchedMatch;
   }, [fetchedMatch, initialMatch]);
 
@@ -58,35 +59,35 @@ export const MatchDetailsPage: React.FC = () => {
       setEnrichedMatch(null);
       return;
     }
-    
+
     // SportsRC matches already have streams included (from Live TV page)
     if (isSportsRCMatch) {
       console.log(`[MatchDetails] SportsRC match - streams:`, match.streamSources?.length || 0);
       setEnrichedMatch(match);
       return;
     }
-    
+
     // WeStream matches already have streams included (from Live TV page)
     if (isWeStreamMatch) {
       console.log(`[MatchDetails] WeStream match - streams:`, match.streamSources?.length || 0);
       setEnrichedMatch(match);
       return;
     }
-    
+
     // Matches with streams already included
     if (match.streamSources && match.streamSources.length > 0) {
       console.log(`[MatchDetails] Match already has streams:`, match.streamSources.length);
       setEnrichedMatch(match);
       return;
     }
-    
+
     // For matches without streams, try to enrich with streams if live
     const hasStreams = match.streamSources && match.streamSources.length > 0;
     if (match.status !== 'live' || hasStreams) {
       setEnrichedMatch(match);
       return;
     }
-    
+
     // Try to find streams from other sources
     enrichMatchWithMultipleStreamSources(match)
       .then((enriched) => {
@@ -104,9 +105,14 @@ export const MatchDetailsPage: React.FC = () => {
 
   const handleWatchStream = () => {
     if (displayMatch?.streamSources && displayMatch.streamSources.length > 0) {
-      const firstSource = displayMatch.streamSources[0];
-      const provider = firstSource.provider || 'westream';
-      navigate(`/stream/${displayMatch.id}/${provider}/${firstSource.source}/${firstSource.id}`);
+      const navigateToStream = () => {
+        const firstSource = displayMatch.streamSources![0];
+        const provider = firstSource.provider || 'westream';
+        navigate(`/stream/${displayMatch.id}/${provider}/${firstSource.source}/${firstSource.id}`);
+      };
+
+      // Show ad before stream
+      showInterstitialAd(navigateToStream);
     }
   };
 
@@ -208,8 +214,8 @@ export const MatchDetailsPage: React.FC = () => {
           <div className="flex-1 min-w-0">
             <h1 className="text-base sm:text-lg font-semibold truncate">Match Details</h1>
             <p className="text-xs text-muted-foreground truncate">
-              {typeof (displayMatch?.competition) === 'string' 
-                ? displayMatch.competition 
+              {typeof (displayMatch?.competition) === 'string'
+                ? displayMatch.competition
                 : (typeof match.competition === 'string' ? match.competition : 'Football')}
             </p>
           </div>
@@ -241,7 +247,7 @@ export const MatchDetailsPage: React.FC = () => {
                 </div>
               )}
             </div>
-            
+
             {/* Watch Stream Button */}
             {displayMatch?.streamSources && displayMatch.streamSources.length > 0 && displayMatch.status === 'live' && (
               <Button
@@ -252,14 +258,14 @@ export const MatchDetailsPage: React.FC = () => {
                 <span className="font-semibold">Watch Live Stream</span>
               </Button>
             )}
-            
+
             {/* Debug: Show stream info if available */}
             {displayMatch?.streamSources && displayMatch.streamSources.length > 0 && (
               <div className="mt-2 text-xs text-muted-foreground text-center">
                 {displayMatch.streamSources.length} stream source(s) available
               </div>
             )}
-            
+
             {/* Debug: Show if no streams found */}
             {displayMatch?.status === 'live' && (!displayMatch?.streamSources || displayMatch.streamSources.length === 0) && (
               <div className="mt-2 text-xs text-yellow-600 text-center">
@@ -312,8 +318,8 @@ export const MatchDetailsPage: React.FC = () => {
             onClick={() => setActiveTab(tab as any)}
             className={cn(
               "flex-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors capitalize whitespace-nowrap",
-              activeTab === tab 
-                ? "bg-background text-primary shadow-sm" 
+              activeTab === tab
+                ? "bg-background text-primary shadow-sm"
                 : "text-muted-foreground hover:bg-background/50"
             )}
           >
@@ -336,111 +342,111 @@ export const MatchDetailsPage: React.FC = () => {
                 Match Info
               </h3>
               <div className="space-y-3 pt-2">
-            {(displayMatch as any).tournament && (
-              <div className="flex items-center gap-3 text-sm">
-                <Trophy size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Tournament:</span>
-                <span className="font-medium">{(displayMatch as any).tournament.name}</span>
-              </div>
-            )}
-            {(displayMatch as any).country && (
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Country:</span>
-                <span className="font-medium">{(displayMatch as any).country}</span>
-              </div>
-            )}
-            {(displayMatch as any).venueDetails && (
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Venue:</span>
-                <span className="font-medium">{(displayMatch as any).venueDetails.name}</span>
-                {(displayMatch as any).venueDetails.city && (
-                  <span className="text-muted-foreground">, {(displayMatch as any).venueDetails.city}</span>
+                {(displayMatch as any).tournament && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <Trophy size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Tournament:</span>
+                    <span className="font-medium">{(displayMatch as any).tournament.name}</span>
+                  </div>
+                )}
+                {(displayMatch as any).country && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <MapPin size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Country:</span>
+                    <span className="font-medium">{(displayMatch as any).country}</span>
+                  </div>
+                )}
+                {(displayMatch as any).venueDetails && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <MapPin size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Venue:</span>
+                    <span className="font-medium">{(displayMatch as any).venueDetails.name}</span>
+                    {(displayMatch as any).venueDetails.city && (
+                      <span className="text-muted-foreground">, {(displayMatch as any).venueDetails.city}</span>
+                    )}
+                  </div>
+                )}
+                {(displayMatch as any).referee && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <Users size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Referee:</span>
+                    <span className="font-medium">{(displayMatch as any).referee}</span>
+                  </div>
+                )}
+                {displayMatch.startTime && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <Calendar size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Time:</span>
+                    <span className="font-medium">{displayMatch.startTime}</span>
+                  </div>
+                )}
+                {(displayMatch as any).venueDetails?.attendance && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <Users size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Attendance:</span>
+                    <span className="font-medium">{(displayMatch as any).venueDetails.attendance}</span>
+                    {(displayMatch as any).venueDetails.capacity && (
+                      <span className="text-muted-foreground">/ {(displayMatch as any).venueDetails.capacity}</span>
+                    )}
+                  </div>
+                )}
+                {((match as any).score1stHalf !== undefined || (match as any).score2ndHalf !== undefined) && (
+                  <div className="flex items-center gap-3 text-sm">
+                    <Clock size={16} className="text-muted-foreground" />
+                    <span className="text-muted-foreground">Half-time:</span>
+                    <span className="font-medium">
+                      {(match as any).score1stHalf?.home || 0} - {(match as any).score1stHalf?.away || 0}
+                    </span>
+                  </div>
                 )}
               </div>
-            )}
-            {(displayMatch as any).referee && (
-              <div className="flex items-center gap-3 text-sm">
-                <Users size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Referee:</span>
-                <span className="font-medium">{(displayMatch as any).referee}</span>
-              </div>
-            )}
-            {displayMatch.startTime && (
-              <div className="flex items-center gap-3 text-sm">
-                <Calendar size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Time:</span>
-                <span className="font-medium">{displayMatch.startTime}</span>
-              </div>
-            )}
-            {(displayMatch as any).venueDetails?.attendance && (
-              <div className="flex items-center gap-3 text-sm">
-                <Users size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Attendance:</span>
-                <span className="font-medium">{(displayMatch as any).venueDetails.attendance}</span>
-                {(displayMatch as any).venueDetails.capacity && (
-                  <span className="text-muted-foreground">/ {(displayMatch as any).venueDetails.capacity}</span>
-                )}
-              </div>
-            )}
-            {((match as any).score1stHalf !== undefined || (match as any).score2ndHalf !== undefined) && (
-              <div className="flex items-center gap-3 text-sm">
-                <Clock size={16} className="text-muted-foreground" />
-                <span className="text-muted-foreground">Half-time:</span>
-                <span className="font-medium">
-                  {(match as any).score1stHalf?.home || 0} - {(match as any).score1stHalf?.away || 0}
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-      )}
-
-      {/* Summary Tab */}
-      {activeTab === 'summary' && (
-        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
-          <div className="bg-card rounded-3xl p-6 border border-border/30 shadow-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <Flag size={20} className="text-primary" />
-              <h2 className="text-lg font-semibold">Match Events</h2>
-              {summaryLoading && (
-                <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin ml-auto" />
-              )}
             </div>
+          </div>
+        )}
 
-            {summaryLoading && !summary ? (
-              <div className="flex justify-center py-8">
-                <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        {/* Summary Tab */}
+        {activeTab === 'summary' && (
+          <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
+            <div className="bg-card rounded-3xl p-6 border border-border/30 shadow-sm">
+              <div className="flex items-center gap-2 mb-4">
+                <Flag size={20} className="text-primary" />
+                <h2 className="text-lg font-semibold">Match Events</h2>
+                {summaryLoading && (
+                  <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin ml-auto" />
+                )}
               </div>
-            ) : !summary || summary.length === 0 ? (
-              <div className="text-center py-10 text-muted-foreground">
-                <History className="w-12 h-12 mx-auto mb-3 opacity-20" />
-                <p>No match events available</p>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                 {/* Helper to parse minutes */}
-                 {(() => {
+
+              {summaryLoading && !summary ? (
+                <div className="flex justify-center py-8">
+                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                </div>
+              ) : !summary || summary.length === 0 ? (
+                <div className="text-center py-10 text-muted-foreground">
+                  <History className="w-12 h-12 mx-auto mb-3 opacity-20" />
+                  <p>No match events available</p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {/* Helper to parse minutes */}
+                  {(() => {
                     const parseMinute = (min: string) => {
                       const match = min.match(/^(\d+)/);
                       return match ? parseInt(match[1]) : 0;
                     };
 
                     const sortedEvents = [...summary].sort((a, b) => parseMinute(a.minutes) - parseMinute(b.minutes));
-                    
+
                     const firstHalfEvents = sortedEvents.filter(e => parseMinute(e.minutes) <= 45);
                     const secondHalfEvents = sortedEvents.filter(e => parseMinute(e.minutes) > 45);
-                    
+
                     // Function to calculate score at end of period
                     // Since API doesn't provide running score in event, we can try to calculate or use half-time score
                     // For now, we'll try to use match object scores if available, or just show headers
-                    
-                    const firstHalfScore = (match as any).score1stHalf 
+
+                    const firstHalfScore = (match as any).score1stHalf
                       ? `${(match as any).score1stHalf.home} - ${(match as any).score1stHalf.away}`
                       : null;
-                      
+
                     const fullTimeScore = (match as any).score2ndHalf && (match as any).score1stHalf
                       ? `${((match as any).score1stHalf.home || 0) + ((match as any).score2ndHalf.home || 0)} - ${((match as any).score1stHalf.away || 0) + ((match as any).score2ndHalf.away || 0)}`
                       : (match as any).homeScore !== undefined && (match as any).awayScore !== undefined
@@ -527,266 +533,266 @@ export const MatchDetailsPage: React.FC = () => {
                         )}
                       </div>
                     );
-                 })()}
-              </div>
-            )}
+                  })()}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Stats Tab */}
-      {activeTab === 'stats' && (
-        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))] mb-4">
-        <div className="bg-card rounded-2xl p-5 border border-border/30">
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 size={20} className="text-primary" />
-            <h2 className="text-lg font-semibold">Match Statistics</h2>
-            {statsLoading && (
-              <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin ml-auto" />
-            )}
-          </div>
-
-          {statsLoading ? (
-            <div className="flex justify-center py-8">
-              <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-            </div>
-          ) : (
-            <div className="space-y-4">
-            {/* Possession */}
-            <div>
-              <div className="flex justify-between text-xs text-muted-foreground mb-2">
-                <span>{stats.possession.home}%</span>
-                <span>Possession</span>
-                <span>{stats.possession.away}%</span>
-              </div>
-              <div className="flex gap-2">
-                <div
-                  className="h-2 bg-primary rounded-full"
-                  style={{ width: `${stats.possession.home}%` }}
-                />
-                <div
-                  className="h-2 bg-secondary rounded-full flex-1"
-                  style={{ width: `${stats.possession.away}%` }}
-                />
-              </div>
-            </div>
-
-            {/* Shots */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Target size={16} className="text-muted-foreground" />
-                <span className="text-sm font-medium">{stats.shots.home}</span>
-              </div>
-              <span className="text-sm text-muted-foreground">Shots</span>
-              <span className="text-sm font-medium">{stats.shots.away}</span>
-            </div>
-
-            {/* Shots on Target */}
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">{stats.shotsOnTarget.home}</span>
-              <span className="text-sm text-muted-foreground">Shots on Target</span>
-              <span className="text-sm font-medium">{stats.shotsOnTarget.away}</span>
-            </div>
-
-            {/* Passes */}
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">{stats.passes.home}</span>
-              <span className="text-sm text-muted-foreground">Passes</span>
-              <span className="text-sm font-medium">{stats.passes.away}</span>
-            </div>
-
-            {/* Pass Accuracy */}
-            <div>
-              <div className="flex justify-between text-xs text-muted-foreground mb-2">
-                <span>{stats.passAccuracy.home}%</span>
-                <span>Pass Accuracy</span>
-                <span>{stats.passAccuracy.away}%</span>
-              </div>
-              <div className="flex gap-2">
-                <div
-                  className="h-2 bg-primary rounded-full"
-                  style={{ width: `${stats.passAccuracy.home}%` }}
-                />
-                <div
-                  className="h-2 bg-secondary rounded-full flex-1"
-                  style={{ width: `${stats.passAccuracy.away}%` }}
-                />
-              </div>
-            </div>
-
-            {/* Corners */}
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">{stats.corners.home}</span>
-              <span className="text-sm text-muted-foreground">Corners</span>
-              <span className="text-sm font-medium">{stats.corners.away}</span>
-            </div>
-
-            {/* Fouls */}
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">{stats.fouls.home}</span>
-              <span className="text-sm text-muted-foreground">Fouls</span>
-              <span className="text-sm font-medium">{stats.fouls.away}</span>
-            </div>
-
-            {/* Cards */}
-            <div className="flex items-center justify-between pt-2 border-t border-border/30">
-              <div className="flex items-center gap-2">
-                <span className="text-yellow-500">🟨</span>
-                <span className="text-sm font-medium">{stats.yellowCards.home}</span>
-                {stats.redCards.home > 0 && (
-                  <>
-                    <span className="text-red-500">🟥</span>
-                    <span className="text-sm font-medium">{stats.redCards.home}</span>
-                  </>
+        {/* Stats Tab */}
+        {activeTab === 'stats' && (
+          <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))] mb-4">
+            <div className="bg-card rounded-2xl p-5 border border-border/30">
+              <div className="flex items-center gap-2 mb-4">
+                <BarChart3 size={20} className="text-primary" />
+                <h2 className="text-lg font-semibold">Match Statistics</h2>
+                {statsLoading && (
+                  <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin ml-auto" />
                 )}
               </div>
-              <span className="text-sm text-muted-foreground">Cards</span>
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium">{stats.yellowCards.away}</span>
-                {stats.redCards.away > 0 && (
-                  <>
-                    <span className="text-red-500">🟥</span>
-                    <span className="text-sm font-medium">{stats.redCards.away}</span>
-                  </>
-                )}
-                <span className="text-yellow-500">🟨</span>
-              </div>
-            </div>
-          </div>
-          )}
-        </div>
-      </div>
-      )}
 
-      {/* Lineups Tab */}
-      {activeTab === 'lineups' && (
-        <div className="px-4">
-            {lineupsLoading ? (
-               <div className="flex justify-center py-8">
-                 <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-               </div>
-            ) : !lineups ? (
-               <div className="text-center py-8 text-muted-foreground">No lineups available</div>
-            ) : (
-               <div className="space-y-6">
-                 {/* Home Team Lineup */}
-                 <div className="bg-card rounded-2xl p-5 border border-border/30">
-                    <div className="flex items-center gap-3 mb-4">
-                      <TeamLogo team={displayMatch.homeTeam} size="sm" />
-                      <h3 className="font-semibold">{displayMatch.homeTeam.name} Lineup</h3>
+              {statsLoading ? (
+                <div className="flex justify-center py-8">
+                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {/* Possession */}
+                  <div>
+                    <div className="flex justify-between text-xs text-muted-foreground mb-2">
+                      <span>{stats.possession.home}%</span>
+                      <span>Possession</span>
+                      <span>{stats.possession.away}%</span>
                     </div>
-                    <div className="space-y-2">
-                      {/* Starting XI */}
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Starting XI</div>
-                      {lineups.home.startingLineups?.map((player) => (
-                        <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
-                          <div className="flex items-center gap-2">
-                            <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
-                            <span>{player.name}</span>
-                          </div>
-                          <span className="text-muted-foreground text-xs">{player.position}</span>
+                    <div className="flex gap-2">
+                      <div
+                        className="h-2 bg-primary rounded-full"
+                        style={{ width: `${stats.possession.home}%` }}
+                      />
+                      <div
+                        className="h-2 bg-secondary rounded-full flex-1"
+                        style={{ width: `${stats.possession.away}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Shots */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Target size={16} className="text-muted-foreground" />
+                      <span className="text-sm font-medium">{stats.shots.home}</span>
+                    </div>
+                    <span className="text-sm text-muted-foreground">Shots</span>
+                    <span className="text-sm font-medium">{stats.shots.away}</span>
+                  </div>
+
+                  {/* Shots on Target */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">{stats.shotsOnTarget.home}</span>
+                    <span className="text-sm text-muted-foreground">Shots on Target</span>
+                    <span className="text-sm font-medium">{stats.shotsOnTarget.away}</span>
+                  </div>
+
+                  {/* Passes */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">{stats.passes.home}</span>
+                    <span className="text-sm text-muted-foreground">Passes</span>
+                    <span className="text-sm font-medium">{stats.passes.away}</span>
+                  </div>
+
+                  {/* Pass Accuracy */}
+                  <div>
+                    <div className="flex justify-between text-xs text-muted-foreground mb-2">
+                      <span>{stats.passAccuracy.home}%</span>
+                      <span>Pass Accuracy</span>
+                      <span>{stats.passAccuracy.away}%</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <div
+                        className="h-2 bg-primary rounded-full"
+                        style={{ width: `${stats.passAccuracy.home}%` }}
+                      />
+                      <div
+                        className="h-2 bg-secondary rounded-full flex-1"
+                        style={{ width: `${stats.passAccuracy.away}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Corners */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">{stats.corners.home}</span>
+                    <span className="text-sm text-muted-foreground">Corners</span>
+                    <span className="text-sm font-medium">{stats.corners.away}</span>
+                  </div>
+
+                  {/* Fouls */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium">{stats.fouls.home}</span>
+                    <span className="text-sm text-muted-foreground">Fouls</span>
+                    <span className="text-sm font-medium">{stats.fouls.away}</span>
+                  </div>
+
+                  {/* Cards */}
+                  <div className="flex items-center justify-between pt-2 border-t border-border/30">
+                    <div className="flex items-center gap-2">
+                      <span className="text-yellow-500">🟨</span>
+                      <span className="text-sm font-medium">{stats.yellowCards.home}</span>
+                      {stats.redCards.home > 0 && (
+                        <>
+                          <span className="text-red-500">🟥</span>
+                          <span className="text-sm font-medium">{stats.redCards.home}</span>
+                        </>
+                      )}
+                    </div>
+                    <span className="text-sm text-muted-foreground">Cards</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium">{stats.yellowCards.away}</span>
+                      {stats.redCards.away > 0 && (
+                        <>
+                          <span className="text-red-500">🟥</span>
+                          <span className="text-sm font-medium">{stats.redCards.away}</span>
+                        </>
+                      )}
+                      <span className="text-yellow-500">🟨</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Lineups Tab */}
+        {activeTab === 'lineups' && (
+          <div className="px-4">
+            {lineupsLoading ? (
+              <div className="flex justify-center py-8">
+                <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+              </div>
+            ) : !lineups ? (
+              <div className="text-center py-8 text-muted-foreground">No lineups available</div>
+            ) : (
+              <div className="space-y-6">
+                {/* Home Team Lineup */}
+                <div className="bg-card rounded-2xl p-5 border border-border/30">
+                  <div className="flex items-center gap-3 mb-4">
+                    <TeamLogo team={displayMatch.homeTeam} size="sm" />
+                    <h3 className="font-semibold">{displayMatch.homeTeam.name} Lineup</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {/* Starting XI */}
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Starting XI</div>
+                    {lineups.home.startingLineups?.map((player) => (
+                      <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
+                          <span>{player.name}</span>
                         </div>
-                      ))}
-                      {/* Subs */}
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-4 mb-2">Substitutes</div>
-                      {lineups.home.substitutes?.map((player) => (
-                        <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
-                          <div className="flex items-center gap-2">
-                            <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
-                            <span>{player.name}</span>
-                          </div>
-                          <span className="text-muted-foreground text-xs">{player.position}</span>
+                        <span className="text-muted-foreground text-xs">{player.position}</span>
+                      </div>
+                    ))}
+                    {/* Subs */}
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-4 mb-2">Substitutes</div>
+                    {lineups.home.substitutes?.map((player) => (
+                      <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
+                          <span>{player.name}</span>
                         </div>
-                      ))}
-                   </div>
+                        <span className="text-muted-foreground text-xs">{player.position}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Away Team Lineup */}
                 <div className="bg-card rounded-2xl p-5 border border-border/30">
-                   <div className="flex items-center gap-3 mb-4">
-                     <TeamLogo team={displayMatch.awayTeam} size="sm" />
-                     <h3 className="font-semibold">{displayMatch.awayTeam.name} Lineup</h3>
-                   </div>
-                   <div className="space-y-2">
-                      {/* Starting XI */}
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Starting XI</div>
-                      {lineups.away.startingLineups?.map((player) => (
-                        <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
-                          <div className="flex items-center gap-2">
-                            <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
-                            <span>{player.name}</span>
-                          </div>
-                          <span className="text-muted-foreground text-xs">{player.position}</span>
+                  <div className="flex items-center gap-3 mb-4">
+                    <TeamLogo team={displayMatch.awayTeam} size="sm" />
+                    <h3 className="font-semibold">{displayMatch.awayTeam.name} Lineup</h3>
+                  </div>
+                  <div className="space-y-2">
+                    {/* Starting XI */}
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Starting XI</div>
+                    {lineups.away.startingLineups?.map((player) => (
+                      <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
+                          <span>{player.name}</span>
                         </div>
-                      ))}
-                      {/* Subs */}
-                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-4 mb-2">Substitutes</div>
-                      {lineups.away.substitutes?.map((player) => (
-                        <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
-                          <div className="flex items-center gap-2">
-                            <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
-                            <span>{player.name}</span>
-                          </div>
-                          <span className="text-muted-foreground text-xs">{player.position}</span>
+                        <span className="text-muted-foreground text-xs">{player.position}</span>
+                      </div>
+                    ))}
+                    {/* Subs */}
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-4 mb-2">Substitutes</div>
+                    {lineups.away.substitutes?.map((player) => (
+                      <div key={player.player_id || player.name} className="flex items-center justify-between text-sm py-1 border-b border-border/10 last:border-0">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 text-muted-foreground text-xs">{player.number}</span>
+                          <span>{player.name}</span>
                         </div>
-                      ))}
-                   </div>
+                        <span className="text-muted-foreground text-xs">{player.position}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-               </div>
+              </div>
             )}
-        </div>
-      )}
+          </div>
+        )}
 
-      {/* H2H Tab */}
-      {activeTab === 'h2h' && (
-        <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
+        {/* H2H Tab */}
+        {activeTab === 'h2h' && (
+          <div className="pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
             {h2hLoading ? (
-               <div className="flex justify-center py-8">
-                 <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-               </div>
+              <div className="flex justify-center py-8">
+                <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+              </div>
             ) : h2h.length === 0 ? (
-               <div className="text-center py-8 text-muted-foreground">No H2H data available</div>
+              <div className="text-center py-8 text-muted-foreground">No H2H data available</div>
             ) : (
-               <div className="space-y-3">
-                 {h2h.map((match) => (
-                   <div key={match.match_id} className="bg-card rounded-xl p-3 sm:p-4 border border-border/30 flex items-center gap-2">
-                     <div className="flex flex-col gap-0.5 text-[10px] sm:text-xs text-muted-foreground w-16 sm:w-20 shrink-0">
-                        <span className="font-medium">{new Date(match.timestamp * 1000).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
-                        <span className="truncate opacity-70">{match.tournament.name}</span>
-                     </div>
-                     
-                     <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 justify-center">
-                        <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-end min-w-0">
-                           <span className="text-xs sm:text-sm font-medium text-right truncate">{match.homeTeam.name}</span>
-                           <img src={match.homeTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
-                        </div>
-                        
-                        <div className="font-bold text-sm sm:text-lg bg-secondary/30 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded tabular-nums shrink-0 min-w-[3.5rem] text-center">
-                           {match.score.home} - {match.score.away}
-                        </div>
-                        
-                        <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-start min-w-0">
-                           <img src={match.awayTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
-                           <span className="text-xs sm:text-sm font-medium text-left truncate">{match.awayTeam.name}</span>
-                        </div>
-                     </div>
-                     
-                     <div className="w-6 shrink-0 flex justify-center">
-                        <span className={cn(
-                          "text-[10px] font-bold px-1.5 py-0.5 rounded",
-                          match.status === 'W' ? "bg-green-500/10 text-green-500" :
+              <div className="space-y-3">
+                {h2h.map((match) => (
+                  <div key={match.match_id} className="bg-card rounded-xl p-3 sm:p-4 border border-border/30 flex items-center gap-2">
+                    <div className="flex flex-col gap-0.5 text-[10px] sm:text-xs text-muted-foreground w-16 sm:w-20 shrink-0">
+                      <span className="font-medium">{new Date(match.timestamp * 1000).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: 'numeric' })}</span>
+                      <span className="truncate opacity-70">{match.tournament.name}</span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 sm:gap-4 flex-1 min-w-0 justify-center">
+                      <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-end min-w-0">
+                        <span className="text-xs sm:text-sm font-medium text-right truncate">{match.homeTeam.name}</span>
+                        <img src={match.homeTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
+                      </div>
+
+                      <div className="font-bold text-sm sm:text-lg bg-secondary/30 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded tabular-nums shrink-0 min-w-[3.5rem] text-center">
+                        {match.score.home} - {match.score.away}
+                      </div>
+
+                      <div className="flex items-center gap-1.5 sm:gap-2 flex-1 justify-start min-w-0">
+                        <img src={match.awayTeam.logo} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0" />
+                        <span className="text-xs sm:text-sm font-medium text-left truncate">{match.awayTeam.name}</span>
+                      </div>
+                    </div>
+
+                    <div className="w-6 shrink-0 flex justify-center">
+                      <span className={cn(
+                        "text-[10px] font-bold px-1.5 py-0.5 rounded",
+                        match.status === 'W' ? "bg-green-500/10 text-green-500" :
                           match.status === 'L' ? "bg-red-500/10 text-red-500" :
-                          "bg-yellow-500/10 text-yellow-500"
-                        )}>
-                          {match.status}
-                        </span>
-                     </div>
-                   </div>
-                 ))}
-               </div>
+                            "bg-yellow-500/10 text-yellow-500"
+                      )}>
+                        {match.status}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
-        </div>
-      )}
+          </div>
+        )}
 
       </div>
     </div>
