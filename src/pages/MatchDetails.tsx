@@ -479,7 +479,7 @@ export const MatchDetailsPage: React.FC = () => {
                                       {event.type === 'Goal' && <Disc size={16} className="text-primary fill-primary" />}
                                       {event.type === 'Yellow Card' && <File size={16} className="text-yellow-400 fill-yellow-400" />}
                                       {event.type === 'Red Card' && <File size={16} className="text-red-500 fill-red-500" />}
-                                      {event.type.includes('Substitution') && <ArrowLeftRight size={16} className="text-green-500" />}
+                                      {event.type?.includes('Substitution') && <ArrowLeftRight size={16} className="text-green-500" />}
                                     </div>
                                     {event.description && <span className="text-xs text-muted-foreground max-w-[150px] sm:max-w-xs truncate">{event.description}</span>}
                                   </div>
@@ -495,7 +495,7 @@ export const MatchDetailsPage: React.FC = () => {
                                       {event.type === 'Goal' && <Disc size={16} className="text-primary fill-primary" />}
                                       {event.type === 'Yellow Card' && <File size={16} className="text-yellow-400 fill-yellow-400" />}
                                       {event.type === 'Red Card' && <File size={16} className="text-red-500 fill-red-500" />}
-                                      {event.type.includes('Substitution') && <ArrowLeftRight size={16} className="text-green-500" />}
+                                      {event.type?.includes('Substitution') && <ArrowLeftRight size={16} className="text-green-500" />}
                                       <span className="font-medium text-sm">{event.name}</span>
                                     </div>
                                     {event.description && <span className="text-xs text-muted-foreground max-w-[150px] sm:max-w-xs truncate">{event.description}</span>}
