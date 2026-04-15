@@ -58,16 +58,47 @@ jobs:
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
 
-          # Apply provisioning profile directly to macOS Provisioning Profile storage
+          # Extract Provisioning Profile data safely using macOS PlistBuddy
+          security cms -D -i $PP_PATH > profile.plist
+          UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' profile.plist)
+          
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision
 
       - name: Build and Export IPA via Fastlane
         run: |
           cd ios/App
+          
+          # Extract precise details from the Provisioning Profile using PlistBuddy
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          security cms -D -i $PP_PATH > profile.plist
+          PROFILE_NAME=$(/usr/libexec/PlistBuddy -c 'Print :Name' profile.plist)
+          TEAM_ID=$(/usr/libexec/PlistBuddy -c 'Print :TeamIdentifier:0' profile.plist)
+          BUNDLE_ID="com.parachoot.soccer"
+          
+          # Generate explicit export mapping
+          cat <<EOF > exportOptions.plist
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>method</key>
+              <string>app-store</string>
+              <key>teamID</key>
+              <string>${TEAM_ID}</string>
+              <key>provisioningProfiles</key>
+              <dict>
+                  <key>${BUNDLE_ID}</key>
+                  <string>${PROFILE_NAME}</string>
+              </dict>
+          </dict>
+          </plist>
+          EOF
+
+          # Compile and export using the explicit mapping
           fastlane gym --workspace "App.xcworkspace" \
                        --scheme "App" \
-                       --export_method "app-store" \
+                       --export_options "exportOptions.plist" \
                        --output_directory "../../build" \
                        --output_name "Parachoot.ipa" \
                        --clean true
