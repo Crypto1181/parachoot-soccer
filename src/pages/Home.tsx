@@ -490,10 +490,10 @@ export const HomePage: React.FC = () => {
                       <span>About Parachoot</span>
                     </Button>
                   </div>
-                </div>
-                
-                <div className="absolute bottom-6 left-6 right-6 text-center text-xs text-muted-foreground">
-                  Parachoot Live TV v1.0.0
+                  
+                  <div className="pt-8 text-center text-xs text-muted-foreground">
+                    Parachoot Live TV v1.0.0
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

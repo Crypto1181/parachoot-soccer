@@ -1,0 +1,43 @@
+Guideline 5.1.2(i) - Legal - Privacy - Data Use and Sharing
+
+Issue Description
+
+The app privacy information provided in App Store Connect indicates the app collects data in order to track the user, including Advertising Data, Device ID, and Product Interaction. However, the app does not use App Tracking Transparency to request the user's permission before tracking their activity.
+
+Apps need to receive the user’s permission through the AppTrackingTransparency framework before collecting data used to track them. This requirement protects the privacy of users.
+
+Next Steps
+
+Here are three ways to resolve this issue:
+
+- If the app does not currently track, update the app privacy information in App Store Connect. You must have the Account Holder or Admin role to update app privacy information. If you are unable to change the privacy label, reply to this message in App Store Connect, and make sure your App Privacy Information in App Store Connect is up to date before submitting your next update for review.
+
+- If this app does not track on the platform associated with this submission, but tracks on other platforms, notify App Review by replying to the rejection in App Store Connect. You should also reply if this app does not track on the platform associated with this submission but tracks on other Apple platforms this app is available on.
+
+- If the app tracks users on all supported platforms, the app must use App Tracking Transparency to request permission before collecting data used to track. When resubmitting, indicate in the Review Notes where the permission request is located.
+
+Note that if the app behaves differently in different countries or regions, you should provide a way for App Review to review these variations in the app submission. Additionally, these differences should be documented in the Review Notes section of App Store Connect.
+
+Resources
+
+- Tracking is linking data collected from the app with third-party data for advertising purposes, or sharing the collected data with a data broker. Learn more about tracking. 
+- See Frequently Asked Questions about the requirements for apps that track users.
+- Learn more about designing appropriate permission requests.
+Guideline 5.2.3 - Legal
+
+Issue Description
+
+The app contains content or features that may violate the rights of one or more third parties. Specifically, the app provides potentially unauthorized access to third-party audio or video streaming, catalogs, and discovery services. 
+
+The app and its contents should not infringe upon the rights of another party. In the event the app infringes another party’s rights, you are responsible for any liability to Apple because of a claim.
+
+Next Steps
+
+To resolve this issue, please attach documentary evidence in the App Review Information section in App Store Connect evidencing that you have all necessary rights or permissions to the third-party audio or video streaming, catalogs, and discovery services in the app. 
+
+Once we have reviewed your documentation and confirmed its validity, we will proceed with the review of the app.
+
+Resources
+
+- Review guideline 5.2.3 for more information about appropriate uses of third-party content and services on the App Store
+- Review App Store Connect Help for more information on including notes in the App Review Information section of App Store Connect

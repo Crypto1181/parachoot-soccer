@@ -75,7 +75,8 @@ const App: React.FC = () => {
         // 4. Initialize Ads
         try {
           await initializeAdMob();
-          await showBanner();
+          // Banner ad removed per user request to stop showing on nav bar.
+          // Interstitials will be used on specific actions instead.
         } catch (error) {
           console.error("AdMob initialization failed", error);
         }

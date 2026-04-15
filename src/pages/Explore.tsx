@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Search, ChevronRight, ArrowLeft, Globe, Medal } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { flashscoreApi, Country, TournamentInfo } from '@/lib/flashscoreApi';
+import CopyrightDisclaimer from '@/components/Legal/CopyrightDisclaimer';
+import { showInterstitialAd } from '@/lib/admob';
 
 export const ExplorePage: React.FC = () => {
   const [view, setView] = useState<'countries' | 'tournaments'>('countries');
@@ -33,18 +35,21 @@ export const ExplorePage: React.FC = () => {
 
   // Fetch Tournaments when Country Selected
   const handleCountrySelect = async (country: Country) => {
-    setSelectedCountry(country);
-    setLoading(true);
-    try {
-      const data = await flashscoreApi.getTournaments(FOOTBALL_SPORT_ID, country.country_id);
-      setTournaments(data);
-      setView('tournaments');
-      setSearchQuery('');
-    } catch (error) {
-      console.error('Failed to fetch tournaments', error);
-    } finally {
-      setLoading(false);
-    }
+    // Show ad before proceeding
+    showInterstitialAd(async () => {
+      setSelectedCountry(country);
+      setLoading(true);
+      try {
+        const data = await flashscoreApi.getTournaments(FOOTBALL_SPORT_ID, country.country_id);
+        setTournaments(data);
+        setView('tournaments');
+        setSearchQuery('');
+      } catch (error) {
+        console.error('Failed to fetch tournaments', error);
+      } finally {
+        setLoading(false);
+      }
+    });
   };
 
   const handleBack = () => {
@@ -144,9 +149,14 @@ export const ExplorePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-20">
       {renderHeader()}
       {renderContent()}
+      
+      {/* Legal Footer Section */}
+      <div className="px-4 mt-8 pb-8">
+        <CopyrightDisclaimer />
+      </div>
     </div>
   );
 };

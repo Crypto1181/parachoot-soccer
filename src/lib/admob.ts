@@ -17,20 +17,27 @@ const IOS_INTERSTITIAL_ID = 'ca-app-pub-3718284755022484/9600805494';
 
 export async function initializeAdMob() {
   try {
-    // 1. Check current status
-    const { status } = await AdMob.trackingAuthorizationStatus();
-    console.log(`[AdMob] Current tracking status: ${status}`);
+    // Only handle ATT on iOS
+    if (Capacitor.getPlatform() === 'ios') {
+      // 1. Check current status
+      let { status } = await AdMob.trackingAuthorizationStatus();
+      console.log(`[AdMob] Current tracking status: ${status}`);
 
-    // 2. Request permission if not determined (iOS 14+)
-    if (status === 'notDetermined') {
-      console.log('[AdMob] Requesting tracking authorization...');
-      // This will show the popup on iOS
-      await AdMob.requestTrackingAuthorization();
+      // 2. Request permission if not determined (iOS 14+)
+      if (status === 'notDetermined') {
+        console.log('[AdMob] Delaying ATT request to ensure app is fully active...');
+        // Small delay improves reliability of the system prompt
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        console.log('[AdMob] Requesting tracking authorization...');
+        const result = await AdMob.requestTrackingAuthorization();
+        status = result.status;
+        console.log(`[AdMob] Tracking authorization result: ${status}`);
+      }
     }
 
     // 3. Initialize AdMob
-    // We explicitly requested auth above, but we pass true here as well to be safe
-    // initializeForTesting: true will use test ads (safe for dev)
+    // Note: initializeForTesting: true will use test ads (safe for dev)
     await AdMob.initialize({
       requestTrackingAuthorization: true,
       initializeForTesting: false,
