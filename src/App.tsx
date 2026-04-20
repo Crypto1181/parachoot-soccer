@@ -17,6 +17,7 @@ import StreamPlayerPage from "./pages/StreamPlayer";
 import ExplorePage from "./pages/Explore";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
+import LegalNoticePage from "./pages/LegalNotice";
 import { BackButtonHandler } from "./components/BackButtonHandler";
 import { initializeAdMob, showBanner } from "./lib/admob";
 import { LocalNotifications } from '@capacitor/local-notifications';
@@ -251,6 +252,7 @@ const App: React.FC = () => {
                 <Route path="/stream/:matchId/:source/:streamId" element={<StreamPlayerPage />} />
                 <Route path="/watch/:id" element={<WatchPage />} />
                 <Route path="/explore" element={<ExplorePage />} />
+                <Route path="/legal" element={<LegalNoticePage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

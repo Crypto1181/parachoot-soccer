@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Bell, Menu, RefreshCw, Settings, Share2, Mail, Info, Star, Moon, Globe, Crown, ChevronRight, Zap, Trash2, Palette, Shield, Battery, Settings2 } from 'lucide-react';
 import { weekDays, Match, teams } from '@/data/mockData';
 import { App } from '@capacitor/app';
@@ -14,6 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { toast } from 'sonner';
 
 export const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const today = new Date();
   const [selectedDay, setSelectedDay] = useState(today.getDate());
   const [selectedDate, setSelectedDate] = useState<string>('');
@@ -461,6 +463,10 @@ export const HomePage: React.FC = () => {
                     <Button variant="ghost" className="w-full justify-start gap-3 h-12 rounded-xl" onClick={() => toast.info('Privacy Policy coming soon')}>
                       <Shield size={20} />
                       <span>Privacy Policy</span>
+                    </Button>
+                    <Button variant="ghost" className="w-full justify-start gap-3 h-12 rounded-xl" onClick={() => navigate('/legal')}>
+                      <Shield size={20} />
+                      <span>Legal & Content Notice</span>
                     </Button>
                   </div>
 

@@ -6,7 +6,7 @@ on:
 jobs:
   build_ios:
     name: Build and Export iOS .ipa
-    runs-on: macos-latest
+    runs-on: macos-15
 
     steps:
       - name: Checkout repository
@@ -64,6 +64,12 @@ jobs:
           
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision
+
+      - name: Increment Build Number
+        run: |
+          cd ios/App
+          BUILD_NUM=$(date +%Y%m%d%H%M)
+          sed -i '' "s/CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUM;/g" App.xcodeproj/project.pbxproj
 
       - name: Build and Export IPA via Fastlane
         run: |

@@ -52,10 +52,10 @@ const LiveTVDisclaimer: React.FC<LiveTVDisclaimerProps> = ({ compact = false }) 
                   <span>
                     DMCA / Rights concerns:{' '}
                     <a
-                      href="mailto:support@parachootsoccer.com"
+                      href="mailto:parachootsoccer@gmail.com"
                       className="underline text-amber-300"
                     >
-                      support@parachootsoccer.com
+                      parachootsoccer@gmail.com
                     </a>
                   </span>
                 </div>
@@ -144,10 +144,10 @@ const LiveTVDisclaimer: React.FC<LiveTVDisclaimerProps> = ({ compact = false }) 
               immediately with proof of ownership for removal:
             </p>
             <a
-              href="mailto:support@parachootsoccer.com"
+              href="mailto:parachootsoccer@gmail.com"
               className="text-primary font-semibold mt-1 block hover:underline"
             >
-              support@parachootsoccer.com
+              parachootsoccer@gmail.com
             </a>
           </div>
         </div>

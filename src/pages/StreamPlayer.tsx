@@ -6,7 +6,6 @@ import { getStreamUrl, StreamSource } from '@/lib/streamAggregator';
 import { useMatch } from '@/hooks/useMatches';
 import TeamLogo from '@/components/TeamLogo';
 import { Match } from '@/data/mockData';
-import LiveTVDisclaimer from '@/components/Legal/LiveTVDisclaimer';
 
 export const StreamPlayerPage: React.FC = () => {
   const navigate = useNavigate();
@@ -312,11 +311,6 @@ export const StreamPlayerPage: React.FC = () => {
             </div>
           )}
         </div>
-      </div>
-
-      {/* Legal Disclaimer */}
-      <div className="bg-gray-900 px-0 pt-2 pb-8">
-        <LiveTVDisclaimer compact />
       </div>
     </div>
   );
