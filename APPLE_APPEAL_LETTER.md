@@ -59,7 +59,7 @@ All match statistics, scores, team information, and competition data are sourced
 
 ## 5. In-App Legal Disclosures
 
-We have added prominent legal disclaimers **directly within the TV Live section and the stream player screen** of the app, clearly informing users that:
+We have added a prominent "Legal & Content Notice" dedicated page **accessible from the main side-menu (slider) on the Home page**, clearly informing users that:
 
 - Parachoot Soccer is a content aggregator and browser, not a content host.
 - All streams are sourced from publicly available third-party sources.
@@ -79,7 +79,7 @@ We respectfully note that numerous apps currently available on the App Store ope
 
 We are fully committed to operating within Apple's guidelines and all applicable laws. We have taken the following proactive steps:
 
-- ✅ Added explicit legal disclaimers on the Live TV page and stream player screen.
+- ✅ Added an explicit "Legal & Content Notice" page accessible from the main side-menu (slider) on the Home screen.
 - ✅ Added a DMCA & Takedown contact within the app.
 - ✅ Displayed clear messaging that we are a browser/aggregator, not a content host.
 - ✅ Attached our RapidAPI/FlashScore commercial subscription invoice as proof of licensed data access.
