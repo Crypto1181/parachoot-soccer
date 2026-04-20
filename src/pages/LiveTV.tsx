@@ -3,6 +3,7 @@ import { Tv } from 'lucide-react';
 import LeagueSection from '@/components/LeagueSection';
 import { getAggregatedLiveMatches } from '@/lib/liveTvAggregator';
 import { LeagueGroup } from '@/types/league';
+import LiveTVDisclaimer from '@/components/Legal/LiveTVDisclaimer';
 
 export const LiveTVPage: React.FC = () => {
   const [leagueGroups, setLeagueGroups] = useState<LeagueGroup[]>([]);
@@ -72,6 +73,10 @@ export const LiveTVPage: React.FC = () => {
       </div>
 
       <div className="pt-4 pb-4 pl-[calc(1rem+env(safe-area-inset-left))] pr-[calc(1rem+env(safe-area-inset-right))]">
+
+      {/* Compact legal disclaimer banner */}
+      <LiveTVDisclaimer compact />
+
       <p className="text-muted-foreground mb-6 px-2">Watch live matches from multiple sources</p>
 
       {loading ? (
@@ -98,6 +103,12 @@ export const LiveTVPage: React.FC = () => {
           ))}
         </div>
       )}
+
+      {/* Full legal notice at bottom */}
+      <div className="mt-8 pb-4">
+        <LiveTVDisclaimer compact={false} />
+      </div>
+
       </div>
     </div>
   );

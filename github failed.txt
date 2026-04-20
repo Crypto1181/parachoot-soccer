@@ -1,0 +1,78 @@
+ cd ios/App
+  
+  # Create an inline Fastfile to securely handle the API Key in-memory
+  cat <<EOF > Fastfile
+  lane :upload_to_apple do
+    app_store_connect_api_key(
+      key_id: ENV["APPSTORE_KEY_ID"],
+      issuer_id: ENV["APPSTORE_ISSUER_ID"],
+      key_content: ENV["APPSTORE_P8_BASE64"],
+      is_key_content_base64: true,
+      in_house: false
+    )
+    upload_to_testflight(
+      ipa: "../../build/Parachoot.ipa",
+      skip_waiting_for_build_processing: true
+    )
+  end
+  EOF
+  
+  # Execute the upload lane
+  fastlane upload_to_apple
+  shell: /bin/bash -e {0}
+  env:
+    APPSTORE_ISSUER_ID: ***
+    APPSTORE_KEY_ID: ***
+    APPSTORE_P8_BASE64: ***
+  
+[19:11:50]: Get started using a Gemfile for fastlane https://docs.fastlane.tools/getting-started/ios/setup/#use-a-gemfile
+[19:11:53]: Could not find fastlane in current directory. Make sure to have your fastlane configuration files inside a folder called "fastlane". Would you like to set fastlane up?
+Looking for related GitHub issues on fastlane/fastlane...
+➡️  /opt/homebrew/Cellar/fastlane/2.211.0_1/libexec/gems/fastlane-2.211.0/fastlane_core/lib/fastlane_core/ui/interface.rb:129:in `crash!': [!] Could not retrieve response as fastlane runs in non-interactive mode (FastlaneCore::Interface::FastlaneCrash)
+/opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/interface.rb:129:in `crash!': [!] Could not retrieve response as fastlane runs in non-interactive mode (FastlaneCore::Interface::FastlaneCrash)
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/implementations/shell.rb:174:in `verify_interactive!'
+    https://github.com/fastlane/fastlane/issues/20974 [open] 15 💬
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/implementations/shell.rb:138:in `confirm'
+    22 Jul 2025
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/ui.rb:17:in `method_missing'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:373:in `ensure_fastfile'
+➡️  Can not Publish to the App Store Production track
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:109:in `block (2 levels) in run'
+    https://github.com/fastlane/fastlane/issues/19674 [open] 29 💬
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'
+    09 Aug 2024
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'
+➡️   Could not retrieve response as fastlane runs in non-interactive mode\e[0m (FastlaneCore::Interface::FastlaneCrash)
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'
+    https://github.com/fastlane/fastlane/issues/20607 [closed] 8 💬
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'
+    28 Dec 2025
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:363:in `run'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:43:in `start'
+and 58 more at: https://github.com/fastlane/fastlane/search?q=Could%20not%20retrieve%20response%20as%20fastlane%20runs%20in%20non-interactive%20mode&type=Issues&utf8=✓
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in `take_off'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/bin/fastlane:23:in `<top (required)>'
+	from /opt/homebrew/lib/ruby/site_ruby/3.3.0/rubygems.rb:305:in `load'
+	from /opt/homebrew/lib/ruby/site_ruby/3.3.0/rubygems.rb:305:in `activate_and_load_bin_path'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/bin/fastlane:25:in `<main>'
+/opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/interface.rb:129:in `crash!': Could not retrieve response as fastlane runs in non-interactive mode (FastlaneCore::Interface::FastlaneCrash)
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/implementations/shell.rb:174:in `verify_interactive!'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/implementations/shell.rb:138:in `confirm'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/ui.rb:17:in `method_missing'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:373:in `ensure_fastfile'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:109:in `block (2 levels) in run'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:363:in `run'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/commands_generator.rb:43:in `start'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/fastlane/lib/fastlane/cli_tools_distributor.rb:132:in `take_off'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/gems/fastlane-2.232.2/bin/fastlane:23:in `<top (required)>'
+	from /opt/homebrew/lib/ruby/site_ruby/3.3.0/rubygems.rb:305:in `load'
+🔗  You can ⌘ + double-click on links to open them directly in your browser.
+	from /opt/homebrew/lib/ruby/site_ruby/3.3.0/rubygems.rb:305:in `activate_and_load_bin_path'
+	from /opt/homebrew/lib/ruby/gems/3.3.0/bin/fastlane:25:in `<main>'
+Error: Process completed with exit code 1.
